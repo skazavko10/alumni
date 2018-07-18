@@ -16,37 +16,37 @@ class UsersTableSeeder extends Seeder
         $user1 = User::create([
         	'name' => 'Slavko',
         	'email' => 'slavko.kazakov@itcrowd.me',
-        	'password' => '123Slavko123'
+        	'password' => bcrypt('123Slavko123')
         ]);
 
         $user2 = User::create([
             'name' => 'Harry',
             'email' => 'harry.kane@itcrowd.me',
-            'password' => '123Harry'
+            'password' => bcrypt('123Harry')
         ]);
 
         $user3 = User::create([
             'name' => 'Ana',
             'email' => 'ana@itcrowd.me',
-            'password' => '123Ana456'
+            'password' => bcrypt('123Ana456')
         ]);
 
         $user4 = User::create([
             'name' => 'Bob',
             'email' => 'bob@itcrowd.me',
-            'password' => '123Bob123'
+            'password' => bcrypt('123Bob123')
         ]);
 
         $user5 = User::create([
             'name' => 'Maggy',
             'email' => 'maggy@itcrowd.me',
-            'password' => '123Maggy'
+            'password' => bcrypt('123Maggy')
         ]);
 
         $user6 = User::create([
             'name' => 'Filip',
             'email' => 'filip@itcrowd.me',
-            'password' => '123Filip789'
+            'password' => bcrypt('123Filip789')
         ]);
 
         $UserHasRole = UserHasRole::create([

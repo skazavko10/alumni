@@ -20,10 +20,10 @@ class UserHasRole extends Model
     protected $table = 'user_has_role';
 
     public function user() {
-    	return $this->hasOne(User::class, 'user_id', 'id');
+    	return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function userType() {
-    	return $this->hasOne(UserRole::class, 'user_role_id', 'id');	
+    	return $this->belongsTo(UserRole::class, 'user_role_id', 'id');	
     }
 }

@@ -3,7 +3,7 @@
 namespace App\Models\UserRole;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\UserHasRole\UserHasRole;
+use App\Models\User\User;
 
 class UserRole extends Model
 {
@@ -16,7 +16,7 @@ class UserRole extends Model
         'name',
     ];
 
-    public function hasUsers() {
-    	return $this->hasMany(UserHasRole::class, 'user_role_id', 'id');
+    public function users() {
+        return $this->belongsToMany(User::class, 'user_has_role', 'user_role_id', 'user_id');
     }
 }

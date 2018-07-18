@@ -2,7 +2,7 @@
 
 namespace App\Models\User;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Models\UserHasRole\UserHasRole;
 use App\Models\ClassNote\ClassNote;
 use App\Models\UserPhotoGallery\UserPhotoGallery;
@@ -10,7 +10,7 @@ use App\Models\News\News;
 use App\Models\Event\Event;
 use App\Models\UserRole\UserRole;
 
-class User extends Model
+class User extends Authenticatable
 {
     use \Illuminate\Notifications\Notifiable;
 
@@ -32,12 +32,8 @@ class User extends Model
         'password', 'remember_token',
     ];
 
-    public function userRoles() {
-        return $this->hasMany(UserHasRole::class, 'user_id', 'id');
-    }
-
     public function roles() {
-        return $this->belongsToMany(UserRole::class, 'user_role_id', 'id');
+        return $this->belongsToMany(UserRole::class, 'user_has_role', 'user_id', 'user_role_id');
     }
 
     public function classNotes() {

@@ -19,6 +19,6 @@ class UserPhotoGallery extends Model
     protected $table = 'user_photo_galery';
 
     public function user() {
-    	return $this->hasOne(User::class, 'user_id', 'id');
+    	return $this->belongsTo(User::class, 'user_id', 'id');
     }
 }

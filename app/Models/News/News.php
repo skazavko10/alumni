@@ -22,6 +22,6 @@ class News extends Model
     }
 
     public function mainImage() {
-    	return $this->hasOne(PostMainImage::class, 'main_image_id', 'id');
+    	return $this->belongsTo(PostMainImage::class, 'main_image_id', 'id');
     }
 }

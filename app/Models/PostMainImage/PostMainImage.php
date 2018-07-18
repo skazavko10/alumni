@@ -17,6 +17,8 @@ class PostMainImage extends Model
         'photo_url',
     ];
 
+    protected $table = 'post_main_image';
+
     public function news() {
     	return $this->hasOne(News::class, 'main_image_id', 'id');
     }

@@ -27,10 +27,6 @@
 
     <div class="container-fluid">
         <div class="row header-image-container">
-            <!-- <div class="col-md-12 col-sm-12">
-                <img src="{{ asset('images/block1.jpg') }}" />
-            </div> -->
-
             <div class="alumni-logo">
                 <img src="{{ asset('images/LogoBlue.png') }}" />
             </div>

@@ -1,0 +1,106 @@
+#mobile-menu {
+    background-color: rgba(28, 53, 119);
+    width: 100%;
+    display: flex;
+    height: 80px;
+}
+
+#mobile-menu {
+    text-align: right;
+}
+
+#mobile-menu .cusbutton {
+    display: inline-block;
+    margin-right: 50px;
+    float: right;
+    align-self: center;
+}
+
+#mobile-menu .top {
+    left: 34%;
+    top: 35%;
+    -webkit-transition: all 0.5s;
+}
+
+#mobile-menu .middle {
+    left: 34%;
+    top: 50%;
+    -webkit-transition: all 0.5s;
+}
+
+#mobile-menu .bottom {
+    left: 34%;
+    top: 65%;
+    -webkit-transition: all 0.5s;
+}
+
+#mobile-menu .menutextbottom {
+    color: #fff;
+    top: 17%;
+    position: absolute;
+    right: 0;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+#mobile-menu .logo-container {
+    float: left;
+    margin-left: 50px;
+    align-self: center;
+}
+
+#mobile-menu .logo-container img {
+    float: left;
+}
+
+.cusbutton {
+    width: 200px;
+    height: 60px;
+    background-color: rgba(28, 53, 119, 0.7);
+    position: relative;
+    cursor: pointer;
+    margin: auto !important;
+}
+
+.bar {
+    width: 40px;
+    height: 0px;
+    border: 2px solid white;
+    position: absolute;
+    border-radius: 10px;
+}
+
+.navbar-laravel {
+    background: rgba(28, 53, 119);
+}
+
+.navbar-laravel > .row {
+	width: 100%;
+}
+
+.navbar-laravel .center {
+	display: flex;
+	justify-content: center;
+}
+
+.navbar-laravel .center .logo-container {
+	align-self: center;
+}
+
+.navbar-laravel .center .user-name {
+	align-self: center;
+	color: #fff;
+	font-size: 18px;
+}
+
+.user-name .bold {
+	font-weight: 800;
+}
+
+.header-image-container {
+    position: relative;
+    background-image: url(../images/alumni_header_image.png);
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 750px;
+}
