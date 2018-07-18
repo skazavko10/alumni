@@ -1,0 +1,1036 @@
+/* Custom CSS for ALUMNI */
+
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+    background-color: #fff;
+}
+
+#show-push {
+    border: 0 none;
+    border-radius: 0;
+    float: right;
+    margin-right: -8px;
+    position: fixed;
+    top: 50px;
+    right: 0px;
+    z-index: 10000;
+}
+
+#mobile-menu {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    z-index: 10000;
+    background-color: rgba(28, 53, 119);
+    width: 100%;
+}
+
+.h1, .h2, .h3, h1, h2, h3 {
+    margin-top: 22px;
+    margin-bottom: 11px;
+}
+
+.h1, h1 {
+    font-size: 36px;
+}
+
+.h4, h4 {
+    font-size: 18px;
+}
+
+.h4, .h5, .h6, h4, h5, h6 {
+    margin-top: 11px;
+    margin-bottom: 11px;
+}
+
+.cusbutton {
+    width: 200px;
+    height: 60px;
+    margin: 0 auto;
+    background-color: rgba(28, 53, 119, 0.7);
+    position: relative;
+    cursor: pointer;
+}
+
+#mobile-menu {
+    text-align: right;
+}
+
+#mobile-menu .cusbutton {
+    display: inline-block;
+    margin-right: 50px;
+    float: right;
+    align-self: center;
+}
+
+#show-push.cusbutton:hover {
+    width: 210px;
+    background-color: rgba(28, 53, 119);
+    transition-property: width, right, background-color, color;
+    transition-duration: 250ms,250ms,250ms,250ms;
+    transition-timing-function: cubic-bezier(.175,.885,.32,1.14),cubic-bezier(.175,.885,.32,1.14),ease-in-out,ease-in-out;
+    transition-delay: initial, initial, initial, initial;
+}
+
+.bar {
+    width: 40px;
+    height: 0px;
+    border: 2px solid white;
+    position: absolute;
+    border-radius: 10px;
+}
+
+#show-push .top {
+    left: 10%;
+    top: 35%;
+    -webkit-transition: all 0.5s;
+}
+
+#mobile-menu .top {
+    left: 34%;
+    top: 35%;
+    -webkit-transition: all 0.5s;
+}
+
+#show-push .middle {
+    left: 10%;
+    top: 50%;
+    -webkit-transition: all 0.5s;
+}
+
+#mobile-menu .middle {
+    left: 34%;
+    top: 50%;
+    -webkit-transition: all 0.5s;
+}
+
+#show-push .bottom {
+    left: 10%;
+    top: 65%;
+    -webkit-transition: all 0.5s;
+}
+
+#mobile-menu .bottom {
+    left: 34%;
+    top: 65%;
+    -webkit-transition: all 0.5s;
+}
+
+#show-push .menutextbottom {
+    color: #fff;
+    top: 17%;
+    position: absolute;
+    left: 40%;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+#mobile-menu .menutextbottom {
+    color: #fff;
+    top: 17%;
+    position: absolute;
+    right: 0;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+#mobile-menu .logo-container {
+    float: left;
+    margin-left: 50px;
+    align-self: center;
+}
+
+#mobile-menu .logo-container img {
+    float: left;
+}
+
+.container-fluid .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.container-fluid .row .col-md-12, 
+.container-fluid .row .col-sm-12 {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.header-image-container {
+    position: relative;
+    background-image: url("../images/alumni_header_image.png");
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 750px;
+}
+
+.alumni-logo {
+    position: absolute;
+    left: 50%;
+    top: 28%;
+    transform: translate(-50%, -50%);
+}
+
+.hader-image-content {
+    position: absolute;
+    bottom: 5%;
+    width: 100%;
+}
+
+.hader-image-content .text {
+    text-align: center;
+    color: #fff;
+    font-weight: 600;
+    padding: 0 13%;
+    padding-bottom: 35px;
+}
+
+.register-btn-container {
+    text-align: right;
+}
+
+.register-btn {
+    border: 2px solid #fff;
+    border-radius: 7px;
+    padding: 15px 40px;
+    color: #fff;
+    font-weight: 800;
+    font-size: 28px;
+}
+
+.login-btn {
+    border: 2px solid #fff;
+    border-radius: 7px;
+    padding: 15px 55px;
+    color: #fff;
+    font-weight: 800;
+    font-size: 28px;
+}
+
+.scroll-down-container {
+    text-align: center;
+    padding-top: 35px;
+    color: #fff;
+}
+
+.alumni-intro-container {
+    text-align: center;
+    padding-top: 30px;
+    background-color: #fff;
+}
+
+.alumni-intro h1 {
+    color: rgba(28, 53, 119);
+    font-weight: 800;
+    letter-spacing: 10px;
+}
+
+.alumni-headline {
+    color: rgba(28, 53, 119);
+}
+
+.alumni-text {
+    width: 70%;
+    display: inline-block;
+    color: #636b6f;
+}
+
+.alumni-text h4 {
+    line-height: 1.7;
+    font-size: 17px;
+}
+
+.alumni-signature {
+    padding: 30px 0 50px 0;
+}
+
+.become-member-container {
+    background-color: rgba(28, 53, 119);
+    text-align: center;
+    color: #fff;
+    padding: 100px 50px;
+    background-image: url("../images/Swirl.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.already-registered-alumni {
+    padding-top: 20px;
+}
+
+.already-registered-alumni a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.become-member-container .register-btn {
+    background-color: #fff;
+    color: rgba(28, 53, 119);
+}
+
+.latest-news-container {
+    background-color: #fff;
+}
+
+.upcoming-events-container {
+    background-color: #fff;
+}
+
+.latest-news-container .title,
+.upcoming-events-container .title,
+.meet-our-alumni-container .title,
+.alumni-benifits-container .title,
+.get-involved-container .title {
+    text-align: center;
+    padding-top: 30px;
+}
+
+.latest-news-container .title h1,
+.upcoming-events-container .title h1,
+.meet-our-alumni-container .title h1,
+.alumni-benifits-container .title h1,
+.get-involved-container .title h1 {
+    color: rgba(28, 53, 119);
+    font-weight: 800;
+    letter-spacing: 10px;
+}
+
+.latest-news-container .text,
+.upcoming-events-container .text,
+.meet-our-alumni-container .text,
+.alumni-benifits-container .text,
+.get-involved-container .text {
+    text-align: center;
+    color: rgba(28, 53, 119);
+}
+
+.latest-news-container .text h3,
+.upcoming-events-container .text h3,
+.meet-our-alumni-container .text h3,
+.alumni-benifits-container .text h3,
+.get-involved-container .text h3 {
+    line-height: 1.4;
+}
+
+.news-container .read-more-container,
+.events-container .read-more-container {
+    text-align: left;
+    padding-top: 25px;
+}
+
+.read-more-btn {
+    border: 2px solid #1C3577;
+    padding: 15px;
+    border-radius: 7px;
+    font-weight: 800;
+}
+
+a.read-more-btn {
+    color: #1C3577;
+}
+
+.ca-item-main .text {
+    height: 135px;
+    text-align: left;
+}
+
+.testemonial-container {
+    padding-top: 60px;
+    background: #fff;
+}
+
+.testemonial-text {
+    background-color: #1C3577;
+    background-image: url("../images/Swirl.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    color: #fff;
+}
+
+.testemonial-text h2,
+.testemonial-text h3,
+.testemonial-text h4 {
+    padding-left: 50px;
+    padding-right: 50px;
+    line-height: 1.4;
+}
+
+.testemonial-text h4 {
+    font-weight: 800;
+    padding-top: 30px;
+}
+
+.testemonial-text h3 {
+    line-height: 1.4;
+    padding-top: 50px;
+}
+
+.testemonial-text h2 {
+    margin-top: 5px;
+    padding-bottom: 50px;
+}
+
+.see-all-latest-news-btn {
+    color: #1C3577;
+    font-size: 26px;
+    text-decoration: underline;
+    font-weight: 800;
+}
+
+.testimoonial-image {
+    background-image: url("../images/hatham-al-shabibi-238336.png");
+}
+
+.testemonial-container .row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.alumni-devider {
+    background-color: #fff;
+}
+
+.alumni-testemonials-container {
+    background-color: #fff;
+}
+
+.custom-container{
+    position: relative;
+    margin: 25px auto 20px auto;
+    width: 1320px;
+    height: auto;
+}
+
+.custom-container .dashed-line {
+    border: 1px dashed #1C3577;
+}
+
+.meet-our-alumni-container {
+    text-align: center;
+    padding-bottom: 20px;
+    background-color: #fff;
+}
+
+.alumni-benifits-container {
+    text-align: center;
+    padding-top: 30px;
+}
+
+.meet-our-alumni-container .row.text,
+.alumni-benifits-container .row.text {
+    display: inline-block;
+}
+
+.meet-our-alumni-container .row.text h3 {
+    line-height: 1.7;
+}
+
+.testemonial .headline {
+    color: #1C3577;
+    font-weight: 800;
+}
+
+.testemonial .position,
+.testemonial .text {
+    color: #1C3577;   
+}
+
+.testemonial img {
+    width: 100%;
+}
+
+.panorama-image-container {
+    padding-top: 20px;
+    background-color: #fff;
+}
+
+.full-width-image {
+    width: 100%;
+}
+
+.alumni-benifits-container .icons {
+    padding-top: 60px;
+}
+
+.get-involved-container .icons {
+    padding-top: 10px;
+}
+
+.alumni-benifits-container .icons h4 {
+    line-height: 1.4;
+}
+
+.icons .title {
+    padding-top: 10px;
+}
+
+.icons .title h4 {
+    font-weight: 800;
+    color: #636b6f;
+}
+
+.icons .text {
+    color: #636b6f;
+}
+
+.footnotes {
+    padding-top: 35px;
+}
+
+.footnotes p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: #636b6f;
+}
+
+.essential-thinking-container {
+    padding-top: 30px;
+}
+
+.essential-thinking-container .image-container {
+    background-image: url("../images/hatham-al-shabibi-238336.png");
+    background-size: cover;
+    background-position: top;
+}
+
+.essential-thinking-container .image-container .title {
+    width: 100%;
+}
+
+.essential-thinking-container .title h1 {
+    color: #fff;
+    font-weight: 800;
+    letter-spacing: 10px;
+    padding-top: 40px;
+    text-align: center;
+}
+
+.essential-thinking-container .text {
+    color: #fff;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 30px;
+}
+
+.view-insight-btn {
+    border: 2px solid #fff;
+    border-radius: 7px;
+    padding: 15px 71px;
+    color: #fff;
+    font-weight: 800;
+    font-size: 28px;   
+}
+
+.next-issue-btn {
+    border: 2px solid #fff;
+    border-radius: 7px;
+    padding: 15px 20px;
+    color: #fff;
+    font-weight: 800;
+    font-size: 28px;   
+}
+
+.essential-thinking-container .buttons-container {
+    padding-top: 50px;
+    text-align: center;
+}
+
+.buttons-container .next-issue {
+    padding-top: 50px;
+}
+
+.essential-thinking-container .content {
+    padding-bottom: 80px;
+}
+
+.get-involved-container {
+    text-align: center;
+}
+
+.get-involved-container .row.text.container {
+    display: inline-block;
+}
+
+.get-involved-container .icons h4 {
+    color: #1C3577;
+    line-height: 1.4;
+}
+
+.get-involved-container .icons .text {
+    color: #1C3577;
+}
+
+.image-cicrle {
+    background-color: #1C3577;
+    border-radius: 50%;
+    width: 115px;
+    height: 115px;
+    position: relative;
+    display: inline-block;
+}
+
+.image-cicrle img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.learn-more-container {
+    padding-top: 60px;
+}
+
+.learn-more-btn {
+    border: 2px solid #1C3577;
+    border-radius: 7px;
+    padding: 10px 20px;
+    color: #1C3577;
+    font-weight: 800;   
+}
+
+.get-involved-container .icons .text {
+    height: 80px;
+}
+
+.camp-image-container {
+    padding-top: 70px;
+}
+
+.camp-image {
+    background-image: url("../images/IMG_1750.png");
+    background-size: cover;
+    background-position: bottom;
+    padding-bottom: 600px;
+}
+
+.donate-container {
+    padding-top: 20px;
+}
+
+.donate-container .text-container {
+    background-color: rgba(28, 53, 119);
+    background-image: url("../images/Swirl.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-left: 50px;
+    padding-right: 200px;
+    padding-top: 30px;
+}
+
+.donate-container .text-container .title {
+    font-weight: 800;
+    letter-spacing: 10px;
+    color: #fff;
+}
+
+.donate-container .text-container .text {
+    color: #fff;
+    line-height: 1.5;
+}
+
+.donate-learn-more-container {
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+
+.donate-learn-more-btn {
+    background-color: #fff;
+    border-radius: 7px;
+    padding: 15px 40px;
+    color: #1C3577;
+    font-weight: 800;
+    font-size: 25px;
+}
+
+.donate-image {
+    background-image: url("../images/LST_Library.png");
+    background-size: cover;   
+    background-position: center;
+}
+
+.donate-container .row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contact-us-container {
+    background-color: #5F6267;
+}
+
+.contact-us-container .title {
+    text-align: center;
+    padding-top: 30px;
+}
+
+.contact-us-container .title h1 {
+    color: #fff;
+    font-weight: 800;
+    letter-spacing: 10px;
+}
+
+.contact-us-container .text {
+    text-align: center;
+    color: #fff;
+}
+
+.contact-us-container .text h3 {
+    line-height: 1.4;   
+}
+
+.contact-us-container .custom-container {
+    text-align: center;
+}
+
+.contact-us-container .custom-container .row.text.container {
+    display: inline-block;
+}
+
+.input-field {
+    width: 100%;
+    border-radius: 7px;
+    border-color: transparent;
+    margin-bottom: 25px;
+    height: 40px;
+    padding-left: 15px;
+    font-size: 18px;
+}
+
+.message-field {
+    width: 100%;
+    border-radius: 7px;
+    border-color: transparent;
+    height: 105px;
+    padding-left: 15px;
+    font-size: 18px;
+}
+
+.filds-container {
+    padding-top: 30px;
+}
+
+.send-btn-container {
+    text-align: right;
+    padding-right: 15px;
+    padding-bottom: 50px;
+}
+
+.send-message-btn {
+    border: 2px solid #fff;
+    background-color: transparent;
+    color: #fff;
+    padding: 5px 40px;
+    border-radius: 7px;
+    font-weight: 800;
+    font-size: 20px;
+}
+
+.footer-container {
+    background-color: #e8e8e8;
+}
+
+.footer-container .icons {
+    padding-top: 60px;
+}
+
+.right-text-container {
+    padding-right: 80px;
+}
+
+.right-text-container h4 {
+    color: #000;
+    line-height: 1.4;
+}
+
+.contact-info {
+    text-align: center;
+    padding-bottom: 70px;
+    padding-top: 30px;
+}
+
+.contact-info h3 {
+    color: #000;
+}
+
+.mobile-news-container {
+    padding: 0 30px;
+}
+
+.latest-news-container .row.text {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.news-image {
+    width: 100%;
+}
+
+.ca-nav-prev {
+    background:transparent url(../images/arrow_left.png) no-repeat;
+}
+
+.ca-nav-next {
+    background:transparent url(../images/arrow_right.png) no-repeat;
+}
+
+.ca-nav-prev:hover {
+    background:transparent url(../images/arrow_left_hover.png) no-repeat;
+}
+
+.ca-nav-next:hover {
+    background:transparent url(../images/arrow_right_hover.png) no-repeat;
+}
+
+.main-news {
+    padding-bottom: 45px;
+}
+
+.submain-news .row .col-sm-6:first-child {
+    padding-left: 0;
+}
+
+.submain-news .row .col-sm-6:nth-child(2) {
+    padding-right: 0;
+}
+
+.mobile-events-container {
+    padding: 0 30px;
+}
+
+
+/* Media Queries */
+@media only screen and (max-width: 1320px) {
+    .custom-container{
+        width: auto;
+    }
+
+    .alumni-devider .custom-container{
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .ca-nav-prev,
+    .ca-nav-next {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 961px) {
+    #show-push {
+        display: block;
+    }
+
+    #mobile-menu {
+        display: none;
+    }
+
+    .desktop-testemonial {
+        display: block;
+    }
+
+    .mobile-testemonial {
+        display: none;
+    }
+
+    .desktop-news-container {
+        display: block;
+    }
+
+    .mobile-news-container {
+        display: none;
+    }
+
+    .desktop-events-container {
+        display: block;
+    }
+
+    .mobile-events-container {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 960px) {
+    #mobile-menu {
+        display: flex;
+        height: 80px;
+    }
+
+    #show-push {
+        display: none;
+    }
+
+    .desktop-testemonial {
+        display: none;
+    }
+
+    .mobile-testemonial {
+        display: block;
+    }
+
+    .desktop-news-container {
+        display: none;
+    }
+
+    .mobile-news-container {
+        display: block;
+    }
+
+    .desktop-events-container {
+        display: none;
+    }
+
+    .mobile-events-container {
+        display: block;
+    }
+
+    .container-fluid {
+        padding-top: 90px;
+    }
+
+    .alumni-logo {
+        top: 10%;
+        transform: translate(-50%, -50%);
+    }
+
+    .alumni-logo img {
+        width: 70%;
+    }
+
+    .header-image-container {
+        padding-bottom: 580px;
+    }
+
+    .scroll-down-container {
+        display: none;
+    }
+
+    .become-member-container .text {
+        padding-bottom: 25px;
+    }
+
+    .get-involved-container .text.container {
+        max-width: 100%;
+    }
+
+    .get-involved-container .icons .learn-more-container {
+        padding-top: 0;
+    }
+
+    .get-involved-container .icons .image-cicrle {
+        margin-top: 60px;
+    }
+
+    .donate-container .text-container {
+            padding-left: 20px;
+            padding-right: 20px; 
+    }
+
+    .send-btn-container {
+        text-align: left;
+        padding-left: 15px;
+        padding-top: 20px;
+    }
+
+    .footer-container .right-text-container {
+        padding: 0 30px;
+    }
+
+    .footer-container .contact-info {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .alumni-benifits-container .custom-container .footnotes {
+        padding-left: 30px;
+        padding-right: 30px;   
+    }
+
+    .mobile-testemonial .text-container {
+        padding: 15px 15px 0 15px;
+    }
+
+    .person-info-container {
+        align-self: flex-end;
+    }
+
+    .see-all-latest-news-btn {
+        margin-left: 30px;
+    }
+
+    .latest-news-container .row.text {
+        padding-bottom: 20px;
+    }
+
+    .latest-news-container .mobile-news-container .text {
+        text-align: left;
+        color: #000;
+    }
+
+    .upcoming-events-container .row.text {
+        padding-bottom: 20px;
+    }
+
+    .upcoming-events-container .mobile-events-container .text {
+        text-align: left;
+        color: #000;
+    }
+
+    .mobile-events-container {
+        padding-bottom: 25px;
+    }
+
+    .meet-our-alumni-container > .row.title {
+        padding-top: 0;
+    }
+
+    .alumni-benifits-container .custom-container {
+        margin-top: 0;
+    }
+
+    .alumni-benifits-container .custom-container > .row.title {
+        padding-top: 0;
+    }
+
+    .alumni-benifits-container .icons .col-sm-6 {
+        padding-bottom: 40px;
+    }
+
+    .footnotes {
+        padding-top: 0;
+    }
+
+    .mobile-news-container .submain-news {
+        padding-bottom: 60px;
+    }
+
+    .mobile-news-container .see-all-latest-news-btn {
+        margin-left: 0;
+    }
+
+    .testemonial-container {
+        padding-top: 30px;
+    }
+
+    .upcoming-events-container > .row.text {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .custom-container {
+        text-align: center;
+    }
+
+    .contact-us-container .row.text.container {
+        width: 100%;
+        display: inline-block;
+    }
+
+    .footer-container .right-text-container {
+        display: none;
+    }
+}
