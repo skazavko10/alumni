@@ -46,7 +46,7 @@ $( document ).ready(function() {
         $('#close-btn-holder').removeClass('close-overlay');
 
         $('#show-push').removeClass('open-menu');
-        $('#show-push .menutextbottom').text('MENU');
+        $('#show-push .menutextbottom').text('MENU');;
     });
 
     $('#show-push').on('click', function(){
