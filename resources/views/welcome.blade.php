@@ -4,12 +4,44 @@
     @include('partials.head')
 </head>
 <body>
+    <div id="overlay-slide" class=""></div>
+    
     <div id="show-push" class="cusbutton" style="margin-right: 0px;">
         <div class="top bar"></div>
         <div class="middle bar"></div>
         <div class="bottom bar"></div>
         <div class="menutextbottom">MENU</div>
     </div>
+
+    <nav id="spmenu" class="panel starter-position" role="navigation">
+        <a id="spmenu-link" href="/">
+            <img id="spmenu-logo" src="https://home.lst.ac.uk/sites/default/lst.png">
+        </a>
+
+        <div class="block block-menu-block">
+            <div class="content">
+                <div class="menu-block-wrapper">
+                    <ul class="menu clearfix">
+                        <li class="first leaf">
+                            <a href="/">Class Notes</a>
+                        </li>
+
+                        <li class="leaf">
+                            <a href="/" title="">Photo Gallery</a>
+                        </li>
+                        
+                        <li class="collapsed">
+                            <a href="/">Jobs</a>
+                        </li>
+
+                        <li class="last leaf">
+                            <a href="/" title="">Edit my Account</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
 
     <div id="mobile-menu" style="margin-right: 0px;">
         <div class="logo-container">

@@ -1,3 +1,17 @@
+body {
+	background-color: #fff;
+}
+
+.container-fluid {
+	padding-right: 0;
+	padding-left: 0;
+}
+
+.row {
+	margin-right: 0;
+	margin-left: 0;
+}
+
 #mobile-menu {
     background-color: rgba(28, 53, 119);
     width: 100%;
@@ -103,4 +117,340 @@
     background-size: cover;
     background-position: center;
     padding-bottom: 750px;
+}
+
+.welcome-container {
+    text-align: center;
+    padding-top: 30px;
+    background-color: #fff;
+}
+
+.welcome-intro h1 {
+    color: rgba(28, 53, 119);
+    font-weight: 800;
+    letter-spacing: 10px;
+}
+
+.welcome-headline {
+    color: rgba(28, 53, 119);
+    padding-top: 20px;
+}
+
+.welcome-text {
+	padding-top: 20px;
+	margin: 0 100px;
+}
+
+.class-notes-container {
+    background-color: rgba(28, 53, 119);
+    text-align: center;
+    color: #fff;
+    padding: 40px 50px 50px 50px;
+    margin-top: 15px;
+}
+
+.class-notes-container h1 {
+    font-weight: 800;
+    letter-spacing: 10px;
+}
+
+.class-notes-container .headline {
+	padding-top: 20px;
+	font-size: 27px;
+    font-weight: 400;
+}
+
+.class-notes-container .text {
+    padding-bottom: 25px;
+}
+
+.enter-btn {
+    border: 2px solid #fff;
+    border-radius: 7px;
+    padding: 10px 45px;
+    color: #fff;
+    font-weight: 800;
+    font-size: 21px;   
+}
+
+.photo-gallery-container {
+    background-color: #495e93;
+    text-align: center;
+    color: #fff;
+    padding: 40px 50px 50px 50px;
+    margin-top: 15px;
+}
+
+.photo-gallery-container h1 {
+    font-weight: 800;
+    letter-spacing: 10px;
+}
+
+.photo-gallery-container .headline {
+	padding-top: 20px;
+	font-size: 27px;
+    font-weight: 400;
+}
+
+.photo-gallery-container .text {
+    padding-bottom: 25px;
+}
+
+.photo-gallery-container .enter-btn {
+    background-color: #fff;
+    color: rgba(28, 53, 119);
+    border: 2px solid rgba(28, 53, 119);;
+}
+
+.jobs-container {
+    background-color: #DEE1EA;
+    text-align: center;
+    color: #fff;
+    padding: 40px 50px 50px 50px;
+    margin-top: 15px;
+}
+
+.jobs-container h1 {
+    font-weight: 800;
+    letter-spacing: 10px;
+    color: rgba(28, 53, 119);
+}
+
+.jobs-container .headline {
+	padding-top: 20px;
+	font-size: 27px;
+    font-weight: 400;
+    color: rgba(28, 53, 119);
+}
+
+.jobs-container .text {
+    padding-bottom: 25px;
+    color: rgba(28, 53, 119);
+}
+
+.jobs-container .enter-btn {
+    background-color: rgba(28, 53, 119);
+    color: #fff;
+    border: 2px solid rgba(28, 53, 119);
+}
+
+.footer-container {
+    background-color: #e8e8e8;
+    margin-top: 15px;
+}
+
+.footer-container .icons {
+    padding-top: 60px;
+}
+
+.icons .text {
+    color: #636b6f;
+}
+
+.right-text-container {
+    padding-right: 80px;
+}
+
+.right-text-container h4 {
+    color: #000;
+    line-height: 1.4;
+}
+
+.contact-info {
+    text-align: center;
+    padding-bottom: 70px;
+    padding-top: 30px;
+}
+
+.contact-info h3 {
+    color: #000;
+}
+
+.show-overlay {
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    z-index: 998;
+    background-color: rgb(0, 0, 0);
+    opacity: 0.6;
+}
+
+/**/
+.main-menu {
+	display: block;
+	position: fixed;
+	top: 0px;
+	bottom: 0px;
+	width: 22%;
+	height: 870px;
+	right: 0%;
+	-webkit-transition: all 0.5s;
+}
+
+.starter-position {
+	display: block;
+	position: fixed;
+	top: 0px;
+	bottom: 0px;
+	width: 22%;
+	height: 870px;
+	right: -22%;
+	-webkit-transition: all 0.5s;
+}
+
+#spmenu {
+    background-color: rgba(28, 53, 119);
+    z-index: 9999;
+}
+
+#spmenu-link {
+    display: block;
+    text-align: center;
+}
+
+#spmenu-logo {
+    width: 150px;
+    margin-bottom: 15px;
+    padding-top: 60px;
+}
+
+#spmenu #block-menu-block-1 > .content {
+    margin-top: 0px;
+}
+
+#spmenu .menu-block-wrapper > .menu {
+    padding: 0px;
+    margin-left: 40px;
+    margin-right: 30px;
+}
+
+#spmenu .content .menu li {
+    list-style-image: none;
+    list-style-type: none;
+    text-align: left;
+    display: block;
+    border-top: 1px dashed #fff;
+    border-bottom: 1px dashed #fff;
+}
+
+.first.leaf {
+	border-top: none !important;
+}
+
+.last.leaf {
+	border-bottom: none !important;	
+}
+
+#spmenu .menu-block-wrapper > .menu > li > a {
+    padding: 5px 15px;
+    display: block;
+    font-size: 22px;
+    color: #fff;
+}
+
+.logout-container {
+	text-align: center;
+	padding-top: 20px;
+}
+
+.menu-block-wrapper ul.menu > li > a:hover {
+    background-color: #0C1631;
+    text-decoration: none;
+}
+
+#close-btn-holder {
+    position: fixed;
+    top: 50px;
+    right: 0px;
+    z-index: 10000;
+    -webkit-transition: all 0.5s;
+    visibility: hidden;
+}
+
+.close-overlay {
+	right: 22% !important;
+	visibility: visible !important;
+}
+
+#show-push {
+    border: 0 none;
+    border-radius: 0;
+    float: right;
+    margin-right: -8px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 10000;
+}
+
+#show-push.cusbutton {
+    width: 200px;
+    height: 60px;
+    margin: 0 auto;
+    background-color: rgba(28, 53, 119, 0.3);
+    position: relative;
+    cursor: pointer;
+}
+
+.bar {
+    width: 40px;
+    height: 0px;
+    border: 1px solid white;
+    position: absolute;
+    border-radius: 10px;
+}
+
+.topa {
+    -webkit-transform: rotate(45deg) !important;
+    top: 49% !important;
+    border-radius: 10px !important;
+    background-color: white !important;
+    left: 5%;
+}
+
+.middlea {
+    display: none;
+}
+
+.bottoma {
+    -webkit-transform: rotate(-45deg) !important;
+    top: 49% !important;
+    border-radius: 10px !important;
+    background-color: white !important;
+    left: 5%;
+}
+
+.menutextbottom {
+    color: #fff;
+    top: 17%;
+    position: absolute;
+    left: 40%;
+    font-size: 25px;
+}
+
+#show-push.cusbutton:hover {
+    width: 210px;
+    background-color: rgba(28, 53, 119, 0.9);
+    transition-property: width, right, background-color, color;
+    transition-duration: 250ms,250ms,250ms,250ms;
+    transition-timing-function: cubic-bezier(.175,.885,.32,1.14),cubic-bezier(.175,.885,.32,1.14),ease-in-out,ease-in-out;
+    transition-delay: initial, initial, initial, initial;
+}
+
+
+/* Media Queris */
+@media only screen and (max-width: 960px) {
+	
+	.footer-container .right-text-container {
+	    padding: 0 30px;
+	}
+
+	.footer-container .contact-info {
+	    padding-left: 30px;
+	    padding-right: 30px;
+	}
+
+	.footer-container .right-text-container {
+	    display: none;
+	}
 }
