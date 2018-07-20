@@ -59,7 +59,6 @@ $( document ).ready(function() {
         }
     });
 
-
     function closeMenuBtnClick() {
         $('#overlay-slide').removeClass('show-overlay');
         $('#spmenu').removeClass('main-menu');
