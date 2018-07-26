@@ -138,6 +138,7 @@ body {
 
 .welcome-text {
 	padding-top: 20px;
+    padding-bottom: 40px;
 	margin: 0 100px;
 }
 
@@ -435,6 +436,127 @@ body {
     transition-duration: 250ms,250ms,250ms,250ms;
     transition-timing-function: cubic-bezier(.175,.885,.32,1.14),cubic-bezier(.175,.885,.32,1.14),ease-in-out,ease-in-out;
     transition-delay: initial, initial, initial, initial;
+}
+
+.class-notes.header-image {
+    background-image: url('../images/class-notes-header.png');
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 600px;
+}
+
+.class-notes-by-period .period {
+    background-color: rgb(28, 53, 119);
+    padding-left: 7%;
+    margin-top: 15px;
+}
+
+.class-notes-by-period .period h2 {
+    color: #fff;
+    letter-spacing: 10px;
+    margin-bottom: 0;
+    font-weight: 800;
+}
+
+.upload-class-notes {
+    background-color: #DEE1EA;
+    padding-left: 7%;
+    margin-top: 15px;
+    margin-bottom: 60px;
+}
+
+.upload-class-notes h2 {
+    color: rgb(28, 53, 119);
+    letter-spacing: 10px;
+    font-weight: 800;
+    margin-bottom: 0;
+}
+
+.first-col {
+    display: flex;
+    align-items: center;
+}
+
+.class-notes-text {
+    text-align: center;
+    padding-top: 30px;
+}
+
+.class-notes-text .text h1 {
+    color: rgb(28, 53, 119);
+    font-weight: 800;
+    letter-spacing: 10px;
+}
+
+.class-notes-text .text h4 {
+    color: rgb(28, 53, 119);
+    padding-left: 7%;
+    padding-right: 7%;
+    padding-top: 15px;
+    padding-bottom: 40px;
+}
+
+.additional-section {
+    padding-top: 30px;
+    display: none;
+}
+
+.show-additional-section {
+    display: block;
+    -webkit-transition: all 0.5s;
+    overflow: hidden;
+}
+
+.additional-section h5 {
+    color: rgb(28, 53, 119);
+    padding-bottom: 15px;
+}
+
+.class-note-input {
+    width: 100%;
+    border: 1px solid rgb(28, 53, 119);
+    padding-left: 10px;
+    padding-top: 15px;
+}
+
+.submit-section {
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+.submit-class-note {
+    background: no-repeat;
+    color: rgba(28, 53, 119);
+    border: 2px solid rgba(28, 53, 119);
+    border-radius: 7px;
+    padding: 10px 45px;
+    font-weight: 800;
+    font-size: 21px;
+}
+
+.submit-class-note:hover {
+    cursor: pointer;
+}
+
+.button-container {
+    text-align: right;
+}
+
+.submit-section .section {
+    display: flex;
+    align-items: baseline;
+}
+
+.upload-class-notes .first-col h2:hover {
+    cursor: pointer;   
+}
+
+.upload-class-notes .arrow {
+    display: inline-block;
+}
+
+.upload-class-notes .arrow:hover {
+    cursor: pointer;
 }
 
 

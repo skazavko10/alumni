@@ -21,6 +21,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/test', 'Event\TestController@test')->name('test');
 
-Route::resource('class-note', 'ClassNote\ClassNoteController');
+Route::resource('class-notes', 'ClassNote\ClassNoteController');
 
 Route::resource('photo-gallery', 'UserPhotoGallery\UserPhotoGalleryController');

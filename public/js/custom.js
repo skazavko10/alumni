@@ -59,6 +59,30 @@ $( document ).ready(function() {
         }
     });
 
+    $('.upload-class-notes .first-col h2').on('click', function(){
+       
+        if( $('.additional-section.show-additional-section').length ) {
+            
+            $('.additional-section').removeClass('show-additional-section');
+        }
+        else {
+            
+            $('.additional-section').addClass('show-additional-section');
+        }
+    });
+
+    $('.upload-class-notes .arrow').on('click', function(){
+        
+        if( $('.additional-section.show-additional-section').length ) {
+            
+            $('.additional-section').removeClass('show-additional-section');
+        }
+        else {
+            
+            $('.additional-section').addClass('show-additional-section');
+        }
+    });
+
     function closeMenuBtnClick() {
         $('#overlay-slide').removeClass('show-overlay');
         $('#spmenu').removeClass('main-menu');

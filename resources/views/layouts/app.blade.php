@@ -27,40 +27,15 @@
     <div id="overlay-slide" class=""></div>
 
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-            <div class="row">
-                <div class="col-md-4 center">
-                    @auth
-                        <div class="user-name">
-                            <span class="bold">LOGGED IN:</span>
-                            <span>{{ Auth::user()->name }}</span>
-                        </div>
-                    @endauth    
-                </div>
+        @include('partials.header')
 
-                <div class="col-md-4 center">
-                    <div class="logo-container">
-                        <!-- <img src="{{ asset('images/LogoBlue.png') }}"> -->
-                        <h3 style="color: #fff; margin: 0;">LOGO IMAGE</h3>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div id="mobile-menu" style="margin-right: 0px;">
-                        <div class="cusbutton">
-                            <div class="top bar"></div>
-                            <div class="middle bar"></div>
-                            <div class="bottom bar"></div>
-                            <div class="menutextbottom">MENU</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
-
-        <main class="py-4">
+        <main>
             @yield('content')
+
+            @include('partials.footer')
         </main>
     </div>
+
+    <script type="text/javascript" src="js/custom.js"></script>
 </body>
 </html>

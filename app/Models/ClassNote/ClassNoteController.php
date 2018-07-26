@@ -21,7 +21,7 @@ class ClassNoteController extends Controller
      */
     public function index()
     {
-        dd('YUYUY');
+        return view('class-notes.index');
     }
 
     /**
