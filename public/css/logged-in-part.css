@@ -447,8 +447,11 @@ body {
 
 .class-notes-by-period .period {
     background-color: rgb(28, 53, 119);
-    padding-left: 7%;
     margin-top: 15px;
+}
+
+.class-notes-by-period .period .first-col {
+    padding-left: 7%;
 }
 
 .class-notes-by-period .period h2 {
@@ -558,6 +561,54 @@ body {
 .upload-class-notes .arrow:hover {
     cursor: pointer;
 }
+
+.period-header-image {
+    background-image: url(../images/period-header-image.png);
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 450px;
+}
+
+.class-notes-by-period .additional-section {
+    width: 100%;
+    padding-top: 5px;
+}
+
+.class-notes-by-period .additional-section .row .col-md-12 {
+    padding: 0;
+}
+
+.upload-class-notes .first-col {
+    padding-left: 0;
+}
+
+.notes-container {
+    background-color: #fff;
+}
+
+.notes-container h1 {
+    color: rgba(28, 53, 119);
+}
+
+.notes-container .text {
+    padding-left: 7% !important;
+}
+
+.notes-container .text h5 {
+    color: #000;
+}
+
+.notes-container .title {
+    border-bottom: 2px solid rgba(28, 53, 119);;
+    padding-left: 7% !important;
+    padding-top: 15px !important;
+    padding-bottom: 8px !important;
+}
+
+.class-notes-by-period .period .first-col h2,
+.notes-container .title h1 {
+    cursor: pointer;
+} 
 
 
 /* Media Queris */

@@ -83,6 +83,30 @@ $( document ).ready(function() {
         }
     });
 
+    $('.class-notes-by-period .period .first-col h2').on('click', function(){
+        
+        if( $('.additional-section.' + this.className + '.show-additional-section').length ) {
+            
+            $('.additional-section.' + this.className).removeClass('show-additional-section');
+        }
+        else {
+            
+            $('.additional-section.' + this.className).addClass('show-additional-section');
+        }
+    });
+
+    $('.notes-container .title h1').on('click', function(){
+        
+        if( $('.additional-section.' + this.className + '.show-additional-section').length ) {
+            
+            $('.additional-section.' + this.className).removeClass('show-additional-section');
+        }
+        else {
+            
+            $('.additional-section.' + this.className).addClass('show-additional-section');
+        }
+    });
+
     function closeMenuBtnClick() {
         $('#overlay-slide').removeClass('show-overlay');
         $('#spmenu').removeClass('main-menu');

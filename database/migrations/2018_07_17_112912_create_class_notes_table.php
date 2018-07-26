@@ -18,6 +18,7 @@ class CreateClassNotesTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->text('name');
             $table->text('text');
+            $table->string('post_date');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

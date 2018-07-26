@@ -21,7 +21,47 @@ class ClassNoteController extends Controller
      */
     public function index()
     {
-        return view('class-notes.index');
+        $firstPeriodClassNotes = ClassNote::where('post_date', '>=', '1943')
+                                            ->where('post_date', '<=', '1949')
+                                            ->get();
+
+        $secondPeriodClassNotes = ClassNote::where('post_date', '>=', '1950')
+                                            ->where('post_date', '<=', '1959')
+                                            ->get();
+
+        $thirdPeriodClassNotes = ClassNote::where('post_date', '>=', '1960')
+                                            ->where('post_date', '<=', '1969')
+                                            ->get();
+
+        $fourthPeriodClassNotes = ClassNote::where('post_date', '>=', '1970')
+                                            ->where('post_date', '<=', '1979')
+                                            ->get();
+
+        $fifthPeriodClassNotes = ClassNote::where('post_date', '>=', '1980')
+                                            ->where('post_date', '<=', '1989')
+                                            ->get();
+
+        $sixthPeriodClassNotes = ClassNote::where('post_date', '>=', '1990')
+                                            ->where('post_date', '<=', '1999')
+                                            ->get();
+
+        $seventhPeriodClassNotes = ClassNote::where('post_date', '>=', '2000')
+                                            ->where('post_date', '<=', '2009')
+                                            ->get();
+
+        $eightPeriodClassNotes = ClassNote::where('post_date', '>=', '2010')
+                                            ->get();
+
+        return view('class-notes.index')->with([
+            'firstPeriodClassNotes' => json_encode($firstPeriodClassNotes),
+            'secondPeriodClassNotes' => json_encode($secondPeriodClassNotes),
+            'thirdPeriodClassNotes' => json_encode($thirdPeriodClassNotes),
+            'fourthPeriodClassNotes' => json_encode($fourthPeriodClassNotes),
+            'fifthPeriodClassNotes' => json_encode($fifthPeriodClassNotes),
+            'sixthPeriodClassNotes' => json_encode($sixthPeriodClassNotes),
+            'seventhPeriodClassNotes' => json_encode($seventhPeriodClassNotes),
+            'eightPeriodClassNotes' => json_encode($eightPeriodClassNotes)
+        ]);
     }
 
     /**
