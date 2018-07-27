@@ -599,7 +599,7 @@ body {
 }
 
 .notes-container .title {
-    border-bottom: 2px solid rgba(28, 53, 119);;
+    border-bottom: 2px solid rgba(28, 53, 119);
     padding-left: 7% !important;
     padding-top: 15px !important;
     padding-bottom: 8px !important;
@@ -608,7 +608,30 @@ body {
 .class-notes-by-period .period .first-col h2,
 .notes-container .title h1 {
     cursor: pointer;
-} 
+}
+
+.class-note-name {
+    border: 1px solid rgba(28, 53, 119);
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 5px 0 5px 10px;
+}
+
+.upload-class-notes .invalid-feedback {
+    display: block;
+}
+
+.period .notes-container:last-child .title {
+    border-bottom: none;
+}
+
+.notes-container .expand {
+    border-bottom: 2px solid rgba(28, 53, 119);;
+}
+
+.period .notes-container:last-child .expand {
+    border-bottom: none;
+}
 
 
 /* Media Queris */

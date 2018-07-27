@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Models\ClassNote\ClassNote;
+use App\Models\ClassNote\StoreClassNoteRequest;
 
 class ClassNoteController extends Controller
 {
@@ -84,6 +85,7 @@ class ClassNoteController extends Controller
     {
         $input = $request->input();
         $input['user_id'] = Auth::id();
+        $input['post_date'] = date('Y');
 
         ClassNote::create($input);
     }

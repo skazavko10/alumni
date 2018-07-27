@@ -13,7 +13,7 @@ class ClassNote extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'name', 'text',
+        'user_id', 'name', 'text', 'post_date'
     ];
 
     public function author() {

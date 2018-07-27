@@ -45,7 +45,7 @@
 							<h1 :class='classNoteId(classNote.id)'>@{{ classNote.name }}</h1>
 						</div>
 
-						<div class="col-md-2">
+						<div class="col-md-2 expand">
 							<span>&#43;</span>
 						</div>
 					</div>
@@ -85,7 +85,7 @@
 							<h1 :class='classNoteId(classNote.id)'>@{{ classNote.name }}</h1>
 						</div>
 
-						<div class="col-md-2">
+						<div class="col-md-2 expand">
 							<span>&#43;</span>
 						</div>
 					</div>
@@ -125,7 +125,7 @@
 							<h1 :class='classNoteId(classNote.id)'>@{{ classNote.name }}</h1>
 						</div>
 
-						<div class="col-md-2">
+						<div class="col-md-2 expand">
 							<span>&#43;</span>
 						</div>
 					</div>
@@ -165,7 +165,7 @@
 							<h1 :class='classNoteId(classNote.id)'>@{{ classNote.name }}</h1>
 						</div>
 
-						<div class="col-md-2">
+						<div class="col-md-2 expand">
 							<span>&#43;</span>
 						</div>
 					</div>
@@ -205,7 +205,7 @@
 							<h1 :class='classNoteId(classNote.id)'>@{{ classNote.name }}</h1>
 						</div>
 
-						<div class="col-md-2">
+						<div class="col-md-2 expand">
 							<span>&#43;</span>
 						</div>
 					</div>
@@ -245,7 +245,7 @@
 							<h1 :class='classNoteId(classNote.id)'>@{{ classNote.name }}</h1>
 						</div>
 
-						<div class="col-md-2">
+						<div class="col-md-2 expand">
 							<span>&#43;</span>
 						</div>
 					</div>
@@ -285,7 +285,7 @@
 							<h1 :class='classNoteId(classNote.id)'>@{{ classNote.name }}</h1>
 						</div>
 
-						<div class="col-md-2">
+						<div class="col-md-2 expand">
 							<span>&#43;</span>
 						</div>
 					</div>
@@ -325,7 +325,7 @@
 							<h1 :class='classNoteId(classNote.id)'>@{{ classNote.name }}</h1>
 						</div>
 
-						<div class="col-md-2">
+						<div class="col-md-2 expand">
 							<span>&#43;</span>
 						</div>
 					</div>
@@ -361,11 +361,35 @@
 					</h5>
 				</div>	
 			</div>
+
+			@if ($errors->any())
+			    <input type="hidden" class="validation-error">
+			@endif
 			
-			<form>
+			<form action="/class-notes" method="post">
+				{!! csrf_field() !!}
+
 				<div class="row">
 					<div class="col-md-10">
-						<textarea class="class-note-input" placeholder="Write your words here..." rows="10"></textarea>
+						@if ($errors->has('name'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('name') }}</strong>
+                            </span>
+                        @endif
+
+						<input type="text" name="name" class="class-note-name" placeholder="Class Note Name" value="{{ old('name') }}" required autofocus>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-10">
+						@if ($errors->has('text'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('text') }}</strong>
+                            </span>
+                        @endif
+
+						<textarea class="class-note-input" name="text" required placeholder="Write your words here..." rows="10">{{ old('text') }}</textarea>
 					</div>
 				</div>
 
@@ -377,7 +401,7 @@
 							</div>
 
 							<div class="col-md-4 button-container">
-								<input type="submit" name="" class="submit-class-note" value="SUBMIT">
+								<input type="submit" class="submit-class-note" value="SUBMIT">
 							</div>		
 						</div>
 					</div>

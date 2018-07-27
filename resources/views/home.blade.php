@@ -43,7 +43,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div>
-                    <a class="enter-btn" href="#">ENTER</a>
+                    <a class="enter-btn" href="/class-notes">ENTER</a>
                 </div>
             </div>
         </div>
