@@ -43,7 +43,7 @@
                     </li>
 
                     <li class="leaf">
-                        <a href="/" title="">Photo Gallery</a>
+                        <a href="/photo-gallery" title="">Photo Gallery</a>
                     </li>
                     
                     <li class="collapsed">

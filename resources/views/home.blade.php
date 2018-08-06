@@ -63,7 +63,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div>
-                    <a class="enter-btn" href="#">ENTER</a>
+                    <a class="enter-btn" href="/photo-gallery">ENTER</a>
                 </div>
             </div>
         </div>

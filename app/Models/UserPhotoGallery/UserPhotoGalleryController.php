@@ -4,6 +4,7 @@ namespace App\Models\UserPhotoGallery;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\UserPhotoGallery\UserPhotoGallery;
 
 class UserPhotoGalleryController extends Controller
 {
@@ -19,7 +20,19 @@ class UserPhotoGalleryController extends Controller
      */
     public function index()
     {
-        dd('YY');
+        $images = UserPhotoGallery::orderBy('created_at', 'DESC')->paginate(12);
+
+        $firstColumnImages = $images->slice(0, 4);
+        $secondColumnImages = $images->slice(4, 4);
+        $thirdColumnImages = $images->slice(8, 4);
+
+        return view('photo-gallery.index')->with([
+            'firstColumnImages' => json_encode($firstColumnImages),
+            'secondColumnImages' => json_encode($secondColumnImages),
+            'thirdColumnImages' => json_encode($thirdColumnImages),
+            'lastPage' => json_encode($images->lastPage()),
+            'currentPage' => json_encode($images->currentPage())
+        ]);
     }
 
     /**
@@ -40,7 +53,7 @@ class UserPhotoGalleryController extends Controller
      */
     public function store(StoreUserPhotoGalleryRequest $request)
     {
-        $imageFile = $request->input('file');
+        $imageFile = $request->input('images');
 
         dd('IOIO');
     }

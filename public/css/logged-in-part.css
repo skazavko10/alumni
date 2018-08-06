@@ -480,18 +480,21 @@ body {
     align-items: center;
 }
 
-.class-notes-text {
+.class-notes-text,
+.photo-gallery-text {
     text-align: center;
     padding-top: 30px;
 }
 
-.class-notes-text .text h1 {
+.class-notes-text .text h1,
+.photo-gallery-text .text h1 {
     color: rgb(28, 53, 119);
     font-weight: 800;
     letter-spacing: 10px;
 }
 
-.class-notes-text .text h4 {
+.class-notes-text .text h4,
+.photo-gallery-text .text h4 {
     color: rgb(28, 53, 119);
     padding-left: 7%;
     padding-right: 7%;
@@ -633,6 +636,102 @@ body {
     border-bottom: none;
 }
 
+.photo-gallery.header-image {
+    background-image: url('../images/college-graduation.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 600px;
+    position: relative;
+}
+
+.upload-photo-container {
+    position: absolute;
+    bottom: 7%;
+    left: 50%;
+    transform: translate(-50%, -50%);   
+}
+
+.upload-photo-container {
+    border: 2px solid #fff;
+    padding: 5px 80px;
+    background-color: rgba(28, 53, 119, 0.8);
+}
+
+.upload-photo-container a {
+    font-size: 25px;
+    font-weight: 800;
+    color: #fff;
+}
+
+.photo-order,
+.photos-container {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.photo-order .latest-photos {
+    text-align: left;
+}
+
+.photo-order .search-by-year {
+    text-align: center;
+}
+
+.photo-order .display-style {
+    text-align: right;
+}
+
+.photo-order h4 {
+    color: rgb(28, 53, 119);
+}
+
+.photo-order .search-by-year h4 {
+    display: inline-block;
+    padding-right: 20px;
+}
+
+.photo-order .search-by-year select {
+    background: none;
+    border: 1px solid rgb(28, 53, 119);
+    border-radius: 5px;
+    padding: 5px 15px;
+}
+
+.photos-container {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    padding: 0 4px;
+    padding-top: 20px;
+}
+
+.column {
+    -ms-flex: 33%; /* IE10 */
+    flex: 33%;
+    max-width: 33%;
+    padding: 0 7px;
+}
+
+.column img {
+    margin-top: 14px;
+    vertical-align: middle;
+}
+
+.show-more-images-container {
+    margin: auto;
+    padding-top: 30px;
+}
+
+.show-more-images-container h4 {
+    color: rgb(28, 53, 119);
+}
+
+.show-more-images-container h4:hover {
+    cursor: pointer;
+}
+
+
 
 /* Media Queris */
 @media only screen and (max-width: 960px) {
@@ -649,4 +748,20 @@ body {
 	.footer-container .right-text-container {
 	    display: none;
 	}
+}
+
+@media screen and (max-width: 800px) {
+    .column {
+        -ms-flex: 50%;
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .column {
+        -ms-flex: 100%;
+        flex: 100%;
+        max-width: 100%;
+    }
 }

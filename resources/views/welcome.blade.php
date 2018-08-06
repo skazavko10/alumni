@@ -84,7 +84,7 @@
 
                 <div class="row scroll-down-container">
                     <div class="col-md-12">
-                        <h4>SCROLL DOWN</h4>
+                        <img src="{{ asset('images/scrollDown.png') }}" />
                     </div>
 
                     <div class="col-md-12">
