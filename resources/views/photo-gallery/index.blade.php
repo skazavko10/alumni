@@ -21,34 +21,5 @@
         </div>
 	</div>
 
-	<div class="row photo-order">
-		<div class="col-md-4 latest-photos">
-			<h4>LATEST UPLOADS</h4>
-		</div>
-
-		<div class="col-md-4 search-by-year">
-			<h4>SEARCH BY YEAR</h4>
-			<select>
-				<option>1943-49</option>
-				<option>1950-59</option>
-				<option>1960-69</option>
-				<option>1970-79</option>
-				<option>1980-89</option>
-				<option>1990-99</option>
-				<option>2000-2009</option>
-				<option>2010-TODAY</option>
-			</select>
-		</div>
-
-		<div class="col-md-4 display-style">
-			<div class="container">
-				<span class="simple-view glyphicon glyphicon-th"></span>
-
-				<span class="grid-view glyphicon glyphicon-th-list">
-				</span>
-			</div>
-		</div>
-	</div>
-
 	<list-photos-component first-column-images="{{ $firstColumnImages }}" second-column-images="{{ $secondColumnImages }}" third-column-images="{{ $thirdColumnImages }}" last-page="{{ $lastPage }}" current-page="{{ $currentPage }}"></list-photos-component>
 @endsection

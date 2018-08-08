@@ -20,7 +20,11 @@ class UserPhotoGalleryController extends Controller
      */
     public function index()
     {
-        $images = UserPhotoGallery::orderBy('created_at', 'DESC')->paginate(12);
+        $images = UserPhotoGallery::where('post_date', '>=', '2010')
+                    ->where('post_date', '<=', date("Y"))
+                    ->with('user')
+                    ->orderBy('created_at', 'DESC')
+                    ->paginate(12);
 
         $firstColumnImages = $images->slice(0, 4);
         $secondColumnImages = $images->slice(4, 4);
@@ -122,6 +126,31 @@ class UserPhotoGalleryController extends Controller
         $returnArray['firstColumnImages'] = $firstColumnImages;
         $returnArray['secondColumnImages'] = $secondColumnImages;
         $returnArray['thirdColumnImages'] = $thirdColumnImages;
+
+        return json_encode($returnArray);
+    }
+
+    public function filterPhotosByPeriod($periodStart, $periodEnd)
+    {
+        $images = UserPhotoGallery::where('post_date', '>=', $periodStart)
+                    ->where('post_date', '<=', $periodEnd)
+                    ->with('user')
+                    ->orderBy('created_at', 'DESC')
+                    ->paginate(12);
+
+        $firstColumnImages = $images->slice(0, 4);
+        $secondColumnImages = $images->slice(4, 4);
+        $thirdColumnImages = $images->slice(8, 4);
+
+        $firstColumnImages = array_slice($firstColumnImages->toArray(), 0);
+        $secondColumnImages = array_slice($secondColumnImages->toArray(), 0);
+        $thirdColumnImages = array_slice($thirdColumnImages->toArray(), 0);
+
+        $returnArray['firstColumnImages'] = $firstColumnImages;
+        $returnArray['secondColumnImages'] = $secondColumnImages;
+        $returnArray['thirdColumnImages'] = $thirdColumnImages;
+        $returnArray['lastPage'] = $images->lastPage();
+        $returnArray['currentPage'] = $images->currentPage();
 
         return json_encode($returnArray);
     }

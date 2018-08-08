@@ -47503,6 +47503,105 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
@@ -47530,7 +47629,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     data: function data() {
-        return {};
+        return {
+            showLoadingBar: '',
+            period: '2010-',
+            searchPeriodTitle: 'LATEST UPLOADS',
+            showPhotoDetails: '',
+            clickedPhoto: ''
+        };
     },
     mounted: function mounted() {
         this.firstColumnImages = JSON.parse(this.firstColumnImages);
@@ -47548,6 +47653,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this = this;
 
             if (this.currentPage < this.lastPage) {
+                this.showLoadingBar = 'show-loading-bar';
+
                 axios.get('http://localhost:8000/photos?page=' + ++this.currentPage).then(function (response) {
                     var that = _this;
 
@@ -47562,10 +47669,83 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     response.data.thirdColumnImages.map(function (image, key) {
                         that.thirdColumnImages.push(image);
                     });
+
+                    _this.showLoadingBar = '';
                 }).catch(function (e) {
                     console.log(e);
+
+                    _this.showLoadingBar = '';
                 });
             }
+        },
+
+        filterByPeriod: function filterByPeriod() {
+            var _this2 = this;
+
+            this.searchPeriodTitle = this.period;
+            var periodArray = this.period.split('-');
+
+            var periodStart = periodArray[0];
+            var periodEnd = periodArray[1];
+
+            if (periodEnd == '') {
+                var currentTime = new Date();
+
+                periodEnd = currentTime.getFullYear();
+                this.searchPeriodTitle = 'LATEST UPLOADS';
+            }
+
+            this.showLoadingBar = 'show-loading-bar';
+
+            axios.get('http://localhost:8000/filter-photos/' + periodStart + '/' + periodEnd).then(function (response) {
+                _this2.firstColumnImages = [];
+                _this2.secondColumnImages = [];
+                _this2.thirdColumnImages = [];
+                _this2.currentPage = response.data.currentPage;
+                _this2.lastPage = response.data.lastPage;
+
+                var that = _this2;
+
+                response.data.firstColumnImages.map(function (image, key) {
+                    that.firstColumnImages.push(image);
+                });
+
+                response.data.secondColumnImages.map(function (image, key) {
+                    that.secondColumnImages.push(image);
+                });
+
+                response.data.thirdColumnImages.map(function (image, key) {
+                    that.thirdColumnImages.push(image);
+                });
+
+                _this2.showLoadingBar = '';
+            }).catch(function (e) {
+                console.log(e);
+
+                _this2.showLoadingBar = '';
+            });
+        },
+
+        displayPhotoDetails: function displayPhotoDetails(imageId) {
+            console.log('III');
+            this.showPhotoDetails = 'show-photo-details-' + imageId;
+            this.showLoadingBar = 'show-loading-bar';
+            this.clickedPhoto = imageId;
+        },
+
+        isPhotoOpend: function isPhotoOpend(imageId) {
+            if (this.clickedPhoto == imageId) {
+                return true;
+            }
+
+            return false;
+        },
+
+        closePhotoDetails: function closePhotoDetails() {
+            console.log('KLLK');
+            this.showLoadingBar = '';
+            this.showPhotoDetails = '';
+            this.clickedPhoto = '';
         }
     }
 });
@@ -47578,66 +47758,356 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "photos-container" }, [
-    _c("div", { staticClass: "row" }, [
-      _c(
-        "div",
-        { staticClass: "column" },
-        _vm._l(_vm.firstColumnImages, function(image) {
-          return _c("span", [
-            _c("img", {
-              staticStyle: { width: "100%" },
-              attrs: { src: _vm.fullImagePath(image.photo_path) }
-            })
-          ])
-        })
-      ),
+  return _c("div", [
+    _c("div", { staticClass: "row photo-order" }, [
+      _c("div", { staticClass: "col-md-4 latest-photos" }, [
+        _c("h4", [_vm._v(_vm._s(_vm.searchPeriodTitle))])
+      ]),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "column" },
-        _vm._l(_vm.secondColumnImages, function(image) {
-          return _c("span", [
-            _c("img", {
-              staticStyle: { width: "100%" },
-              attrs: { src: _vm.fullImagePath(image.photo_path) }
-            })
-          ])
-        })
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "column" },
-        _vm._l(_vm.thirdColumnImages, function(image) {
-          return _c("span", [
-            _c("img", {
-              staticStyle: { width: "100%" },
-              attrs: { src: _vm.fullImagePath(image.photo_path) }
-            })
-          ])
-        })
-      )
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "row show-more-images-container" }, [
-      _c("h4", [
+      _c("div", { staticClass: "col-md-4 search-by-year" }, [
+        _c("h4", [_vm._v("SEARCH BY YEAR")]),
+        _vm._v(" "),
         _c(
-          "span",
+          "select",
           {
-            on: {
-              click: function($event) {
-                _vm.loadMorePhotos()
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.period,
+                expression: "period"
               }
+            ],
+            on: {
+              change: [
+                function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.period = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+                function($event) {
+                  _vm.filterByPeriod()
+                }
+              ]
             }
           },
-          [_vm._v("SHOW MORE")]
+          [
+            _c("option", { attrs: { value: "1943-1949" } }, [
+              _vm._v("1943-49")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "1950-1959" } }, [
+              _vm._v("1950-59")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "1960-1969" } }, [
+              _vm._v("1960-69")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "1970-1979" } }, [
+              _vm._v("1970-79")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "1980-1989" } }, [
+              _vm._v("1980-89")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "1990-1999" } }, [
+              _vm._v("1990-99")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "2000-2009" } }, [
+              _vm._v("2000-2009")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "2010-" } }, [_vm._v("2010-TODAY")])
+          ]
         )
-      ])
+      ]),
+      _vm._v(" "),
+      _vm._m(0)
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "photos-container" }, [
+      _c("div", {
+        staticClass: "loading-bar",
+        class: _vm.showLoadingBar,
+        on: {
+          click: function($event) {
+            _vm.closePhotoDetails()
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "div",
+          { staticClass: "column" },
+          _vm._l(_vm.firstColumnImages, function(image) {
+            return _c(
+              "div",
+              {
+                staticClass: "photo-container",
+                on: {
+                  click: function($event) {
+                    _vm.displayPhotoDetails(image.id)
+                  }
+                }
+              },
+              [
+                _c("img", {
+                  staticStyle: { width: "100%" },
+                  attrs: { src: _vm.fullImagePath(image.photo_path) }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "photo-overlay" }, [
+                  _c("h1", { staticClass: "photo-publish-year" }, [
+                    _vm._v(_vm._s(image.post_date))
+                  ]),
+                  _vm._v(" "),
+                  _c("h1", { staticClass: "photo-published-by" }, [
+                    _vm._v("Uploaded: " + _vm._s(image.user.name))
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "photo-details",
+                    class: { showphotodetails: _vm.isPhotoOpend(image.id) }
+                  },
+                  [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-md-10" }, [
+                        _c("h2", { staticClass: "date" }, [
+                          _vm._v(_vm._s(image.post_date))
+                        ]),
+                        _vm._v(" "),
+                        _c("h2", { staticClass: "title" }, [
+                          _vm._v("UPLOADED BY " + _vm._s(image.user.name))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-2" }, [
+                        _c("div", {
+                          staticClass: "close-thik",
+                          on: {
+                            click: function($event) {
+                              $event.stopPropagation()
+                              _vm.closePhotoDetails()
+                            }
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticClass: "image",
+                      style: {
+                        backgroundImage:
+                          "url('" + _vm.fullImagePath(image.photo_path) + "')"
+                      }
+                    })
+                  ]
+                )
+              ]
+            )
+          })
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "column" },
+          _vm._l(_vm.secondColumnImages, function(image) {
+            return _c(
+              "div",
+              {
+                staticClass: "photo-container",
+                on: {
+                  click: function($event) {
+                    _vm.displayPhotoDetails(image.id)
+                  }
+                }
+              },
+              [
+                _c("img", {
+                  staticStyle: { width: "100%" },
+                  attrs: { src: _vm.fullImagePath(image.photo_path) }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "photo-overlay" }, [
+                  _c("h1", { staticClass: "photo-publish-year" }, [
+                    _vm._v(_vm._s(image.post_date))
+                  ]),
+                  _vm._v(" "),
+                  _c("h1", { staticClass: "photo-published-by" }, [
+                    _vm._v("Uploaded: " + _vm._s(image.user.name))
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "photo-details",
+                    class: { showphotodetails: _vm.isPhotoOpend(image.id) }
+                  },
+                  [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-md-10" }, [
+                        _c("h2", { staticClass: "date" }, [
+                          _vm._v(_vm._s(image.post_date))
+                        ]),
+                        _vm._v(" "),
+                        _c("h2", { staticClass: "title" }, [
+                          _vm._v("UPLOADED BY " + _vm._s(image.user.name))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-2" }, [
+                        _c("div", {
+                          staticClass: "close-thik",
+                          on: {
+                            click: function($event) {
+                              $event.stopPropagation()
+                              return _vm.closePhotoDetails($event)
+                            }
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticClass: "image",
+                      style: {
+                        backgroundImage:
+                          "url('" + _vm.fullImagePath(image.photo_path) + "')"
+                      }
+                    })
+                  ]
+                )
+              ]
+            )
+          })
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "column" },
+          _vm._l(_vm.thirdColumnImages, function(image) {
+            return _c(
+              "div",
+              {
+                staticClass: "photo-container",
+                on: {
+                  click: function($event) {
+                    _vm.displayPhotoDetails(image.id)
+                  }
+                }
+              },
+              [
+                _c("img", {
+                  staticStyle: { width: "100%" },
+                  attrs: { src: _vm.fullImagePath(image.photo_path) }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "photo-overlay" }, [
+                  _c("h1", { staticClass: "photo-publish-year" }, [
+                    _vm._v(_vm._s(image.post_date))
+                  ]),
+                  _vm._v(" "),
+                  _c("h1", { staticClass: "photo-published-by" }, [
+                    _vm._v("Uploaded: " + _vm._s(image.user.name))
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "photo-details",
+                    class: { showphotodetails: _vm.isPhotoOpend(image.id) }
+                  },
+                  [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-md-10" }, [
+                        _c("h2", { staticClass: "date" }, [
+                          _vm._v(_vm._s(image.post_date))
+                        ]),
+                        _vm._v(" "),
+                        _c("h2", { staticClass: "title" }, [
+                          _vm._v("UPLOADED BY " + _vm._s(image.user.name))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-2" }, [
+                        _c("div", {
+                          staticClass: "close-thik",
+                          on: {
+                            click: function($event) {
+                              $event.stopPropagation()
+                              return _vm.closePhotoDetails($event)
+                            }
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticClass: "image",
+                      style: {
+                        backgroundImage:
+                          "url('" + _vm.fullImagePath(image.photo_path) + "')"
+                      }
+                    })
+                  ]
+                )
+              ]
+            )
+          })
+        )
+      ]),
+      _vm._v(" "),
+      _vm.currentPage < _vm.lastPage
+        ? _c("div", { staticClass: "row show-more-images-container" }, [
+            _c("h4", [
+              _c(
+                "span",
+                {
+                  on: {
+                    click: function($event) {
+                      _vm.loadMorePhotos()
+                    }
+                  }
+                },
+                [_vm._v("SHOW MORE")]
+              )
+            ])
+          ])
+        : _vm._e()
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-4 display-style" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("span", { staticClass: "simple-view glyphicon glyphicon-th" }),
+        _vm._v(" "),
+        _c("span", { staticClass: "grid-view glyphicon glyphicon-th-list" })
+      ])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

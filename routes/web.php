@@ -26,3 +26,5 @@ Route::resource('class-notes', 'ClassNote\ClassNoteController');
 Route::resource('photo-gallery', 'UserPhotoGallery\UserPhotoGalleryController');
 
 Route::get('photos', 'UserPhotoGallery\UserPhotoGalleryController@loadMorePhotos');
+
+Route::get('filter-photos/{periodStart}/{periodEnd}', 'UserPhotoGallery\UserPhotoGalleryController@filterPhotosByPeriod');

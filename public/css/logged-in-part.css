@@ -706,6 +706,10 @@ body {
     padding-top: 20px;
 }
 
+.photos-container > .row {
+    width: 100%;
+}
+
 .column {
     -ms-flex: 33%; /* IE10 */
     flex: 33%;
@@ -714,7 +718,6 @@ body {
 }
 
 .column img {
-    margin-top: 14px;
     vertical-align: middle;
 }
 
@@ -739,6 +742,111 @@ body {
 .simple-view::before {
     content: "\f00a";
     font-family: 'fontawesome';
+}
+
+.loading-bar {
+    display: none;
+}
+
+.show-loading-bar {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(28, 53, 119, 0.6);
+    z-index: 3;
+}
+
+.photo-container {
+    position: relative;
+    margin-top: 14px;
+}
+
+.photo-overlay {
+    display: none;
+}
+
+.photo-container:hover .photo-overlay {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(28, 53, 119, 0.6);
+    cursor: pointer;
+}
+
+.photo-publish-year {
+    color: #fff;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.photo-published-by {
+    color: #fff;
+    position: absolute;
+    right: 40px;
+    bottom: 20px;
+}
+
+.photo-details {
+    position: fixed;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    background-color: #fff;
+    z-index: 9648;
+    overflow: hidden;
+}
+
+.showphotodetails {
+    display: block;
+}
+
+.photo-details .title {
+    color: rgb(28, 53, 119);
+    padding-left: 25px;
+}
+
+.photo-details .date {
+    color: rgb(28, 53, 119);
+    font-weight: 800;   
+    padding-top: 10px;
+    padding-left: 25px;
+}
+
+.close-thik {
+  color: rgb(28, 53, 119);
+  font: 20px/100% arial, sans-serif;
+  position: absolute;
+  right: 10px;
+  text-decoration: none;
+  text-shadow: 0 1px 0 #fff;
+  top: 10px;
+  border: 4px solid rgb(28, 53, 119);
+  border-radius: 50%;
+  padding: 7px;
+}
+
+.close-thik:after {
+  content: '✖'; /* UTF-8 symbol */
+}
+
+.close-thik:hover {
+    cursor: pointer;
+}
+
+.photo-details .image {
+    margin: 10px 40px;
+    height: 84%;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 
