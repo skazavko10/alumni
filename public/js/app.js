@@ -14014,6 +14014,7 @@ window.Vue = __webpack_require__(37);
 
 Vue.component('example-component', __webpack_require__(40));
 Vue.component('list-photos-component', __webpack_require__(50));
+Vue.component('list-class-notes', __webpack_require__(53));
 
 var app = new Vue({
   el: '#app'
@@ -47414,7 +47415,7 @@ if (false) {
 /* 46 */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed: ModuleBuildError: Module build failed: Error: Missing binding /home/slavko/Desktop/AlumniWebPage/node_modules/node-sass/vendor/linux-x64-48/binding.node\nNode Sass could not find a binding for your current environment: Linux 64-bit with Node.js 6.x\n\nFound bindings for the following environments:\n  - Linux 64-bit with Node.js 4.x\n\nThis usually happens because your environment has changed since running `npm install`.\nRun `npm rebuild node-sass` to download the binding for your current environment.\n    at module.exports (/home/slavko/Desktop/AlumniWebPage/node_modules/node-sass/lib/binding.js:15:13)\n    at Object.<anonymous> (/home/slavko/Desktop/AlumniWebPage/node_modules/node-sass/lib/index.js:14:35)\n    at Module._compile (module.js:577:32)\n    at Object.Module._extensions..js (module.js:586:10)\n    at Module.load (module.js:494:32)\n    at tryModuleLoad (module.js:453:12)\n    at Function.Module._load (module.js:445:3)\n    at Module.require (module.js:504:17)\n    at require (internal/module.js:20:19)\n    at Object.<anonymous> (/home/slavko/Desktop/AlumniWebPage/node_modules/sass-loader/lib/loader.js:3:14)\n    at Module._compile (module.js:577:32)\n    at Object.Module._extensions..js (module.js:586:10)\n    at Module.load (module.js:494:32)\n    at tryModuleLoad (module.js:453:12)\n    at Function.Module._load (module.js:445:3)\n    at Module.require (module.js:504:17)\n    at require (internal/module.js:20:19)\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:13:17)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at runLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModule.js:195:19)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:364:11\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:170:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:27:11)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at runLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:362:2)\n    at NormalModule.doBuild (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModule.js:182:3)\n    at NormalModule.build (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModule.js:275:15)\n    at Compilation.buildModule (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/Compilation.js:157:10)\n    at moduleFactory.create (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/Compilation.js:460:10)\n    at factory (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModuleFactory.js:243:5)\n    at applyPluginsAsyncWaterfall (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModuleFactory.js:94:13)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/tapable/lib/Tapable.js:268:11\n    at NormalModuleFactory.params.normalModuleFactory.plugin (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/CompatibilityPlugin.js:52:5)\n    at NormalModuleFactory.applyPluginsAsyncWaterfall (/home/slavko/Desktop/AlumniWebPage/node_modules/tapable/lib/Tapable.js:272:13)\n    at resolver (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModuleFactory.js:69:10)\n    at process.nextTick (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModuleFactory.js:196:7)\n    at _combinedTickCallback (internal/process/next_tick.js:73:7)");
+throw new Error("Module build failed: ModuleBuildError: Module build failed: Error: Missing binding /home/slavko/Desktop/AlumniWebPage/node_modules/node-sass/vendor/linux-x64-48/binding.node\nNode Sass could not find a binding for your current environment: Linux 64-bit with Node.js 6.x\n\nFound bindings for the following environments:\n  - Linux 64-bit with Node.js 4.x\n\nThis usually happens because your environment has changed since running `npm install`.\nRun `npm rebuild node-sass` to download the binding for your current environment.\n    at module.exports (/home/slavko/Desktop/AlumniWebPage/node_modules/node-sass/lib/binding.js:15:13)\n    at Object.<anonymous> (/home/slavko/Desktop/AlumniWebPage/node_modules/node-sass/lib/index.js:14:35)\n    at Module._compile (module.js:577:32)\n    at Object.Module._extensions..js (module.js:586:10)\n    at Module.load (module.js:494:32)\n    at tryModuleLoad (module.js:453:12)\n    at Function.Module._load (module.js:445:3)\n    at Module.require (module.js:504:17)\n    at require (internal/module.js:20:19)\n    at Object.<anonymous> (/home/slavko/Desktop/AlumniWebPage/node_modules/sass-loader/lib/loader.js:3:14)\n    at Module._compile (module.js:577:32)\n    at Object.Module._extensions..js (module.js:586:10)\n    at Module.load (module.js:494:32)\n    at tryModuleLoad (module.js:453:12)\n    at Function.Module._load (module.js:445:3)\n    at Module.require (module.js:504:17)\n    at require (internal/module.js:20:19)\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:13:17)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at runLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModule.js:195:19)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:364:11\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:170:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:27:11)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at runLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:362:2)\n    at NormalModule.doBuild (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModule.js:182:3)\n    at NormalModule.build (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModule.js:275:15)\n    at Compilation.buildModule (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/Compilation.js:157:10)\n    at moduleFactory.create (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/Compilation.js:460:10)\n    at factory (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModuleFactory.js:243:5)\n    at applyPluginsAsyncWaterfall (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModuleFactory.js:94:13)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/tapable/lib/Tapable.js:268:11\n    at NormalModuleFactory.params.normalModuleFactory.plugin (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/CompatibilityPlugin.js:52:5)\n    at NormalModuleFactory.applyPluginsAsyncWaterfall (/home/slavko/Desktop/AlumniWebPage/node_modules/tapable/lib/Tapable.js:272:13)\n    at resolver (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModuleFactory.js:69:10)\n    at process.nextTick (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModuleFactory.js:196:7)\n    at _combinedTickCallback (internal/process/next_tick.js:73:7)\n    at process._tickCallback (internal/process/next_tick.js:104:9)");
 
 /***/ }),
 /* 47 */,
@@ -47643,6 +47644,1024 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-4ea4e097", module.exports)
+  }
+}
+
+/***/ }),
+/* 53 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(11)
+/* script */
+var __vue_script__ = __webpack_require__(54)
+/* template */
+var __vue_template__ = __webpack_require__(55)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/ListClassNotesComponent.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7dfd406f", Component.options)
+  } else {
+    hotAPI.reload("data-v-7dfd406f", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 54 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+
+    props: {
+        firstPeriodClassNotes: {
+            type: Array,
+            required: true
+        },
+        secondPeriodClassNotes: {
+            type: Array,
+            required: true
+        },
+        thirdPeriodClassNotes: {
+            type: Array,
+            required: true
+        },
+        fourthPeriodClassNotes: {
+            type: Array,
+            required: true
+        },
+        fifthPeriodClassNotes: {
+            type: Array,
+            required: true
+        },
+        sixthPeriodClassNotes: {
+            type: Array,
+            required: true
+        },
+        seventhPeriodClassNotes: {
+            type: Array,
+            required: true
+        },
+        eightPeriodClassNotes: {
+            type: Array,
+            required: true
+        }
+    },
+
+    data: function data() {
+        return {};
+    },
+    mounted: function mounted() {
+        this.firstPeriodClassNotes = JSON.parse(this.firstPeriodClassNotes);
+        this.secondPeriodClassNotes = JSON.parse(this.secondPeriodClassNotes);
+        this.thirdPeriodClassNotes = JSON.parse(this.thirdPeriodClassNotes);
+        this.fourthPeriodClassNotes = JSON.parse(this.fourthPeriodClassNotes);
+        this.fifthPeriodClassNotes = JSON.parse(this.fifthPeriodClassNotes);
+        this.sixthPeriodClassNotes = JSON.parse(this.sixthPeriodClassNotes);
+        this.seventhPeriodClassNotes = JSON.parse(this.seventhPeriodClassNotes);
+        this.eightPeriodClassNotes = JSON.parse(this.eightPeriodClassNotes);
+    },
+
+
+    methods: {
+        classNoteId: function classNoteId(id) {
+            return 'note-' + id;
+        }
+    }
+});
+
+/***/ }),
+/* 55 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "class-notes-by-period" }, [
+    _c("div", { staticClass: "period" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "additional-section first-period" },
+        [
+          _vm._m(1),
+          _vm._v(" "),
+          _vm._l(_vm.firstPeriodClassNotes, function(classNote) {
+            return _c("div", { staticClass: "notes-container" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-10 title" }, [
+                  _c("h1", { class: _vm.classNoteId(classNote.id) }, [
+                    _vm._v(_vm._s(classNote.name))
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(2, true)
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "row additional-section",
+                  class: _vm.classNoteId(classNote.id)
+                },
+                [
+                  _c("div", { staticClass: "col-md-12 text" }, [
+                    _c("h5", [_vm._v(_vm._s(classNote.text))])
+                  ])
+                ]
+              )
+            ])
+          })
+        ],
+        2
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "period" }, [
+      _vm._m(3),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "additional-section second-period" },
+        [
+          _vm._m(4),
+          _vm._v(" "),
+          _vm._l(_vm.secondPeriodClassNotes, function(classNote) {
+            return _c("div", { staticClass: "notes-container" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-10 title" }, [
+                  _c("h1", { class: _vm.classNoteId(classNote.id) }, [
+                    _vm._v(_vm._s(classNote.name))
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(5, true)
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "row additional-section",
+                  class: _vm.classNoteId(classNote.id)
+                },
+                [
+                  _c("div", { staticClass: "col-md-12 text" }, [
+                    _c("h5", [_vm._v(_vm._s(classNote.text))])
+                  ])
+                ]
+              )
+            ])
+          })
+        ],
+        2
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "period" }, [
+      _vm._m(6),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "additional-section third-period" },
+        [
+          _vm._m(7),
+          _vm._v(" "),
+          _vm._l(_vm.thirdPeriodClassNotes, function(classNote) {
+            return _c("div", { staticClass: "notes-container" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-10 title" }, [
+                  _c("h1", { class: _vm.classNoteId(classNote.id) }, [
+                    _vm._v(_vm._s(classNote.name))
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(8, true)
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "row additional-section",
+                  class: _vm.classNoteId(classNote.id)
+                },
+                [
+                  _c("div", { staticClass: "col-md-12 text" }, [
+                    _c("h5", [_vm._v(_vm._s(classNote.text))])
+                  ])
+                ]
+              )
+            ])
+          })
+        ],
+        2
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "period" }, [
+      _vm._m(9),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "additional-section fourth-period" },
+        [
+          _vm._m(10),
+          _vm._v(" "),
+          _vm._l(_vm.fourthPeriodClassNotes, function(classNote) {
+            return _c("div", { staticClass: "notes-container" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-10 title" }, [
+                  _c("h1", { class: _vm.classNoteId(classNote.id) }, [
+                    _vm._v(_vm._s(classNote.name))
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(11, true)
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "row additional-section",
+                  class: _vm.classNoteId(classNote.id)
+                },
+                [
+                  _c("div", { staticClass: "col-md-12 text" }, [
+                    _c("h5", [_vm._v(_vm._s(classNote.text))])
+                  ])
+                ]
+              )
+            ])
+          })
+        ],
+        2
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "period" }, [
+      _vm._m(12),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "additional-section fifth-period" },
+        [
+          _vm._m(13),
+          _vm._v(" "),
+          _vm._l(_vm.fifthPeriodClassNotes, function(classNote) {
+            return _c("div", { staticClass: "notes-container" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-10 title" }, [
+                  _c("h1", { class: _vm.classNoteId(classNote.id) }, [
+                    _vm._v(_vm._s(classNote.name))
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(14, true)
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "row additional-section",
+                  class: _vm.classNoteId(classNote.id)
+                },
+                [
+                  _c("div", { staticClass: "col-md-12 text" }, [
+                    _c("h5", [_vm._v(_vm._s(classNote.text))])
+                  ])
+                ]
+              )
+            ])
+          })
+        ],
+        2
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "period" }, [
+      _vm._m(15),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "additional-section sixth-period" },
+        [
+          _vm._m(16),
+          _vm._v(" "),
+          _vm._l(_vm.sixthPeriodClassNotes, function(classNote) {
+            return _c("div", { staticClass: "notes-container" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-10 title" }, [
+                  _c("h1", { class: _vm.classNoteId(classNote.id) }, [
+                    _vm._v(_vm._s(classNote.name))
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(17, true)
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "row additional-section",
+                  class: _vm.classNoteId(classNote.id)
+                },
+                [
+                  _c("div", { staticClass: "col-md-12 text" }, [
+                    _c("h5", [_vm._v(_vm._s(classNote.text))])
+                  ])
+                ]
+              )
+            ])
+          })
+        ],
+        2
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "period" }, [
+      _vm._m(18),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "additional-section seventh-period" },
+        [
+          _vm._m(19),
+          _vm._v(" "),
+          _vm._l(_vm.seventhPeriodClassNotes, function(classNote) {
+            return _c("div", { staticClass: "notes-container" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-10 title" }, [
+                  _c("h1", { class: _vm.classNoteId(classNote.id) }, [
+                    _vm._v(_vm._s(classNote.name))
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(20, true)
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "row additional-section",
+                  class: _vm.classNoteId(classNote.id)
+                },
+                [
+                  _c("div", { staticClass: "col-md-12 text" }, [
+                    _c("h5", [_vm._v(_vm._s(classNote.text))])
+                  ])
+                ]
+              )
+            ])
+          })
+        ],
+        2
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "period" }, [
+      _vm._m(21),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "additional-section eight-period" },
+        [
+          _vm._m(22),
+          _vm._v(" "),
+          _vm._l(_vm.eightPeriodClassNotes, function(classNote) {
+            return _c("div", { staticClass: "notes-container" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-10 title" }, [
+                  _c("h1", { class: _vm.classNoteId(classNote.id) }, [
+                    _vm._v(_vm._s(classNote.name))
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(23, true)
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "row additional-section",
+                  class: _vm.classNoteId(classNote.id)
+                },
+                [
+                  _c("div", { staticClass: "col-md-12 text" }, [
+                    _c("h5", [_vm._v(_vm._s(classNote.text))])
+                  ])
+                ]
+              )
+            ])
+          })
+        ],
+        2
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-10 first-col" }, [
+        _c("h2", { staticClass: "first-period" }, [_vm._v("1943 - 1949")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-2" }, [_c("p", [_vm._v("S")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "period-header-image" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2 expand" }, [
+      _c("span", [_vm._v("+")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-10 first-col" }, [
+        _c("h2", { staticClass: "second-period" }, [_vm._v("1950 - 1959")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-2" }, [_c("p", [_vm._v("S")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "period-header-image" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2 expand" }, [
+      _c("span", [_vm._v("+")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-10 first-col" }, [
+        _c("h2", { staticClass: "third-period" }, [_vm._v("1960 - 1969")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-2" }, [_c("p", [_vm._v("S")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "period-header-image" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2 expand" }, [
+      _c("span", [_vm._v("+")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-10 first-col" }, [
+        _c("h2", { staticClass: "fourth-period" }, [_vm._v("1970 - 1979")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-2" }, [_c("p", [_vm._v("S")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "period-header-image" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2 expand" }, [
+      _c("span", [_vm._v("+")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-10 first-col" }, [
+        _c("h2", { staticClass: "fifth-period" }, [_vm._v("1980 - 1989")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-2" }, [_c("p", [_vm._v("S")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "period-header-image" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2 expand" }, [
+      _c("span", [_vm._v("+")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-10 first-col" }, [
+        _c("h2", { staticClass: "sixth-period" }, [_vm._v("1990 - 1999")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-2" }, [_c("p", [_vm._v("S")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "period-header-image" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2 expand" }, [
+      _c("span", [_vm._v("+")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-10 first-col" }, [
+        _c("h2", { staticClass: "seventh-period" }, [_vm._v("2000 - 2009")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-2" }, [_c("p", [_vm._v("S")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "period-header-image" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2 expand" }, [
+      _c("span", [_vm._v("+")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-10 first-col" }, [
+        _c("h2", { staticClass: "eight-period" }, [_vm._v("2010 - TODAY")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-2" }, [_c("p", [_vm._v("S")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "period-header-image" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2 expand" }, [
+      _c("span", [_vm._v("+")])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-7dfd406f", module.exports)
   }
 }
 

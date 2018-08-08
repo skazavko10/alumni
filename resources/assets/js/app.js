@@ -17,6 +17,7 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('list-photos-component', require('./components/ListPhotosComponent.vue'));
+Vue.component('list-class-notes', require('./components/ListClassNotesComponent.vue'));
 
 const app = new Vue({
     el: '#app'
