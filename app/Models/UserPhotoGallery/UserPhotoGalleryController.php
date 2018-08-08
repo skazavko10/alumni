@@ -26,6 +26,10 @@ class UserPhotoGalleryController extends Controller
         $secondColumnImages = $images->slice(4, 4);
         $thirdColumnImages = $images->slice(8, 4);
 
+        $firstColumnImages = array_slice($firstColumnImages->toArray(), 0);
+        $secondColumnImages = array_slice($secondColumnImages->toArray(), 0);
+        $thirdColumnImages = array_slice($thirdColumnImages->toArray(), 0);
+
         return view('photo-gallery.index')->with([
             'firstColumnImages' => json_encode($firstColumnImages),
             'secondColumnImages' => json_encode($secondColumnImages),
@@ -101,5 +105,24 @@ class UserPhotoGalleryController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function loadMorePhotos()
+    {
+        $images = UserPhotoGallery::orderBy('created_at', 'DESC')->paginate(12);
+
+        $firstColumnImages = $images->slice(0, 4);
+        $secondColumnImages = $images->slice(4, 4);
+        $thirdColumnImages = $images->slice(8, 4);
+
+        $firstColumnImages = array_slice($firstColumnImages->toArray(), 0);
+        $secondColumnImages = array_slice($secondColumnImages->toArray(), 0);
+        $thirdColumnImages = array_slice($thirdColumnImages->toArray(), 0);
+
+        $returnArray['firstColumnImages'] = $firstColumnImages;
+        $returnArray['secondColumnImages'] = $secondColumnImages;
+        $returnArray['thirdColumnImages'] = $thirdColumnImages;
+
+        return json_encode($returnArray);
     }
 }

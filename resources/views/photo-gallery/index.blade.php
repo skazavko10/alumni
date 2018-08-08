@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
 	<div class="photo-gallery header-image">
 		<div class="upload-photo-container">
 			<a href="#" class="upload-your-photos">
@@ -43,68 +41,14 @@
 		</div>
 
 		<div class="col-md-4 display-style">
-			
+			<div class="container">
+				<span class="simple-view glyphicon glyphicon-th"></span>
+
+				<span class="grid-view glyphicon glyphicon-th-list">
+				</span>
+			</div>
 		</div>
 	</div>
 
-	<div class="photos-container" id="v-app">
-		<div class="row">
-			<div class="column">
-				<span v-for="image in firstColumnImages">
-					<img :src="fullImagePath(image.photo_path)" style="width:100%">
-				</span>
-			</div>
-
-			<div class="column">
-				<span v-for="image in secondColumnImages">
-					<img :src="fullImagePath(image.photo_path)" style="width:100%">
-				</span>
-			</div>
-
-			<div class="column">
-				<span v-for="image in thirdColumnImages">
-					<img :src="fullImagePath(image.photo_path)" style="width:100%">
-				</span>
-			</div>
-		</div>
-
-		<div class="row show-more-images-container">
-			<h4>
-				<span v-on:click.self="loadMorePhotos()">SHOW MORE</span>
-			</h4>
-		</div>
-	</div>
-
-	<script>
-		
-		var app = new Vue({
-		  	el: '#v-app',
-		  
-			data() {
-				return {
-					firstColumnImages: {!! $firstColumnImages !!},
-				    secondColumnImages: {!! $secondColumnImages !!},
-				    thirdColumnImages: {!! $thirdColumnImages !!},
-				    lastPage: {!! $lastPage !!},
-				    currentPage: {!! $currentPage !!},
-				    title: 'S'
-				}
-			},
-
-	        mounted() {
-	        	
-	        },
-
-			methods: {
-				fullImagePath: function(photo_path) {
-					return '/images/photo_gallery/' + photo_path;
-				},
-
-				loadMorePhotos: function() {
-			      	console.log('CLICK');
-			    }
-		   	}
-		});
-
-	</script>
+	<list-photos-component first-column-images="{{ $firstColumnImages }}" second-column-images="{{ $secondColumnImages }}" third-column-images="{{ $thirdColumnImages }}" last-page="{{ $lastPage }}" current-page="{{ $currentPage }}"></list-photos-component>
 @endsection

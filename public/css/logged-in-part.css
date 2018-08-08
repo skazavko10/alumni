@@ -731,6 +731,16 @@ body {
     cursor: pointer;
 }
 
+.simple-view,
+.grid-view {
+    color: rgb(28, 53, 119);
+}
+
+.simple-view::before {
+    content: "\f00a";
+    font-family: 'fontawesome';
+}
+
 
 
 /* Media Queris */

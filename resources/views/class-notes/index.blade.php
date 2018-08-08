@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
 	<div class="class-notes header-image">
 	</div>
 

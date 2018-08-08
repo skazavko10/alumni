@@ -24,3 +24,5 @@ Route::get('/test', 'Event\TestController@test')->name('test');
 Route::resource('class-notes', 'ClassNote\ClassNoteController');
 
 Route::resource('photo-gallery', 'UserPhotoGallery\UserPhotoGalleryController');
+
+Route::get('photos', 'UserPhotoGallery\UserPhotoGalleryController@loadMorePhotos');
