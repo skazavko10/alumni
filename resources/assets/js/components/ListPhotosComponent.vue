@@ -26,7 +26,7 @@
                     <h2 class="title">INSERT PHOTOS TO UPLOAD</h2>
 
                     <div>
-                        <form method="POST" action="/photo-gallery" enctype="multipart/form-data">
+                        <form id="upload-photos-form" method="POST" enctype="multipart/form-data" @submit.prevent="insertPhotos()">
                             <input id="input-b3" name="images[]" type="file" class="file" multiple data-show-upload="true" data-show-caption="true" data-msg-placeholder="Select {files} for upload..." data-allowed-file-extensions='["jpg", "jpeg", "png", "gif"]'>
                         </form>
                     </div>
@@ -314,6 +314,37 @@
             displayUploadPhotosContainer: function() {
                 this.showUploadPhotosContainer = 'show';
                 this.showLoadingBar = 'show-loading-bar';
+            },
+
+            insertPhotos: function() {
+                var myForm = document.getElementById('upload-photos-form');
+                var formData = new FormData(myForm);
+
+                axios.post('http://localhost:8000/photo-gallery', formData)
+                    .then(response => {
+                        var that = this;
+
+                        response.data.firstColumnImages.map(function(image, key) {
+                            that.firstColumnImages.unshift(image);
+                        });
+
+                        response.data.secondColumnImages.map(function(image, key) {
+                            that.secondColumnImages.unshift(image);
+                        });
+
+                        response.data.thirdColumnImages.map(function(image, key) {
+                            that.thirdColumnImages.unshift(image);
+                        });
+
+                        this.showLoadingBar = '';
+                        this.showUploadPhotosContainer = '';
+                    })
+                    .catch(e => {
+                      console.log(e);
+
+                      this.showLoadingBar = '';
+                      this.showUploadPhotosContainer = '';
+                    });
             }
         }
     }

@@ -728,6 +728,7 @@ body {
 .show-more-images-container {
     margin: auto;
     padding-top: 30px;
+    width: auto !important;
 }
 
 .show-more-images-container h4 {

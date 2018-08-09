@@ -55,23 +55,48 @@ class UserPhotoGalleryController extends Controller
     {
         $imageFiles = $request->images;
 
+        $firstColumnImages = [];
+        $secondColumnImages = [];
+        $thirdColumnImages = [];
+        $counter = 0;
         foreach ($imageFiles as $image) {
             $imageNameWithPath = Storage::putFile('public/photo_gallery', $image);
             $imageName = explode('public/photo_gallery/', $imageNameWithPath)[1];
         
-            UserPhotoGallery::create([
+            $photoGallery = UserPhotoGallery::create([
                 'user_id' => Auth::id(),
                 'photo_path' => $imageName,
                 'post_date' => date('Y')
             ]);
+
+            if($counter % 3 == 0) {
+                $firstColumnImages[] = UserPhotoGallery::with('user')
+                                ->find($photoGallery->id);    
+            }
+            else if($counter % 3 == 1) {
+                $secondColumnImages[] = UserPhotoGallery::with('user')
+                                ->find($photoGallery->id);    
+            }
+            else {
+                $thirdColumnImages[] = UserPhotoGallery::with('user')
+                                ->find($photoGallery->id);    
+            }
+            
+            $counter++;
         }
 
-        dd('IOIO');
+        $returnArray['firstColumnImages'] = $firstColumnImages;
+        $returnArray['secondColumnImages'] = $secondColumnImages;
+        $returnArray['thirdColumnImages'] = $thirdColumnImages;
+
+        return json_encode($returnArray);
     }
 
     public function loadMorePhotos()
     {
-        $images = UserPhotoGallery::orderBy('created_at', 'DESC')->paginate(12);
+        $images = UserPhotoGallery::orderBy('created_at', 'DESC')
+                    ->with('user')
+                    ->paginate(12);
 
         $firstColumnImages = $images->slice(0, 4);
         $secondColumnImages = $images->slice(4, 4);

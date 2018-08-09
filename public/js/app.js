@@ -47777,6 +47777,37 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         displayUploadPhotosContainer: function displayUploadPhotosContainer() {
             this.showUploadPhotosContainer = 'show';
             this.showLoadingBar = 'show-loading-bar';
+        },
+
+        insertPhotos: function insertPhotos() {
+            var _this3 = this;
+
+            var myForm = document.getElementById('upload-photos-form');
+            var formData = new FormData(myForm);
+
+            axios.post('http://localhost:8000/photo-gallery', formData).then(function (response) {
+                var that = _this3;
+
+                response.data.firstColumnImages.map(function (image, key) {
+                    that.firstColumnImages.unshift(image);
+                });
+
+                response.data.secondColumnImages.map(function (image, key) {
+                    that.secondColumnImages.unshift(image);
+                });
+
+                response.data.thirdColumnImages.map(function (image, key) {
+                    that.thirdColumnImages.unshift(image);
+                });
+
+                _this3.showLoadingBar = '';
+                _this3.showUploadPhotosContainer = '';
+            }).catch(function (e) {
+                console.log(e);
+
+                _this3.showLoadingBar = '';
+                _this3.showUploadPhotosContainer = '';
+            });
         }
     }
 });
@@ -47824,7 +47855,46 @@ var render = function() {
       },
       [
         _c("div", { staticClass: "row" }, [
-          _vm._m(1),
+          _c("div", { staticClass: "col-md-10" }, [
+            _c("h2", { staticClass: "title" }, [
+              _vm._v("INSERT PHOTOS TO UPLOAD")
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c(
+                "form",
+                {
+                  attrs: {
+                    id: "upload-photos-form",
+                    method: "POST",
+                    enctype: "multipart/form-data"
+                  },
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      _vm.insertPhotos()
+                    }
+                  }
+                },
+                [
+                  _c("input", {
+                    staticClass: "file",
+                    attrs: {
+                      id: "input-b3",
+                      name: "images[]",
+                      type: "file",
+                      multiple: "",
+                      "data-show-upload": "true",
+                      "data-show-caption": "true",
+                      "data-msg-placeholder": "Select {files} for upload...",
+                      "data-allowed-file-extensions":
+                        '["jpg", "jpeg", "png", "gif"]'
+                    }
+                  })
+                ]
+              )
+            ])
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-md-2" }, [
             _c("div", {
@@ -47915,7 +47985,7 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _vm._m(2)
+      _vm._m(1)
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "photos-container" }, [
@@ -48192,42 +48262,6 @@ var staticRenderFns = [
             )
           ])
         ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-10" }, [
-      _c("h2", { staticClass: "title" }, [_vm._v("INSERT PHOTOS TO UPLOAD")]),
-      _vm._v(" "),
-      _c("div", [
-        _c(
-          "form",
-          {
-            attrs: {
-              method: "POST",
-              action: "/photo-gallery",
-              enctype: "multipart/form-data"
-            }
-          },
-          [
-            _c("input", {
-              staticClass: "file",
-              attrs: {
-                id: "input-b3",
-                name: "images[]",
-                type: "file",
-                multiple: "",
-                "data-show-upload": "true",
-                "data-show-caption": "true",
-                "data-msg-placeholder": "Select {files} for upload...",
-                "data-allowed-file-extensions": '["jpg", "jpeg", "png", "gif"]'
-              }
-            })
-          ]
-        )
       ])
     ])
   },
