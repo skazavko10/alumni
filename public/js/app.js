@@ -70,7 +70,7 @@
 "use strict";
 
 
-var bind = __webpack_require__(5);
+var bind = __webpack_require__(6);
 var isBuffer = __webpack_require__(20);
 
 /*global toString:true*/
@@ -424,10 +424,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(7);
+    adapter = __webpack_require__(8);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(7);
+    adapter = __webpack_require__(8);
   }
   return adapter;
 }
@@ -502,10 +502,119 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }),
 /* 3 */
+/***/ (function(module, exports) {
+
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file.
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+module.exports = function normalizeComponent (
+  rawScriptExports,
+  compiledTemplate,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier /* server only */
+) {
+  var esModule
+  var scriptExports = rawScriptExports = rawScriptExports || {}
+
+  // ES6 modules interop
+  var type = typeof rawScriptExports.default
+  if (type === 'object' || type === 'function') {
+    esModule = rawScriptExports
+    scriptExports = rawScriptExports.default
+  }
+
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // render functions
+  if (compiledTemplate) {
+    options.render = compiledTemplate.render
+    options.staticRenderFns = compiledTemplate.staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = injectStyles
+  }
+
+  if (hook) {
+    var functional = options.functional
+    var existing = functional
+      ? options.render
+      : options.beforeCreate
+
+    if (!functional) {
+      // inject component registration as beforeCreate hook
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    } else {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functioal component in vue file
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return existing(h, context)
+      }
+    }
+  }
+
+  return {
+    esModule: esModule,
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+/* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3046,7 +3155,7 @@ Popper.Defaults = Defaults;
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -13417,7 +13526,7 @@ return jQuery;
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13435,7 +13544,7 @@ module.exports = function bind(fn, thisArg) {
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -13625,7 +13734,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13636,7 +13745,7 @@ var settle = __webpack_require__(23);
 var buildURL = __webpack_require__(25);
 var parseHeaders = __webpack_require__(26);
 var isURLSameOrigin = __webpack_require__(27);
-var createError = __webpack_require__(8);
+var createError = __webpack_require__(9);
 var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(28);
 
 module.exports = function xhrAdapter(config) {
@@ -13812,7 +13921,7 @@ module.exports = function xhrAdapter(config) {
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13837,7 +13946,7 @@ module.exports = function createError(message, config, code, request, response) 
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13849,7 +13958,7 @@ module.exports = function isCancel(value) {
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13875,120 +13984,11 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 11 */
-/***/ (function(module, exports) {
-
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file.
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-module.exports = function normalizeComponent (
-  rawScriptExports,
-  compiledTemplate,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier /* server only */
-) {
-  var esModule
-  var scriptExports = rawScriptExports = rawScriptExports || {}
-
-  // ES6 modules interop
-  var type = typeof rawScriptExports.default
-  if (type === 'object' || type === 'function') {
-    esModule = rawScriptExports
-    scriptExports = rawScriptExports.default
-  }
-
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // render functions
-  if (compiledTemplate) {
-    options.render = compiledTemplate.render
-    options.staticRenderFns = compiledTemplate.staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = injectStyles
-  }
-
-  if (hook) {
-    var functional = options.functional
-    var existing = functional
-      ? options.render
-      : options.beforeCreate
-
-    if (!functional) {
-      // inject component registration as beforeCreate hook
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    } else {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functioal component in vue file
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return existing(h, context)
-      }
-    }
-  }
-
-  return {
-    esModule: esModule,
-    exports: scriptExports,
-    options: options
-  }
-}
-
-
-/***/ }),
 /* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(13);
-module.exports = __webpack_require__(46);
+module.exports = __webpack_require__(49);
 
 
 /***/ }),
@@ -14013,8 +14013,8 @@ window.Vue = __webpack_require__(37);
  */
 
 Vue.component('example-component', __webpack_require__(40));
-Vue.component('list-photos-component', __webpack_require__(50));
-Vue.component('list-class-notes', __webpack_require__(53));
+Vue.component('list-photos-component', __webpack_require__(43));
+Vue.component('list-class-notes', __webpack_require__(46));
 
 var app = new Vue({
   el: '#app'
@@ -14026,7 +14026,7 @@ var app = new Vue({
 
 
 window._ = __webpack_require__(15);
-window.Popper = __webpack_require__(3).default;
+window.Popper = __webpack_require__(4).default;
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -14035,7 +14035,7 @@ window.Popper = __webpack_require__(3).default;
  */
 
 try {
-  window.$ = window.jQuery = __webpack_require__(4);
+  window.$ = window.jQuery = __webpack_require__(5);
 
   __webpack_require__(17);
 } catch (e) {}
@@ -31232,7 +31232,7 @@ module.exports = function(module) {
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
   */
 (function (global, factory) {
-   true ? factory(exports, __webpack_require__(4), __webpack_require__(3)) :
+   true ? factory(exports, __webpack_require__(5), __webpack_require__(4)) :
   typeof define === 'function' && define.amd ? define(['exports', 'jquery', 'popper.js'], factory) :
   (factory((global.bootstrap = {}),global.jQuery,global.Popper));
 }(this, (function (exports,$,Popper) { 'use strict';
@@ -35186,7 +35186,7 @@ module.exports = __webpack_require__(19);
 
 
 var utils = __webpack_require__(0);
-var bind = __webpack_require__(5);
+var bind = __webpack_require__(6);
 var Axios = __webpack_require__(21);
 var defaults = __webpack_require__(2);
 
@@ -35221,9 +35221,9 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(10);
+axios.Cancel = __webpack_require__(11);
 axios.CancelToken = __webpack_require__(35);
-axios.isCancel = __webpack_require__(9);
+axios.isCancel = __webpack_require__(10);
 
 // Expose all/spread
 axios.all = function all(promises) {
@@ -35376,7 +35376,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 "use strict";
 
 
-var createError = __webpack_require__(8);
+var createError = __webpack_require__(9);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -35809,7 +35809,7 @@ module.exports = InterceptorManager;
 
 var utils = __webpack_require__(0);
 var transformData = __webpack_require__(32);
-var isCancel = __webpack_require__(9);
+var isCancel = __webpack_require__(10);
 var defaults = __webpack_require__(2);
 var isAbsoluteURL = __webpack_require__(33);
 var combineURLs = __webpack_require__(34);
@@ -35969,7 +35969,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 "use strict";
 
 
-var Cancel = __webpack_require__(10);
+var Cancel = __webpack_require__(11);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -47287,14 +47287,14 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(6)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(7)))
 
 /***/ }),
 /* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(11)
+var normalizeComponent = __webpack_require__(3)
 /* script */
 var __vue_script__ = __webpack_require__(41)
 /* template */
@@ -47409,27 +47409,15 @@ if (false) {
 }
 
 /***/ }),
-/* 43 */,
-/* 44 */,
-/* 45 */,
-/* 46 */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed: ModuleBuildError: Module build failed: Error: Missing binding /home/slavko/Desktop/AlumniWebPage/node_modules/node-sass/vendor/linux-x64-48/binding.node\nNode Sass could not find a binding for your current environment: Linux 64-bit with Node.js 6.x\n\nFound bindings for the following environments:\n  - Linux 64-bit with Node.js 4.x\n\nThis usually happens because your environment has changed since running `npm install`.\nRun `npm rebuild node-sass` to download the binding for your current environment.\n    at module.exports (/home/slavko/Desktop/AlumniWebPage/node_modules/node-sass/lib/binding.js:15:13)\n    at Object.<anonymous> (/home/slavko/Desktop/AlumniWebPage/node_modules/node-sass/lib/index.js:14:35)\n    at Module._compile (module.js:577:32)\n    at Object.Module._extensions..js (module.js:586:10)\n    at Module.load (module.js:494:32)\n    at tryModuleLoad (module.js:453:12)\n    at Function.Module._load (module.js:445:3)\n    at Module.require (module.js:504:17)\n    at require (internal/module.js:20:19)\n    at Object.<anonymous> (/home/slavko/Desktop/AlumniWebPage/node_modules/sass-loader/lib/loader.js:3:14)\n    at Module._compile (module.js:577:32)\n    at Object.Module._extensions..js (module.js:586:10)\n    at Module.load (module.js:494:32)\n    at tryModuleLoad (module.js:453:12)\n    at Function.Module._load (module.js:445:3)\n    at Module.require (module.js:504:17)\n    at require (internal/module.js:20:19)\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:13:17)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at runLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModule.js:195:19)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:364:11\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:170:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:27:11)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at runLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:362:2)\n    at NormalModule.doBuild (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModule.js:182:3)\n    at NormalModule.build (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModule.js:275:15)\n    at Compilation.buildModule (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/Compilation.js:157:10)\n    at moduleFactory.create (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/Compilation.js:460:10)\n    at factory (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModuleFactory.js:243:5)\n    at applyPluginsAsyncWaterfall (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModuleFactory.js:94:13)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/tapable/lib/Tapable.js:268:11\n    at NormalModuleFactory.params.normalModuleFactory.plugin (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/CompatibilityPlugin.js:52:5)\n    at NormalModuleFactory.applyPluginsAsyncWaterfall (/home/slavko/Desktop/AlumniWebPage/node_modules/tapable/lib/Tapable.js:272:13)\n    at resolver (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModuleFactory.js:69:10)\n    at process.nextTick (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModuleFactory.js:196:7)\n    at _combinedTickCallback (internal/process/next_tick.js:73:7)\n    at process._tickCallback (internal/process/next_tick.js:104:9)");
-
-/***/ }),
-/* 47 */,
-/* 48 */,
-/* 49 */,
-/* 50 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(11)
+var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(51)
+var __vue_script__ = __webpack_require__(44)
 /* template */
-var __vue_template__ = __webpack_require__(52)
+var __vue_template__ = __webpack_require__(45)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -47468,11 +47456,49 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 51 */
+/* 44 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -47607,15 +47633,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     props: {
         firstColumnImages: {
-            type: Array,
+            type: String,
             required: true
         },
         secondColumnImages: {
-            type: Array,
+            type: String,
             required: true
         },
         thirdColumnImages: {
-            type: Array,
+            type: String,
             required: true
         },
         lastPage: {
@@ -47634,7 +47660,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             period: '2010-',
             searchPeriodTitle: 'LATEST UPLOADS',
             showPhotoDetails: '',
-            clickedPhoto: ''
+            clickedPhoto: '',
+            showUploadPhotosContainer: ''
         };
     },
     mounted: function mounted() {
@@ -47646,7 +47673,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         fullImagePath: function fullImagePath(photo_path) {
-            return '/images/photo_gallery/' + photo_path;
+            return '/storage/photo_gallery/' + photo_path;
         },
 
         loadMorePhotos: function loadMorePhotos() {
@@ -47727,7 +47754,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
 
         displayPhotoDetails: function displayPhotoDetails(imageId) {
-            console.log('III');
             this.showPhotoDetails = 'show-photo-details-' + imageId;
             this.showLoadingBar = 'show-loading-bar';
             this.clickedPhoto = imageId;
@@ -47741,17 +47767,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             return false;
         },
 
-        closePhotoDetails: function closePhotoDetails() {
-            console.log('KLLK');
+        closeModal: function closeModal() {
             this.showLoadingBar = '';
             this.showPhotoDetails = '';
             this.clickedPhoto = '';
+            this.showUploadPhotosContainer = '';
+        },
+
+        displayUploadPhotosContainer: function displayUploadPhotosContainer() {
+            this.showUploadPhotosContainer = 'show';
+            this.showLoadingBar = 'show-loading-bar';
         }
     }
 });
 
 /***/ }),
-/* 52 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -47759,6 +47790,57 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    _c("div", { staticClass: "photo-gallery header-image" }, [
+      _c(
+        "div",
+        {
+          staticClass: "upload-photo-container",
+          on: {
+            click: function($event) {
+              _vm.displayUploadPhotosContainer()
+            }
+          }
+        },
+        [
+          _c("a", { staticClass: "upload-your-photos" }, [
+            _vm._v("\n                UPLOAD YOUR PHOTOS\n            ")
+          ])
+        ]
+      )
+    ]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "upload-photos-container",
+        class: _vm.showUploadPhotosContainer,
+        on: {
+          click: function($event) {
+            _vm.displayUploadPhotosContainer()
+          }
+        }
+      },
+      [
+        _c("div", { staticClass: "row" }, [
+          _vm._m(1),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-2" }, [
+            _c("div", {
+              staticClass: "close-thik",
+              on: {
+                click: function($event) {
+                  $event.stopPropagation()
+                  _vm.closeModal()
+                }
+              }
+            })
+          ])
+        ])
+      ]
+    ),
+    _vm._v(" "),
     _c("div", { staticClass: "row photo-order" }, [
       _c("div", { staticClass: "col-md-4 latest-photos" }, [
         _c("h4", [_vm._v(_vm._s(_vm.searchPeriodTitle))])
@@ -47833,7 +47915,7 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _vm._m(0)
+      _vm._m(2)
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "photos-container" }, [
@@ -47842,7 +47924,7 @@ var render = function() {
         class: _vm.showLoadingBar,
         on: {
           click: function($event) {
-            _vm.closePhotoDetails()
+            _vm.closeModal()
           }
         }
       }),
@@ -47882,7 +47964,7 @@ var render = function() {
                   "div",
                   {
                     staticClass: "photo-details",
-                    class: { showphotodetails: _vm.isPhotoOpend(image.id) }
+                    class: { show: _vm.isPhotoOpend(image.id) }
                   },
                   [
                     _c("div", { staticClass: "row" }, [
@@ -47902,7 +47984,7 @@ var render = function() {
                           on: {
                             click: function($event) {
                               $event.stopPropagation()
-                              _vm.closePhotoDetails()
+                              _vm.closeModal()
                             }
                           }
                         })
@@ -47957,7 +48039,7 @@ var render = function() {
                   "div",
                   {
                     staticClass: "photo-details",
-                    class: { showphotodetails: _vm.isPhotoOpend(image.id) }
+                    class: { show: _vm.isPhotoOpend(image.id) }
                   },
                   [
                     _c("div", { staticClass: "row" }, [
@@ -47977,7 +48059,7 @@ var render = function() {
                           on: {
                             click: function($event) {
                               $event.stopPropagation()
-                              return _vm.closePhotoDetails($event)
+                              _vm.closeModal()
                             }
                           }
                         })
@@ -48032,7 +48114,7 @@ var render = function() {
                   "div",
                   {
                     staticClass: "photo-details",
-                    class: { showphotodetails: _vm.isPhotoOpend(image.id) }
+                    class: { show: _vm.isPhotoOpend(image.id) }
                   },
                   [
                     _c("div", { staticClass: "row" }, [
@@ -48052,7 +48134,7 @@ var render = function() {
                           on: {
                             click: function($event) {
                               $event.stopPropagation()
-                              return _vm.closePhotoDetails($event)
+                              _vm.closeModal()
                             }
                           }
                         })
@@ -48099,6 +48181,60 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "photo-gallery-text" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-12 text" }, [
+          _c("h1", [_vm._v("PHOTO GALLERY")]),
+          _vm._v(" "),
+          _c("h4", [
+            _vm._v(
+              "\n                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n                "
+            )
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-10" }, [
+      _c("h2", { staticClass: "title" }, [_vm._v("INSERT PHOTOS TO UPLOAD")]),
+      _vm._v(" "),
+      _c("div", [
+        _c(
+          "form",
+          {
+            attrs: {
+              method: "POST",
+              action: "/photo-gallery",
+              enctype: "multipart/form-data"
+            }
+          },
+          [
+            _c("input", {
+              staticClass: "file",
+              attrs: {
+                id: "input-b3",
+                name: "images[]",
+                type: "file",
+                multiple: "",
+                "data-show-upload": "true",
+                "data-show-caption": "true",
+                "data-msg-placeholder": "Select {files} for upload...",
+                "data-allowed-file-extensions": '["jpg", "jpeg", "png", "gif"]'
+              }
+            })
+          ]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-4 display-style" }, [
       _c("div", { staticClass: "container" }, [
         _c("span", { staticClass: "simple-view glyphicon glyphicon-th" }),
@@ -48118,15 +48254,15 @@ if (false) {
 }
 
 /***/ }),
-/* 53 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(11)
+var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(54)
+var __vue_script__ = __webpack_require__(47)
 /* template */
-var __vue_template__ = __webpack_require__(55)
+var __vue_template__ = __webpack_require__(48)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -48165,7 +48301,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 54 */
+/* 47 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -48555,7 +48691,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 55 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -49134,6 +49270,12 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-7dfd406f", module.exports)
   }
 }
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed: ModuleBuildError: Module build failed: Error: Missing binding /home/slavko/Desktop/AlumniWebPage/node_modules/node-sass/vendor/linux-x64-48/binding.node\nNode Sass could not find a binding for your current environment: Linux 64-bit with Node.js 6.x\n\nFound bindings for the following environments:\n  - Linux 64-bit with Node.js 4.x\n\nThis usually happens because your environment has changed since running `npm install`.\nRun `npm rebuild node-sass` to download the binding for your current environment.\n    at module.exports (/home/slavko/Desktop/AlumniWebPage/node_modules/node-sass/lib/binding.js:15:13)\n    at Object.<anonymous> (/home/slavko/Desktop/AlumniWebPage/node_modules/node-sass/lib/index.js:14:35)\n    at Module._compile (module.js:577:32)\n    at Object.Module._extensions..js (module.js:586:10)\n    at Module.load (module.js:494:32)\n    at tryModuleLoad (module.js:453:12)\n    at Function.Module._load (module.js:445:3)\n    at Module.require (module.js:504:17)\n    at require (internal/module.js:20:19)\n    at Object.<anonymous> (/home/slavko/Desktop/AlumniWebPage/node_modules/sass-loader/lib/loader.js:3:14)\n    at Module._compile (module.js:577:32)\n    at Object.Module._extensions..js (module.js:586:10)\n    at Module.load (module.js:494:32)\n    at tryModuleLoad (module.js:453:12)\n    at Function.Module._load (module.js:445:3)\n    at Module.require (module.js:504:17)\n    at require (internal/module.js:20:19)\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:13:17)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at runLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModule.js:195:19)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:364:11\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:170:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:27:11)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at runLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:362:2)\n    at NormalModule.doBuild (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModule.js:182:3)\n    at NormalModule.build (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModule.js:275:15)\n    at Compilation.buildModule (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/Compilation.js:157:10)\n    at moduleFactory.create (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/Compilation.js:460:10)\n    at factory (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModuleFactory.js:243:5)\n    at applyPluginsAsyncWaterfall (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModuleFactory.js:94:13)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/tapable/lib/Tapable.js:268:11\n    at NormalModuleFactory.params.normalModuleFactory.plugin (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/CompatibilityPlugin.js:52:5)\n    at NormalModuleFactory.applyPluginsAsyncWaterfall (/home/slavko/Desktop/AlumniWebPage/node_modules/tapable/lib/Tapable.js:272:13)\n    at resolver (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModuleFactory.js:69:10)\n    at process.nextTick (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModuleFactory.js:196:7)\n    at _combinedTickCallback (internal/process/next_tick.js:73:7)\n    at process._tickCallback (internal/process/next_tick.js:104:9)");
 
 /***/ })
 /******/ ]);

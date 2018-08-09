@@ -1,5 +1,43 @@
 <template>
     <div>
+        <div class="photo-gallery header-image">
+            <div class="upload-photo-container" @click="displayUploadPhotosContainer()">
+                <a class="upload-your-photos">
+                    UPLOAD YOUR PHOTOS
+                </a>
+            </div>
+        </div>
+
+        <div class="photo-gallery-text">
+            <div class="row">
+                <div class="col-md-12 text">
+                    <h1>PHOTO GALLERY</h1>
+
+                    <h4>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="upload-photos-container" :class="showUploadPhotosContainer" @click="displayUploadPhotosContainer()">
+            <div class="row">
+                <div class="col-md-10">
+                    <h2 class="title">INSERT PHOTOS TO UPLOAD</h2>
+
+                    <div>
+                        <form method="POST" action="/photo-gallery" enctype="multipart/form-data">
+                            <input id="input-b3" name="images[]" type="file" class="file" multiple data-show-upload="true" data-show-caption="true" data-msg-placeholder="Select {files} for upload..." data-allowed-file-extensions='["jpg", "jpeg", "png", "gif"]'>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="close-thik" @click.stop="closeModal()"></div>
+                </div>
+            </div>
+        </div>
+
         <div class="row photo-order">
             <div class="col-md-4 latest-photos">
                 <h4>{{ searchPeriodTitle }}</h4>
@@ -30,7 +68,7 @@
         </div>
 
         <div class="photos-container">
-            <div class="loading-bar" :class="showLoadingBar" @click="closePhotoDetails()"></div>
+            <div class="loading-bar" :class="showLoadingBar" @click="closeModal()"></div>
 
             <div class="row">
                 <div class="column">
@@ -43,7 +81,7 @@
                             <h1 class="photo-published-by">Uploaded: {{ image.user.name }}</h1>
                         </div>
 
-                        <div class="photo-details" :class="{ showphotodetails: isPhotoOpend(image.id) }">
+                        <div class="photo-details" :class="{ show: isPhotoOpend(image.id) }">
                             <div class="row">
                                 <div class="col-md-10">
                                     <h2 class="date">{{ image.post_date }}</h2>
@@ -51,7 +89,7 @@
                                 </div>
 
                                 <div class="col-md-2">
-                                    <div class="close-thik" @click.stop="closePhotoDetails()"></div>
+                                    <div class="close-thik" @click.stop="closeModal()"></div>
                                 </div>
                             </div>
 
@@ -71,7 +109,7 @@
                             <h1 class="photo-published-by">Uploaded: {{ image.user.name }}</h1>
                         </div>
 
-                        <div class="photo-details" :class="{ showphotodetails: isPhotoOpend(image.id) }">
+                        <div class="photo-details" :class="{ show: isPhotoOpend(image.id) }">
                             <div class="row">
                                 <div class="col-md-10">
                                     <h2 class="date">{{ image.post_date }}</h2>
@@ -79,7 +117,7 @@
                                 </div>
 
                                 <div class="col-md-2">
-                                    <div class="close-thik" @click.stop="closePhotoDetails"></div>
+                                    <div class="close-thik" @click.stop="closeModal()"></div>
                                 </div>
                             </div>
 
@@ -99,7 +137,7 @@
                             <h1 class="photo-published-by">Uploaded: {{ image.user.name }}</h1>
                         </div>
 
-                        <div class="photo-details" :class="{ showphotodetails: isPhotoOpend(image.id) }">
+                        <div class="photo-details" :class="{ show: isPhotoOpend(image.id) }">
                             <div class="row">
                                 <div class="col-md-10">
                                     <h2 class="date">{{ image.post_date }}</h2>
@@ -107,7 +145,7 @@
                                 </div>
 
                                 <div class="col-md-2">
-                                    <div class="close-thik" @click.stop="closePhotoDetails"></div>
+                                    <div class="close-thik" @click.stop="closeModal()"></div>
                                 </div>
                             </div>
 
@@ -132,15 +170,15 @@
 
         props: {
             firstColumnImages: {
-                type: Array,
+                type: String,
                 required: true
             },
             secondColumnImages: {
-                type: Array,
+                type: String,
                 required: true
             },
             thirdColumnImages: {
-                type: Array,
+                type: String,
                 required: true
             },
             lastPage: {
@@ -159,7 +197,8 @@
                 period: '2010-',
                 searchPeriodTitle: 'LATEST UPLOADS',
                 showPhotoDetails: '',
-                clickedPhoto: ''
+                clickedPhoto: '',
+                showUploadPhotosContainer: ''
             }
         },
 
@@ -171,7 +210,7 @@
 
         methods: {
             fullImagePath: function(photo_path) {
-                return '/images/photo_gallery/' + photo_path;
+                return '/storage/photo_gallery/' + photo_path;
             },
 
             loadMorePhotos: function() {
@@ -252,7 +291,6 @@
             },
 
             displayPhotoDetails: function(imageId) {
-                console.log('III');
                 this.showPhotoDetails = 'show-photo-details-' + imageId;
                 this.showLoadingBar = 'show-loading-bar';
                 this.clickedPhoto = imageId;
@@ -266,11 +304,16 @@
                 return false;
             },
 
-            closePhotoDetails: function() {
-                console.log('KLLK');
+            closeModal: function() {
                 this.showLoadingBar = '';
                 this.showPhotoDetails = '';
                 this.clickedPhoto = '';
+                this.showUploadPhotosContainer = '';
+            },
+
+            displayUploadPhotosContainer: function() {
+                this.showUploadPhotosContainer = 'show';
+                this.showLoadingBar = 'show-loading-bar';
             }
         }
     }

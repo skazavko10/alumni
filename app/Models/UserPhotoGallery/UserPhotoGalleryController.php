@@ -5,6 +5,8 @@ namespace App\Models\UserPhotoGallery;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\UserPhotoGallery\UserPhotoGallery;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class UserPhotoGalleryController extends Controller
 {
@@ -44,16 +46,6 @@ class UserPhotoGalleryController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -61,54 +53,20 @@ class UserPhotoGalleryController extends Controller
      */
     public function store(StoreUserPhotoGalleryRequest $request)
     {
-        $imageFile = $request->input('images');
+        $imageFiles = $request->images;
+
+        foreach ($imageFiles as $image) {
+            $imageNameWithPath = Storage::putFile('public/photo_gallery', $image);
+            $imageName = explode('public/photo_gallery/', $imageNameWithPath)[1];
+        
+            UserPhotoGallery::create([
+                'user_id' => Auth::id(),
+                'photo_path' => $imageName,
+                'post_date' => date('Y')
+            ]);
+        }
 
         dd('IOIO');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 
     public function loadMorePhotos()

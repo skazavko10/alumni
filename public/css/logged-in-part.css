@@ -657,10 +657,14 @@ body {
     background-color: rgba(28, 53, 119, 0.8);
 }
 
+.upload-photo-container:hover {
+    cursor: pointer;
+}
+
 .upload-photo-container a {
     font-size: 25px;
     font-weight: 800;
-    color: #fff;
+    color: #fff !important;
 }
 
 .photo-order,
@@ -805,8 +809,8 @@ body {
     overflow: hidden;
 }
 
-.showphotodetails {
-    display: block;
+.show {
+    display: block !important;
 }
 
 .photo-details .title {
@@ -847,6 +851,30 @@ body {
     height: 84%;
     background-size: contain;
     background-repeat: no-repeat;
+}
+
+.upload-photos-container {
+    position: fixed;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    background-color: #fff;
+    z-index: 9648;
+    overflow: hidden;
+}
+
+.upload-photos-container .title {
+    color: rgb(28, 53, 119);
+    font-weight: 800;   
+    padding-top: 10px;
+    padding-left: 25px;
+}
+
+.file-footer-buttons {
+    display: none;
 }
 
 

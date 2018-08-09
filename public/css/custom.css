@@ -380,7 +380,8 @@ a.read-more-btn {
 }
 
 .testimoonial-image {
-    background-image: url("../images/hatham-al-shabibi-238336.png");
+    background-image: url("../images/steve.png");
+    background-position: center;
 }
 
 .testemonial-container .row {

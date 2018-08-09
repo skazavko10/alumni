@@ -13,7 +13,7 @@ class UserPhotoGallery extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'photo_path',
+        'user_id', 'photo_path', 'post_date',
     ];
 
     protected $table = 'user_photo_galery';
