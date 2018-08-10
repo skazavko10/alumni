@@ -744,9 +744,9 @@ body {
     color: rgb(28, 53, 119);
 }
 
-.simple-view::before {
-    content: "\f00a";
-    font-family: 'fontawesome';
+.simple-view:hover,
+.grid-view:hover {
+    cursor: pointer;
 }
 
 .loading-bar {
@@ -864,7 +864,7 @@ body {
     height: 80%;
     background-color: #fff;
     z-index: 9648;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .upload-photos-container .title {
@@ -876,6 +876,48 @@ body {
 
 .file-footer-buttons {
     display: none;
+}
+
+.file-caption-main {
+    padding-bottom: 20px;
+}
+
+#upload-photos-form {
+    padding-top: 20px;
+}
+
+.simple-photos-container {
+    display: none;
+    padding-top: 20px;
+}
+
+.simple-image-container .row {
+    text-align: center;
+}
+
+.simple-image-container .date {
+    display: inline-block;
+    color: rgb(28, 53, 119);
+    font-weight: 800;
+}
+
+.simple-image-container .title {
+    display: inline-block;
+    color: rgb(28, 53, 119);
+}
+
+.simple-image-container .image-details {
+    padding-top: 10px;
+    padding-bottom: 25px;
+}
+
+.hidecontainer {
+    display: none;
+}
+
+.simple-photos-container .show-more-images-container {
+    display: block;
+    text-align: center;
 }
 
 

@@ -24,16 +24,18 @@
             <div class="row">
                 <div class="col-md-10">
                     <h2 class="title">INSERT PHOTOS TO UPLOAD</h2>
-
-                    <div>
-                        <form id="upload-photos-form" method="POST" enctype="multipart/form-data" @submit.prevent="insertPhotos()">
-                            <input id="input-b3" name="images[]" type="file" class="file" multiple data-show-upload="true" data-show-caption="true" data-msg-placeholder="Select {files} for upload..." data-allowed-file-extensions='["jpg", "jpeg", "png", "gif"]'>
-                        </form>
-                    </div>
                 </div>
 
                 <div class="col-md-2">
                     <div class="close-thik" @click.stop="closeModal()"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <form id="upload-photos-form" method="POST" enctype="multipart/form-data" @submit.prevent="insertPhotos()">
+                        <input id="input-b3" name="images[]" type="file" class="file" multiple data-show-upload="true" data-show-caption="true" data-msg-placeholder="Select {files} for upload..." data-allowed-file-extensions='["jpg", "jpeg", "png", "gif"]'>
+                    </form>
                 </div>
             </div>
         </div>
@@ -59,15 +61,18 @@
 
             <div class="col-md-4 display-style">
                 <div class="container">
-                    <span class="simple-view glyphicon glyphicon-th"></span>
+                    <span class="simple-view" @click="changeActivePhotosContainer('simple')">
+                        S
+                    </span>
 
-                    <span class="grid-view glyphicon glyphicon-th-list">
+                    <span class="grid-view" @click="changeActivePhotosContainer('grid')">
+                        G
                     </span>
                 </div>
             </div>
         </div>
 
-        <div class="photos-container">
+        <div class="photos-container" :class="{ hidecontainer: isGridPhotoContainerNotActive() }">
             <div class="loading-bar" :class="showLoadingBar" @click="closeModal()"></div>
 
             <div class="row">
@@ -162,6 +167,29 @@
                 </h4>
             </div>
         </div>
+
+        <div class="simple-photos-container" :class="{ show: isSimplePhotoContainerActive() }">
+            <div class="simple-image-container" v-for="image in firstColumnImages">
+                <div class="row">
+                    <div class="col-md-12">
+                        <img :src="fullImagePath(image.photo_path)" style="width: auto; max-width: 100%;">
+                    </div>
+                </div>
+
+                <div class="row image-details">
+                    <div class="col-md-12">
+                        <h2 class="date">{{ image.post_date }}</h2> 
+                        <h2 class="title">UPLOADED BY {{ image.user.name }}</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row show-more-images-container" v-if="currentPage < lastPage">
+                <h4>
+                    <span @click="loadMorePhotos()">SHOW MORE</span>
+                </h4>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -198,7 +226,8 @@
                 searchPeriodTitle: 'LATEST UPLOADS',
                 showPhotoDetails: '',
                 clickedPhoto: '',
-                showUploadPhotosContainer: ''
+                showUploadPhotosContainer: '',
+                activePhotoContainer: 'grid'
             }
         },
 
@@ -345,6 +374,26 @@
                       this.showLoadingBar = '';
                       this.showUploadPhotosContainer = '';
                     });
+            },
+
+            changeActivePhotosContainer: function(className) {
+                this.activePhotoContainer = className;
+            },
+
+            isGridPhotoContainerNotActive: function() {
+                if(this.activePhotoContainer == 'simple') {
+                    return true;
+                }
+
+                return false;
+            },
+
+            isSimplePhotoContainerActive: function() {
+                if(this.activePhotoContainer == 'simple') {
+                    return true;
+                }
+
+                return false;
             }
         }
     }

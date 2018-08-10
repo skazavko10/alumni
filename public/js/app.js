@@ -47628,6 +47628,34 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
@@ -47661,7 +47689,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             searchPeriodTitle: 'LATEST UPLOADS',
             showPhotoDetails: '',
             clickedPhoto: '',
-            showUploadPhotosContainer: ''
+            showUploadPhotosContainer: '',
+            activePhotoContainer: 'grid'
         };
     },
     mounted: function mounted() {
@@ -47808,6 +47837,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this3.showLoadingBar = '';
                 _this3.showUploadPhotosContainer = '';
             });
+        },
+
+        changeActivePhotosContainer: function changeActivePhotosContainer(className) {
+            this.activePhotoContainer = className;
+        },
+
+        isGridPhotoContainerNotActive: function isGridPhotoContainerNotActive() {
+            if (this.activePhotoContainer == 'simple') {
+                return true;
+            }
+
+            return false;
+        },
+
+        isSimplePhotoContainerActive: function isSimplePhotoContainerActive() {
+            if (this.activePhotoContainer == 'simple') {
+                return true;
+            }
+
+            return false;
         }
     }
 });
@@ -47855,46 +47904,7 @@ var render = function() {
       },
       [
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-10" }, [
-            _c("h2", { staticClass: "title" }, [
-              _vm._v("INSERT PHOTOS TO UPLOAD")
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c(
-                "form",
-                {
-                  attrs: {
-                    id: "upload-photos-form",
-                    method: "POST",
-                    enctype: "multipart/form-data"
-                  },
-                  on: {
-                    submit: function($event) {
-                      $event.preventDefault()
-                      _vm.insertPhotos()
-                    }
-                  }
-                },
-                [
-                  _c("input", {
-                    staticClass: "file",
-                    attrs: {
-                      id: "input-b3",
-                      name: "images[]",
-                      type: "file",
-                      multiple: "",
-                      "data-show-upload": "true",
-                      "data-show-caption": "true",
-                      "data-msg-placeholder": "Select {files} for upload...",
-                      "data-allowed-file-extensions":
-                        '["jpg", "jpeg", "png", "gif"]'
-                    }
-                  })
-                ]
-              )
-            ])
-          ]),
+          _vm._m(1),
           _vm._v(" "),
           _c("div", { staticClass: "col-md-2" }, [
             _c("div", {
@@ -47906,6 +47916,43 @@ var render = function() {
                 }
               }
             })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c(
+              "form",
+              {
+                attrs: {
+                  id: "upload-photos-form",
+                  method: "POST",
+                  enctype: "multipart/form-data"
+                },
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    _vm.insertPhotos()
+                  }
+                }
+              },
+              [
+                _c("input", {
+                  staticClass: "file",
+                  attrs: {
+                    id: "input-b3",
+                    name: "images[]",
+                    type: "file",
+                    multiple: "",
+                    "data-show-upload": "true",
+                    "data-show-caption": "true",
+                    "data-msg-placeholder": "Select {files} for upload...",
+                    "data-allowed-file-extensions":
+                      '["jpg", "jpeg", "png", "gif"]'
+                  }
+                })
+              ]
+            )
           ])
         ])
       ]
@@ -47985,265 +48032,353 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _vm._m(1)
+      _c("div", { staticClass: "col-md-4 display-style" }, [
+        _c("div", { staticClass: "container" }, [
+          _c(
+            "span",
+            {
+              staticClass: "simple-view",
+              on: {
+                click: function($event) {
+                  _vm.changeActivePhotosContainer("simple")
+                }
+              }
+            },
+            [_vm._v("\n                    S\n                ")]
+          ),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              staticClass: "grid-view",
+              on: {
+                click: function($event) {
+                  _vm.changeActivePhotosContainer("grid")
+                }
+              }
+            },
+            [_vm._v("\n                    G\n                ")]
+          )
+        ])
+      ])
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "photos-container" }, [
-      _c("div", {
-        staticClass: "loading-bar",
-        class: _vm.showLoadingBar,
-        on: {
-          click: function($event) {
-            _vm.closeModal()
+    _c(
+      "div",
+      {
+        staticClass: "photos-container",
+        class: { hidecontainer: _vm.isGridPhotoContainerNotActive() }
+      },
+      [
+        _c("div", {
+          staticClass: "loading-bar",
+          class: _vm.showLoadingBar,
+          on: {
+            click: function($event) {
+              _vm.closeModal()
+            }
           }
-        }
-      }),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c(
-          "div",
-          { staticClass: "column" },
-          _vm._l(_vm.firstColumnImages, function(image) {
-            return _c(
-              "div",
-              {
-                staticClass: "photo-container",
-                on: {
-                  click: function($event) {
-                    _vm.displayPhotoDetails(image.id)
-                  }
-                }
-              },
-              [
-                _c("img", {
-                  staticStyle: { width: "100%" },
-                  attrs: { src: _vm.fullImagePath(image.photo_path) }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "photo-overlay" }, [
-                  _c("h1", { staticClass: "photo-publish-year" }, [
-                    _vm._v(_vm._s(image.post_date))
-                  ]),
-                  _vm._v(" "),
-                  _c("h1", { staticClass: "photo-published-by" }, [
-                    _vm._v("Uploaded: " + _vm._s(image.user.name))
-                  ])
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "photo-details",
-                    class: { show: _vm.isPhotoOpend(image.id) }
-                  },
-                  [
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-md-10" }, [
-                        _c("h2", { staticClass: "date" }, [
-                          _vm._v(_vm._s(image.post_date))
-                        ]),
-                        _vm._v(" "),
-                        _c("h2", { staticClass: "title" }, [
-                          _vm._v("UPLOADED BY " + _vm._s(image.user.name))
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-md-2" }, [
-                        _c("div", {
-                          staticClass: "close-thik",
-                          on: {
-                            click: function($event) {
-                              $event.stopPropagation()
-                              _vm.closeModal()
-                            }
-                          }
-                        })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", {
-                      staticClass: "image",
-                      style: {
-                        backgroundImage:
-                          "url('" + _vm.fullImagePath(image.photo_path) + "')"
-                      }
-                    })
-                  ]
-                )
-              ]
-            )
-          })
-        ),
+        }),
         _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "column" },
-          _vm._l(_vm.secondColumnImages, function(image) {
-            return _c(
-              "div",
-              {
-                staticClass: "photo-container",
-                on: {
-                  click: function($event) {
-                    _vm.displayPhotoDetails(image.id)
-                  }
-                }
-              },
-              [
-                _c("img", {
-                  staticStyle: { width: "100%" },
-                  attrs: { src: _vm.fullImagePath(image.photo_path) }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "photo-overlay" }, [
-                  _c("h1", { staticClass: "photo-publish-year" }, [
-                    _vm._v(_vm._s(image.post_date))
-                  ]),
-                  _vm._v(" "),
-                  _c("h1", { staticClass: "photo-published-by" }, [
-                    _vm._v("Uploaded: " + _vm._s(image.user.name))
-                  ])
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "photo-details",
-                    class: { show: _vm.isPhotoOpend(image.id) }
-                  },
-                  [
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-md-10" }, [
-                        _c("h2", { staticClass: "date" }, [
-                          _vm._v(_vm._s(image.post_date))
-                        ]),
-                        _vm._v(" "),
-                        _c("h2", { staticClass: "title" }, [
-                          _vm._v("UPLOADED BY " + _vm._s(image.user.name))
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-md-2" }, [
-                        _c("div", {
-                          staticClass: "close-thik",
-                          on: {
-                            click: function($event) {
-                              $event.stopPropagation()
-                              _vm.closeModal()
-                            }
-                          }
-                        })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", {
-                      staticClass: "image",
-                      style: {
-                        backgroundImage:
-                          "url('" + _vm.fullImagePath(image.photo_path) + "')"
-                      }
-                    })
-                  ]
-                )
-              ]
-            )
-          })
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "column" },
-          _vm._l(_vm.thirdColumnImages, function(image) {
-            return _c(
-              "div",
-              {
-                staticClass: "photo-container",
-                on: {
-                  click: function($event) {
-                    _vm.displayPhotoDetails(image.id)
-                  }
-                }
-              },
-              [
-                _c("img", {
-                  staticStyle: { width: "100%" },
-                  attrs: { src: _vm.fullImagePath(image.photo_path) }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "photo-overlay" }, [
-                  _c("h1", { staticClass: "photo-publish-year" }, [
-                    _vm._v(_vm._s(image.post_date))
-                  ]),
-                  _vm._v(" "),
-                  _c("h1", { staticClass: "photo-published-by" }, [
-                    _vm._v("Uploaded: " + _vm._s(image.user.name))
-                  ])
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "photo-details",
-                    class: { show: _vm.isPhotoOpend(image.id) }
-                  },
-                  [
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-md-10" }, [
-                        _c("h2", { staticClass: "date" }, [
-                          _vm._v(_vm._s(image.post_date))
-                        ]),
-                        _vm._v(" "),
-                        _c("h2", { staticClass: "title" }, [
-                          _vm._v("UPLOADED BY " + _vm._s(image.user.name))
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-md-2" }, [
-                        _c("div", {
-                          staticClass: "close-thik",
-                          on: {
-                            click: function($event) {
-                              $event.stopPropagation()
-                              _vm.closeModal()
-                            }
-                          }
-                        })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", {
-                      staticClass: "image",
-                      style: {
-                        backgroundImage:
-                          "url('" + _vm.fullImagePath(image.photo_path) + "')"
-                      }
-                    })
-                  ]
-                )
-              ]
-            )
-          })
-        )
-      ]),
-      _vm._v(" "),
-      _vm.currentPage < _vm.lastPage
-        ? _c("div", { staticClass: "row show-more-images-container" }, [
-            _c("h4", [
-              _c(
-                "span",
+        _c("div", { staticClass: "row" }, [
+          _c(
+            "div",
+            { staticClass: "column" },
+            _vm._l(_vm.firstColumnImages, function(image) {
+              return _c(
+                "div",
                 {
+                  staticClass: "photo-container",
                   on: {
                     click: function($event) {
-                      _vm.loadMorePhotos()
+                      _vm.displayPhotoDetails(image.id)
                     }
                   }
                 },
-                [_vm._v("SHOW MORE")]
+                [
+                  _c("img", {
+                    staticStyle: { width: "100%" },
+                    attrs: { src: _vm.fullImagePath(image.photo_path) }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "photo-overlay" }, [
+                    _c("h1", { staticClass: "photo-publish-year" }, [
+                      _vm._v(_vm._s(image.post_date))
+                    ]),
+                    _vm._v(" "),
+                    _c("h1", { staticClass: "photo-published-by" }, [
+                      _vm._v("Uploaded: " + _vm._s(image.user.name))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "photo-details",
+                      class: { show: _vm.isPhotoOpend(image.id) }
+                    },
+                    [
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-md-10" }, [
+                          _c("h2", { staticClass: "date" }, [
+                            _vm._v(_vm._s(image.post_date))
+                          ]),
+                          _vm._v(" "),
+                          _c("h2", { staticClass: "title" }, [
+                            _vm._v("UPLOADED BY " + _vm._s(image.user.name))
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-2" }, [
+                          _c("div", {
+                            staticClass: "close-thik",
+                            on: {
+                              click: function($event) {
+                                $event.stopPropagation()
+                                _vm.closeModal()
+                              }
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", {
+                        staticClass: "image",
+                        style: {
+                          backgroundImage:
+                            "url('" + _vm.fullImagePath(image.photo_path) + "')"
+                        }
+                      })
+                    ]
+                  )
+                ]
               )
+            })
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "column" },
+            _vm._l(_vm.secondColumnImages, function(image) {
+              return _c(
+                "div",
+                {
+                  staticClass: "photo-container",
+                  on: {
+                    click: function($event) {
+                      _vm.displayPhotoDetails(image.id)
+                    }
+                  }
+                },
+                [
+                  _c("img", {
+                    staticStyle: { width: "100%" },
+                    attrs: { src: _vm.fullImagePath(image.photo_path) }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "photo-overlay" }, [
+                    _c("h1", { staticClass: "photo-publish-year" }, [
+                      _vm._v(_vm._s(image.post_date))
+                    ]),
+                    _vm._v(" "),
+                    _c("h1", { staticClass: "photo-published-by" }, [
+                      _vm._v("Uploaded: " + _vm._s(image.user.name))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "photo-details",
+                      class: { show: _vm.isPhotoOpend(image.id) }
+                    },
+                    [
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-md-10" }, [
+                          _c("h2", { staticClass: "date" }, [
+                            _vm._v(_vm._s(image.post_date))
+                          ]),
+                          _vm._v(" "),
+                          _c("h2", { staticClass: "title" }, [
+                            _vm._v("UPLOADED BY " + _vm._s(image.user.name))
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-2" }, [
+                          _c("div", {
+                            staticClass: "close-thik",
+                            on: {
+                              click: function($event) {
+                                $event.stopPropagation()
+                                _vm.closeModal()
+                              }
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", {
+                        staticClass: "image",
+                        style: {
+                          backgroundImage:
+                            "url('" + _vm.fullImagePath(image.photo_path) + "')"
+                        }
+                      })
+                    ]
+                  )
+                ]
+              )
+            })
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "column" },
+            _vm._l(_vm.thirdColumnImages, function(image) {
+              return _c(
+                "div",
+                {
+                  staticClass: "photo-container",
+                  on: {
+                    click: function($event) {
+                      _vm.displayPhotoDetails(image.id)
+                    }
+                  }
+                },
+                [
+                  _c("img", {
+                    staticStyle: { width: "100%" },
+                    attrs: { src: _vm.fullImagePath(image.photo_path) }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "photo-overlay" }, [
+                    _c("h1", { staticClass: "photo-publish-year" }, [
+                      _vm._v(_vm._s(image.post_date))
+                    ]),
+                    _vm._v(" "),
+                    _c("h1", { staticClass: "photo-published-by" }, [
+                      _vm._v("Uploaded: " + _vm._s(image.user.name))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "photo-details",
+                      class: { show: _vm.isPhotoOpend(image.id) }
+                    },
+                    [
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-md-10" }, [
+                          _c("h2", { staticClass: "date" }, [
+                            _vm._v(_vm._s(image.post_date))
+                          ]),
+                          _vm._v(" "),
+                          _c("h2", { staticClass: "title" }, [
+                            _vm._v("UPLOADED BY " + _vm._s(image.user.name))
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-2" }, [
+                          _c("div", {
+                            staticClass: "close-thik",
+                            on: {
+                              click: function($event) {
+                                $event.stopPropagation()
+                                _vm.closeModal()
+                              }
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", {
+                        staticClass: "image",
+                        style: {
+                          backgroundImage:
+                            "url('" + _vm.fullImagePath(image.photo_path) + "')"
+                        }
+                      })
+                    ]
+                  )
+                ]
+              )
+            })
+          )
+        ]),
+        _vm._v(" "),
+        _vm.currentPage < _vm.lastPage
+          ? _c("div", { staticClass: "row show-more-images-container" }, [
+              _c("h4", [
+                _c(
+                  "span",
+                  {
+                    on: {
+                      click: function($event) {
+                        _vm.loadMorePhotos()
+                      }
+                    }
+                  },
+                  [_vm._v("SHOW MORE")]
+                )
+              ])
+            ])
+          : _vm._e()
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "simple-photos-container",
+        class: { show: _vm.isSimplePhotoContainerActive() }
+      },
+      [
+        _vm._l(_vm.firstColumnImages, function(image) {
+          return _c("div", { staticClass: "simple-image-container" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-12" }, [
+                _c("img", {
+                  staticStyle: { width: "auto", "max-width": "100%" },
+                  attrs: { src: _vm.fullImagePath(image.photo_path) }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row image-details" }, [
+              _c("div", { staticClass: "col-md-12" }, [
+                _c("h2", { staticClass: "date" }, [
+                  _vm._v(_vm._s(image.post_date))
+                ]),
+                _vm._v(" "),
+                _c("h2", { staticClass: "title" }, [
+                  _vm._v("UPLOADED BY " + _vm._s(image.user.name))
+                ])
+              ])
             ])
           ])
-        : _vm._e()
-    ])
+        }),
+        _vm._v(" "),
+        _vm.currentPage < _vm.lastPage
+          ? _c("div", { staticClass: "row show-more-images-container" }, [
+              _c("h4", [
+                _c(
+                  "span",
+                  {
+                    on: {
+                      click: function($event) {
+                        _vm.loadMorePhotos()
+                      }
+                    }
+                  },
+                  [_vm._v("SHOW MORE")]
+                )
+              ])
+            ])
+          : _vm._e()
+      ],
+      2
+    )
   ])
 }
 var staticRenderFns = [
@@ -48269,12 +48404,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-4 display-style" }, [
-      _c("div", { staticClass: "container" }, [
-        _c("span", { staticClass: "simple-view glyphicon glyphicon-th" }),
-        _vm._v(" "),
-        _c("span", { staticClass: "grid-view glyphicon glyphicon-th-list" })
-      ])
+    return _c("div", { staticClass: "col-md-10" }, [
+      _c("h2", { staticClass: "title" }, [_vm._v("INSERT PHOTOS TO UPLOAD")])
     ])
   }
 ]
@@ -49309,7 +49440,7 @@ if (false) {
 /* 49 */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed: ModuleBuildError: Module build failed: Error: Missing binding /home/slavko/Desktop/AlumniWebPage/node_modules/node-sass/vendor/linux-x64-48/binding.node\nNode Sass could not find a binding for your current environment: Linux 64-bit with Node.js 6.x\n\nFound bindings for the following environments:\n  - Linux 64-bit with Node.js 4.x\n\nThis usually happens because your environment has changed since running `npm install`.\nRun `npm rebuild node-sass` to download the binding for your current environment.\n    at module.exports (/home/slavko/Desktop/AlumniWebPage/node_modules/node-sass/lib/binding.js:15:13)\n    at Object.<anonymous> (/home/slavko/Desktop/AlumniWebPage/node_modules/node-sass/lib/index.js:14:35)\n    at Module._compile (module.js:577:32)\n    at Object.Module._extensions..js (module.js:586:10)\n    at Module.load (module.js:494:32)\n    at tryModuleLoad (module.js:453:12)\n    at Function.Module._load (module.js:445:3)\n    at Module.require (module.js:504:17)\n    at require (internal/module.js:20:19)\n    at Object.<anonymous> (/home/slavko/Desktop/AlumniWebPage/node_modules/sass-loader/lib/loader.js:3:14)\n    at Module._compile (module.js:577:32)\n    at Object.Module._extensions..js (module.js:586:10)\n    at Module.load (module.js:494:32)\n    at tryModuleLoad (module.js:453:12)\n    at Function.Module._load (module.js:445:3)\n    at Module.require (module.js:504:17)\n    at require (internal/module.js:20:19)\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:13:17)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at runLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModule.js:195:19)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:364:11\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:170:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:27:11)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at runLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:362:2)\n    at NormalModule.doBuild (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModule.js:182:3)\n    at NormalModule.build (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModule.js:275:15)\n    at Compilation.buildModule (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/Compilation.js:157:10)\n    at moduleFactory.create (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/Compilation.js:460:10)\n    at factory (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModuleFactory.js:243:5)\n    at applyPluginsAsyncWaterfall (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModuleFactory.js:94:13)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/tapable/lib/Tapable.js:268:11\n    at NormalModuleFactory.params.normalModuleFactory.plugin (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/CompatibilityPlugin.js:52:5)\n    at NormalModuleFactory.applyPluginsAsyncWaterfall (/home/slavko/Desktop/AlumniWebPage/node_modules/tapable/lib/Tapable.js:272:13)\n    at resolver (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModuleFactory.js:69:10)\n    at process.nextTick (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModuleFactory.js:196:7)\n    at _combinedTickCallback (internal/process/next_tick.js:73:7)\n    at process._tickCallback (internal/process/next_tick.js:104:9)");
+throw new Error("Module build failed: ModuleBuildError: Module build failed: Error: Missing binding /home/slavko/Desktop/AlumniWebPage/node_modules/node-sass/vendor/linux-x64-48/binding.node\nNode Sass could not find a binding for your current environment: Linux 64-bit with Node.js 6.x\n\nFound bindings for the following environments:\n  - Linux 64-bit with Node.js 4.x\n\nThis usually happens because your environment has changed since running `npm install`.\nRun `npm rebuild node-sass` to download the binding for your current environment.\n    at module.exports (/home/slavko/Desktop/AlumniWebPage/node_modules/node-sass/lib/binding.js:15:13)\n    at Object.<anonymous> (/home/slavko/Desktop/AlumniWebPage/node_modules/node-sass/lib/index.js:14:35)\n    at Module._compile (module.js:577:32)\n    at Object.Module._extensions..js (module.js:586:10)\n    at Module.load (module.js:494:32)\n    at tryModuleLoad (module.js:453:12)\n    at Function.Module._load (module.js:445:3)\n    at Module.require (module.js:504:17)\n    at require (internal/module.js:20:19)\n    at Object.<anonymous> (/home/slavko/Desktop/AlumniWebPage/node_modules/sass-loader/lib/loader.js:3:14)\n    at Module._compile (module.js:577:32)\n    at Object.Module._extensions..js (module.js:586:10)\n    at Module.load (module.js:494:32)\n    at tryModuleLoad (module.js:453:12)\n    at Function.Module._load (module.js:445:3)\n    at Module.require (module.js:504:17)\n    at require (internal/module.js:20:19)\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:13:17)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at runLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModule.js:195:19)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:364:11\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:170:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:27:11)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at runLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:362:2)\n    at NormalModule.doBuild (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModule.js:182:3)\n    at NormalModule.build (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModule.js:275:15)\n    at Compilation.buildModule (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/Compilation.js:157:10)\n    at moduleFactory.create (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/Compilation.js:460:10)\n    at factory (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModuleFactory.js:243:5)\n    at applyPluginsAsyncWaterfall (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModuleFactory.js:94:13)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/tapable/lib/Tapable.js:268:11\n    at NormalModuleFactory.params.normalModuleFactory.plugin (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/CompatibilityPlugin.js:52:5)\n    at NormalModuleFactory.applyPluginsAsyncWaterfall (/home/slavko/Desktop/AlumniWebPage/node_modules/tapable/lib/Tapable.js:272:13)\n    at resolver (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModuleFactory.js:69:10)\n    at process.nextTick (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModuleFactory.js:196:7)\n    at _combinedTickCallback (internal/process/next_tick.js:73:7)");
 
 /***/ })
 /******/ ]);
