@@ -47656,6 +47656,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
@@ -47690,7 +47694,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             showPhotoDetails: '',
             clickedPhoto: '',
             showUploadPhotosContainer: '',
-            activePhotoContainer: 'grid'
+            activePhotoContainer: 'grid',
+            uploadMessage: '',
+            showUploadMessage: '',
+            uploadAlertType: ''
         };
     },
     mounted: function mounted() {
@@ -47731,6 +47738,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     console.log(e);
 
                     _this.showLoadingBar = '';
+                    _this.uploadMessage = 'There wasn an error while loading the photos!';
+                    _this.uploadAlertType = 'error';
+                    _this.showUploadMessage = 'show';
+
+                    var that = _this;
+                    setTimeout(function () {
+                        that.showUploadMessage = 'hide';
+                        that.uploadMessage = '';
+                        that.uploadAlertType = '';
+                    }, 5000);
                 });
             }
         },
@@ -47779,6 +47796,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 console.log(e);
 
                 _this2.showLoadingBar = '';
+                _this2.uploadMessage = 'There wasn an error while loading the photos!';
+                _this2.uploadAlertType = 'error';
+                _this2.showUploadMessage = 'show';
+
+                var that = _this2;
+                setTimeout(function () {
+                    that.showUploadMessage = 'hide';
+                    that.uploadMessage = '';
+                    that.uploadAlertType = '';
+                }, 5000);
             });
         },
 
@@ -47831,11 +47858,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                 _this3.showLoadingBar = '';
                 _this3.showUploadPhotosContainer = '';
+                _this3.uploadMessage = 'Your Photo/s are added successfully!';
+                _this3.uploadAlertType = 'success';
+                _this3.showUploadMessage = 'show';
+
+                var that = _this3;
+                setTimeout(function () {
+                    that.showUploadMessage = 'hide';
+                    that.uploadMessage = '';
+                    that.uploadAlertType = '';
+                }, 5000);
             }).catch(function (e) {
                 console.log(e);
 
                 _this3.showLoadingBar = '';
                 _this3.showUploadPhotosContainer = '';
+                _this3.uploadMessage = 'There wasn an error while uploading your photo/s!';
+                _this3.uploadAlertType = 'error';
+                _this3.showUploadMessage = 'show';
+
+                var that = _this3;
+                setTimeout(function () {
+                    that.showUploadMessage = 'hide';
+                    that.uploadMessage = '';
+                    that.uploadAlertType = '';
+                }, 5000);
             });
         },
 
@@ -47926,7 +47973,6 @@ var render = function() {
               {
                 attrs: {
                   id: "upload-photos-form",
-                  method: "POST",
                   enctype: "multipart/form-data"
                 },
                 on: {
@@ -48079,6 +48125,20 @@ var render = function() {
             }
           }
         }),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "upload-message-container alert",
+            class: {
+              "show-alert": _vm.showUploadMessage == "show",
+              hide: _vm.showUploadMessage == "hide",
+              "alert-success": _vm.uploadAlertType == "success",
+              "alert-danger": _vm.uploadAlertType == "error"
+            }
+          },
+          [_vm._v("\n            " + _vm._s(this.uploadMessage) + "\n        ")]
+        ),
         _vm._v(" "),
         _c("div", { staticClass: "row" }, [
           _c(
@@ -48795,46 +48855,146 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
     props: {
         firstPeriodClassNotes: {
-            type: Array,
+            type: String,
             required: true
         },
         secondPeriodClassNotes: {
-            type: Array,
+            type: String,
             required: true
         },
         thirdPeriodClassNotes: {
-            type: Array,
+            type: String,
             required: true
         },
         fourthPeriodClassNotes: {
-            type: Array,
+            type: String,
             required: true
         },
         fifthPeriodClassNotes: {
-            type: Array,
+            type: String,
             required: true
         },
         sixthPeriodClassNotes: {
-            type: Array,
+            type: String,
             required: true
         },
         seventhPeriodClassNotes: {
-            type: Array,
+            type: String,
             required: true
         },
         eightPeriodClassNotes: {
-            type: Array,
+            type: String,
             required: true
         }
     },
 
     data: function data() {
-        return {};
+        return {
+            classNoteName: '',
+            classNoteDesc: '',
+            nameFieldError: '',
+            descFieldError: '',
+            showLoadingBar: '',
+            uploadMessage: '',
+            showUploadMessage: '',
+            uploadAlertType: '',
+            showUploadClassNoteContainer: '',
+            activeFirstPeriod: '',
+            activeSecondPeriod: '',
+            activeThirdPeriod: '',
+            activeFourthPeriod: '',
+            activeFifthPeriod: '',
+            activeSixthPeriod: '',
+            activeSeventhPeriod: '',
+            activeEightPeriod: ''
+        };
     },
     mounted: function mounted() {
         this.firstPeriodClassNotes = JSON.parse(this.firstPeriodClassNotes);
@@ -48851,6 +49011,145 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         classNoteId: function classNoteId(id) {
             return 'note-' + id;
+        },
+
+        insertClassNote: function insertClassNote() {
+            var _this = this;
+
+            this.showLoadingBar = 'show-loading-bar';
+
+            var myForm = document.getElementById('insert-class-note-form');
+            var formData = new FormData(myForm);
+
+            axios.post('http://localhost:8000/class-notes', formData).then(function (response) {
+                _this.eightPeriodClassNotes.push(response.data);
+
+                _this.classNoteName = '';
+                _this.classNoteDesc = '';
+                _this.nameFieldError = '', _this.descFieldError = '';
+                _this.showLoadingBar = '';
+                _this.uploadMessage = 'Your Class Note has been added successfully!';
+                _this.uploadAlertType = 'success';
+                _this.showUploadMessage = 'show';
+
+                var that = _this;
+                setTimeout(function () {
+                    that.showUploadMessage = 'hide';
+                    that.uploadMessage = '';
+                    that.uploadAlertType = '';
+                }, 5000);
+            }).catch(function (e) {
+                if (e.response.data.errors.name) {
+                    _this.nameFieldError = e.response.data.errors.name + '';
+                } else {
+                    _this.nameFieldError = '';
+                }
+
+                if (e.response.data.errors.text) {
+                    _this.descFieldError = e.response.data.errors.text + '';
+                } else {
+                    _this.descFieldError = '';
+                }
+
+                _this.showLoadingBar = '';
+                _this.uploadMessage = 'There wan an error while uploading your Class Note!';
+                _this.uploadAlertType = 'error';
+                _this.showUploadMessage = 'show';
+
+                var that = _this;
+                setTimeout(function () {
+                    that.showUploadMessage = 'hide';
+                    that.uploadMessage = '';
+                    that.uploadAlertType = '';
+                }, 5000);
+            });
+        },
+
+        uploadClassNoteContainerShow: function uploadClassNoteContainerShow() {
+            if (this.showUploadClassNoteContainer == '') {
+                this.showUploadClassNoteContainer = 'show-additional-section';
+            } else {
+                this.showUploadClassNoteContainer = '';
+            }
+        },
+
+        showClassNotesByPeriod: function showClassNotesByPeriod(period) {
+            var periodArray = period.split('-');
+            var periodName = 'active' + this.capitalizeString(periodArray[0]) + this.capitalizeString(periodArray[1]);
+
+            if (periodName == 'activeFirstPeriod') {
+                if (this.activeFirstPeriod == '') {
+                    this.activeFirstPeriod = 'show-additional-section';
+                } else {
+                    this.activeFirstPeriod = '';
+                }
+            } else if (periodName == 'activeSecondPeriod') {
+                if (this.activeSecondPeriod == '') {
+                    this.activeSecondPeriod = 'show-additional-section';
+                } else {
+                    this.activeSecondPeriod = '';
+                }
+            } else if (periodName == 'activeThirdPeriod') {
+                if (this.activeThirdPeriod == '') {
+                    this.activeThirdPeriod = 'show-additional-section';
+                } else {
+                    this.activeThirdPeriod = '';
+                }
+            } else if (periodName == 'activeFourthPeriod') {
+                if (this.activeFourthPeriod == '') {
+                    this.activeFourthPeriod = 'show-additional-section';
+                } else {
+                    this.activeFourthPeriod = '';
+                }
+            } else if (periodName == 'activeFifthPeriod') {
+                if (this.activeFifthPeriod == '') {
+                    this.activeFifthPeriod = 'show-additional-section';
+                } else {
+                    this.activeFifthPeriod = '';
+                }
+            } else if (periodName == 'activeSixthPeriod') {
+                if (this.activeSixthPeriod == '') {
+                    this.activeSixthPeriod = 'show-additional-section';
+                } else {
+                    this.activeSixthPeriod = '';
+                }
+            } else if (periodName == 'activeSeventhPeriod') {
+                if (this.activeSeventhPeriod == '') {
+                    this.activeSeventhPeriod = 'show-additional-section';
+                } else {
+                    this.activeSeventhPeriod = '';
+                }
+            } else if (periodName == 'activeEightPeriod') {
+                if (this.activeEightPeriod == '') {
+                    this.activeEightPeriod = 'show-additional-section';
+                } else {
+                    this.activeEightPeriod = '';
+                }
+            }
+        },
+
+        showClassNoteDetails: function showClassNoteDetails(classNoteId) {
+
+            var clickedClassNote = this.firstPeriodClassNotes.find(this.findByClassNoteId);
+
+            this.secondPeriodClassNotes.map(function (classNote, key) {
+                if (classNote.id == classNoteId) {
+                    classNote.show = 'show';
+                }
+            });
+        },
+
+        isClassNoteClicked: function isClassNoteClicked(classNote) {
+            if (classNote.show == 'show') {
+                console.log('IIII');
+                return true;
+            }
+
+            return false;
+        },
+
+        capitalizeString: function capitalizeString(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
         }
     }
 });
@@ -48865,24 +49164,144 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "class-notes-by-period" }, [
     _c("div", { staticClass: "period" }, [
-      _vm._m(0),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-10 first-col" }, [
+          _c(
+            "h2",
+            {
+              staticClass: "first-period",
+              on: {
+                click: function($event) {
+                  _vm.showClassNotesByPeriod("first-period")
+                }
+              }
+            },
+            [_vm._v("1943 - 1949")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-2" }, [
+          _c(
+            "div",
+            {
+              staticClass: "arrow",
+              on: {
+                click: function($event) {
+                  _vm.showClassNotesByPeriod("first-period")
+                }
+              }
+            },
+            [_c("p", [_vm._v("S")])]
+          )
+        ])
+      ]),
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "additional-section first-period" },
+        { staticClass: "additional-section", class: _vm.activeFirstPeriod },
         [
-          _vm._m(1),
+          _vm._m(0),
           _vm._v(" "),
           _vm._l(_vm.firstPeriodClassNotes, function(classNote) {
             return _c("div", { staticClass: "notes-container" }, [
               _c("div", { staticClass: "row" }, [
                 _c("div", { staticClass: "col-md-10 title" }, [
-                  _c("h1", { class: _vm.classNoteId(classNote.id) }, [
-                    _vm._v(_vm._s(classNote.name))
-                  ])
+                  _c(
+                    "h1",
+                    {
+                      class: _vm.classNoteId(classNote.id),
+                      on: {
+                        click: function($event) {
+                          _vm.showClassNoteDetails(classNote.id)
+                        }
+                      }
+                    },
+                    [_vm._v(_vm._s(classNote.name))]
+                  )
                 ]),
                 _vm._v(" "),
-                _vm._m(2, true)
+                _vm._m(1, true)
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "row additional-section",
+                  class: {
+                    "show-additional-section": _vm.isClassNoteClicked(classNote)
+                  }
+                },
+                [
+                  _c("div", { staticClass: "col-md-12 text" }, [
+                    _c("h5", [_vm._v(_vm._s(classNote.text))])
+                  ])
+                ]
+              )
+            ])
+          })
+        ],
+        2
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "period" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-10 first-col" }, [
+          _c(
+            "h2",
+            {
+              staticClass: "second-period",
+              on: {
+                click: function($event) {
+                  _vm.showClassNotesByPeriod("second-period")
+                }
+              }
+            },
+            [_vm._v("1950 - 1959")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-2" }, [
+          _c(
+            "div",
+            {
+              staticClass: "arrow",
+              on: {
+                click: function($event) {
+                  _vm.showClassNotesByPeriod("second-period")
+                }
+              }
+            },
+            [_c("p", [_vm._v("S")])]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "additional-section", class: _vm.activeSecondPeriod },
+        [
+          _vm._m(2),
+          _vm._v(" "),
+          _vm._l(_vm.secondPeriodClassNotes, function(classNote) {
+            return _c("div", { staticClass: "notes-container" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-10 title" }, [
+                  _c(
+                    "h1",
+                    {
+                      class: _vm.classNoteId(classNote.id),
+                      on: {
+                        click: function($event) {
+                          _vm.showClassNoteDetails(classNote.id)
+                        }
+                      }
+                    },
+                    [_vm._v(_vm._s(classNote.name))]
+                  )
+                ]),
+                _vm._v(" "),
+                _vm._m(3, true)
               ]),
               _vm._v(" "),
               _c(
@@ -48905,15 +49324,45 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "period" }, [
-      _vm._m(3),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-10 first-col" }, [
+          _c(
+            "h2",
+            {
+              staticClass: "third-period",
+              on: {
+                click: function($event) {
+                  _vm.showClassNotesByPeriod("third-period")
+                }
+              }
+            },
+            [_vm._v("1960 - 1969")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-2" }, [
+          _c(
+            "div",
+            {
+              staticClass: "arrow",
+              on: {
+                click: function($event) {
+                  _vm.showClassNotesByPeriod("third-period")
+                }
+              }
+            },
+            [_c("p", [_vm._v("S")])]
+          )
+        ])
+      ]),
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "additional-section second-period" },
+        { staticClass: "additional-section", class: _vm.activeThirdPeriod },
         [
           _vm._m(4),
           _vm._v(" "),
-          _vm._l(_vm.secondPeriodClassNotes, function(classNote) {
+          _vm._l(_vm.thirdPeriodClassNotes, function(classNote) {
             return _c("div", { staticClass: "notes-container" }, [
               _c("div", { staticClass: "row" }, [
                 _c("div", { staticClass: "col-md-10 title" }, [
@@ -48945,15 +49394,45 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "period" }, [
-      _vm._m(6),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-10 first-col" }, [
+          _c(
+            "h2",
+            {
+              staticClass: "fourth-period",
+              on: {
+                click: function($event) {
+                  _vm.showClassNotesByPeriod("fourth-period")
+                }
+              }
+            },
+            [_vm._v("1970 - 1979")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-2" }, [
+          _c(
+            "div",
+            {
+              staticClass: "arrow",
+              on: {
+                click: function($event) {
+                  _vm.showClassNotesByPeriod("fourth-period")
+                }
+              }
+            },
+            [_c("p", [_vm._v("S")])]
+          )
+        ])
+      ]),
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "additional-section third-period" },
+        { staticClass: "additional-section", class: _vm.activeFourthPeriod },
         [
-          _vm._m(7),
+          _vm._m(6),
           _vm._v(" "),
-          _vm._l(_vm.thirdPeriodClassNotes, function(classNote) {
+          _vm._l(_vm.fourthPeriodClassNotes, function(classNote) {
             return _c("div", { staticClass: "notes-container" }, [
               _c("div", { staticClass: "row" }, [
                 _c("div", { staticClass: "col-md-10 title" }, [
@@ -48962,7 +49441,7 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _vm._m(8, true)
+                _vm._m(7, true)
               ]),
               _vm._v(" "),
               _c(
@@ -48985,15 +49464,115 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "period" }, [
-      _vm._m(9),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-10 first-col" }, [
+          _c(
+            "h2",
+            {
+              staticClass: "fifth-period",
+              on: {
+                click: function($event) {
+                  _vm.showClassNotesByPeriod("fifth-period")
+                }
+              }
+            },
+            [_vm._v("1980 - 1989")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-2" }, [
+          _c(
+            "div",
+            {
+              staticClass: "arrow",
+              on: {
+                click: function($event) {
+                  _vm.showClassNotesByPeriod("fifth-period")
+                }
+              }
+            },
+            [_c("p", [_vm._v("S")])]
+          )
+        ])
+      ]),
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "additional-section fourth-period" },
+        { staticClass: "additional-section", class: _vm.activeFifthPeriod },
+        [
+          _vm._m(8),
+          _vm._v(" "),
+          _vm._l(_vm.fifthPeriodClassNotes, function(classNote) {
+            return _c("div", { staticClass: "notes-container" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-10 title" }, [
+                  _c("h1", { class: _vm.classNoteId(classNote.id) }, [
+                    _vm._v(_vm._s(classNote.name))
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(9, true)
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "row additional-section",
+                  class: _vm.classNoteId(classNote.id)
+                },
+                [
+                  _c("div", { staticClass: "col-md-12 text" }, [
+                    _c("h5", [_vm._v(_vm._s(classNote.text))])
+                  ])
+                ]
+              )
+            ])
+          })
+        ],
+        2
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "period" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-10 first-col" }, [
+          _c(
+            "h2",
+            {
+              staticClass: "sixth-period",
+              on: {
+                click: function($event) {
+                  _vm.showClassNotesByPeriod("sixth-period")
+                }
+              }
+            },
+            [_vm._v("1990 - 1999")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-2" }, [
+          _c(
+            "div",
+            {
+              staticClass: "arrow",
+              on: {
+                click: function($event) {
+                  _vm.showClassNotesByPeriod("sixth-period")
+                }
+              }
+            },
+            [_c("p", [_vm._v("S")])]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "additional-section", class: _vm.activeSixthPeriod },
         [
           _vm._m(10),
           _vm._v(" "),
-          _vm._l(_vm.fourthPeriodClassNotes, function(classNote) {
+          _vm._l(_vm.sixthPeriodClassNotes, function(classNote) {
             return _c("div", { staticClass: "notes-container" }, [
               _c("div", { staticClass: "row" }, [
                 _c("div", { staticClass: "col-md-10 title" }, [
@@ -49025,93 +49604,43 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "period" }, [
-      _vm._m(12),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-10 first-col" }, [
+          _c(
+            "h2",
+            {
+              staticClass: "seventh-period",
+              on: {
+                click: function($event) {
+                  _vm.showClassNotesByPeriod("seventh-period")
+                }
+              }
+            },
+            [_vm._v("2000 - 2009")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-2" }, [
+          _c(
+            "div",
+            {
+              staticClass: "arrow",
+              on: {
+                click: function($event) {
+                  _vm.showClassNotesByPeriod("seventh-period")
+                }
+              }
+            },
+            [_c("p", [_vm._v("S")])]
+          )
+        ])
+      ]),
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "additional-section fifth-period" },
+        { staticClass: "additional-section", class: _vm.activeSeventhPeriod },
         [
-          _vm._m(13),
-          _vm._v(" "),
-          _vm._l(_vm.fifthPeriodClassNotes, function(classNote) {
-            return _c("div", { staticClass: "notes-container" }, [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-10 title" }, [
-                  _c("h1", { class: _vm.classNoteId(classNote.id) }, [
-                    _vm._v(_vm._s(classNote.name))
-                  ])
-                ]),
-                _vm._v(" "),
-                _vm._m(14, true)
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "row additional-section",
-                  class: _vm.classNoteId(classNote.id)
-                },
-                [
-                  _c("div", { staticClass: "col-md-12 text" }, [
-                    _c("h5", [_vm._v(_vm._s(classNote.text))])
-                  ])
-                ]
-              )
-            ])
-          })
-        ],
-        2
-      )
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "period" }, [
-      _vm._m(15),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "additional-section sixth-period" },
-        [
-          _vm._m(16),
-          _vm._v(" "),
-          _vm._l(_vm.sixthPeriodClassNotes, function(classNote) {
-            return _c("div", { staticClass: "notes-container" }, [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-10 title" }, [
-                  _c("h1", { class: _vm.classNoteId(classNote.id) }, [
-                    _vm._v(_vm._s(classNote.name))
-                  ])
-                ]),
-                _vm._v(" "),
-                _vm._m(17, true)
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "row additional-section",
-                  class: _vm.classNoteId(classNote.id)
-                },
-                [
-                  _c("div", { staticClass: "col-md-12 text" }, [
-                    _c("h5", [_vm._v(_vm._s(classNote.text))])
-                  ])
-                ]
-              )
-            ])
-          })
-        ],
-        2
-      )
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "period" }, [
-      _vm._m(18),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "additional-section seventh-period" },
-        [
-          _vm._m(19),
+          _vm._m(12),
           _vm._v(" "),
           _vm._l(_vm.seventhPeriodClassNotes, function(classNote) {
             return _c("div", { staticClass: "notes-container" }, [
@@ -49122,7 +49651,7 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _vm._m(20, true)
+                _vm._m(13, true)
               ]),
               _vm._v(" "),
               _c(
@@ -49145,13 +49674,43 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "period" }, [
-      _vm._m(21),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-10 first-col" }, [
+          _c(
+            "h2",
+            {
+              staticClass: "eight-period",
+              on: {
+                click: function($event) {
+                  _vm.showClassNotesByPeriod("eight-period")
+                }
+              }
+            },
+            [_vm._v("2010 - TODAY")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-2" }, [
+          _c(
+            "div",
+            {
+              staticClass: "arrow",
+              on: {
+                click: function($event) {
+                  _vm.showClassNotesByPeriod("eight-period")
+                }
+              }
+            },
+            [_c("p", [_vm._v("S")])]
+          )
+        ])
+      ]),
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "additional-section eight-period" },
+        { staticClass: "additional-section", class: _vm.activeEightPeriod },
         [
-          _vm._m(22),
+          _vm._m(14),
           _vm._v(" "),
           _vm._l(_vm.eightPeriodClassNotes, function(classNote) {
             return _c("div", { staticClass: "notes-container" }, [
@@ -49162,7 +49721,7 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _vm._m(23, true)
+                _vm._m(15, true)
               ]),
               _vm._v(" "),
               _c(
@@ -49182,6 +49741,169 @@ var render = function() {
         ],
         2
       )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "upload-class-notes" }, [
+      _c("div", {
+        staticClass: "loading-bar",
+        class: _vm.showLoadingBar,
+        on: {
+          click: function($event) {
+            _vm.closeModal()
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "upload-message-container alert",
+          class: {
+            "show-alert": _vm.showUploadMessage == "show",
+            hide: _vm.showUploadMessage == "hide",
+            "alert-success": _vm.uploadAlertType == "success",
+            "alert-danger": _vm.uploadAlertType == "error"
+          }
+        },
+        [_vm._v("\n            " + _vm._s(this.uploadMessage) + "\n        ")]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-10 first-col" }, [
+          _c(
+            "h2",
+            {
+              on: {
+                click: function($event) {
+                  _vm.uploadClassNoteContainerShow()
+                }
+              }
+            },
+            [_vm._v("UPLOAD YOUR CLASS NOTES")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-2" }, [
+          _c(
+            "div",
+            {
+              staticClass: "arrow",
+              on: {
+                click: function($event) {
+                  _vm.uploadClassNoteContainerShow()
+                }
+              }
+            },
+            [_c("p", [_vm._v("S")])]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "additional-section",
+          class: _vm.showUploadClassNoteContainer
+        },
+        [
+          _vm._m(16),
+          _vm._v(" "),
+          _c(
+            "form",
+            {
+              attrs: { id: "insert-class-note-form" },
+              on: {
+                submit: function($event) {
+                  $event.preventDefault()
+                  _vm.insertClassNote()
+                }
+              }
+            },
+            [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-10" }, [
+                  _c(
+                    "span",
+                    {
+                      staticClass: "invalid-feedback",
+                      attrs: { role: "alert" }
+                    },
+                    [_c("strong", [_vm._v(_vm._s(_vm.nameFieldError))])]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.classNoteName,
+                        expression: "classNoteName"
+                      }
+                    ],
+                    staticClass: "class-note-name",
+                    attrs: {
+                      type: "text",
+                      name: "name",
+                      placeholder: "Class Note Name",
+                      autofocus: ""
+                    },
+                    domProps: { value: _vm.classNoteName },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.classNoteName = $event.target.value
+                      }
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-10" }, [
+                  _c(
+                    "span",
+                    {
+                      staticClass: "invalid-feedback",
+                      attrs: { role: "alert" }
+                    },
+                    [_c("strong", [_vm._v(_vm._s(_vm.descFieldError))])]
+                  ),
+                  _vm._v(" "),
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.classNoteDesc,
+                        expression: "classNoteDesc"
+                      }
+                    ],
+                    staticClass: "class-note-input",
+                    attrs: {
+                      name: "text",
+                      placeholder: "Write your words here...",
+                      rows: "10"
+                    },
+                    domProps: { value: _vm.classNoteDesc },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.classNoteDesc = $event.target.value
+                      }
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _vm._m(17)
+            ]
+          )
+        ]
+      )
     ])
   ])
 }
@@ -49191,11 +49913,17 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-10 first-col" }, [
-        _c("h2", { staticClass: "first-period" }, [_vm._v("1943 - 1949")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-2" }, [_c("p", [_vm._v("S")])])
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "period-header-image" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2 expand" }, [
+      _c("span", [_vm._v("+")])
     ])
   },
   function() {
@@ -49221,11 +49949,17 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-10 first-col" }, [
-        _c("h2", { staticClass: "second-period" }, [_vm._v("1950 - 1959")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-2" }, [_c("p", [_vm._v("S")])])
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "period-header-image" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2 expand" }, [
+      _c("span", [_vm._v("+")])
     ])
   },
   function() {
@@ -49251,11 +49985,17 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-10 first-col" }, [
-        _c("h2", { staticClass: "third-period" }, [_vm._v("1960 - 1969")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-2" }, [_c("p", [_vm._v("S")])])
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "period-header-image" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2 expand" }, [
+      _c("span", [_vm._v("+")])
     ])
   },
   function() {
@@ -49281,11 +50021,17 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-10 first-col" }, [
-        _c("h2", { staticClass: "fourth-period" }, [_vm._v("1970 - 1979")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-2" }, [_c("p", [_vm._v("S")])])
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "period-header-image" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2 expand" }, [
+      _c("span", [_vm._v("+")])
     ])
   },
   function() {
@@ -49311,20 +50057,12 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-10 first-col" }, [
-        _c("h2", { staticClass: "fifth-period" }, [_vm._v("1980 - 1989")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-2" }, [_c("p", [_vm._v("S")])])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("div", { staticClass: "period-header-image" })
+      _c("div", { staticClass: "col-md-10" }, [
+        _c("h5", [
+          _vm._v(
+            "\n                        Let your old classmates and the Alumni community know you latest news! Why not use this space to inform the community about marriages, births, deaths, awards and quallifications?\n                    "
+          )
+        ])
       ])
     ])
   },
@@ -49332,98 +50070,25 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-2 expand" }, [
-      _c("span", [_vm._v("+")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-10 first-col" }, [
-        _c("h2", { staticClass: "sixth-period" }, [_vm._v("1990 - 1999")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-2" }, [_c("p", [_vm._v("S")])])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("div", { staticClass: "period-header-image" })
+    return _c("div", { staticClass: "row submit-section" }, [
+      _c("div", { staticClass: "col-md-10" }, [
+        _c("div", { staticClass: "row section" }, [
+          _c("div", { staticClass: "col-md-8" }, [
+            _c("h5", [
+              _vm._v(
+                "Please note your class note will be reviewed before being added to the site"
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-4 button-container" }, [
+            _c("input", {
+              staticClass: "submit-class-note",
+              attrs: { type: "submit", value: "SUBMIT" }
+            })
+          ])
+        ])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-2 expand" }, [
-      _c("span", [_vm._v("+")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-10 first-col" }, [
-        _c("h2", { staticClass: "seventh-period" }, [_vm._v("2000 - 2009")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-2" }, [_c("p", [_vm._v("S")])])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("div", { staticClass: "period-header-image" })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-2 expand" }, [
-      _c("span", [_vm._v("+")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-10 first-col" }, [
-        _c("h2", { staticClass: "eight-period" }, [_vm._v("2010 - TODAY")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-2" }, [_c("p", [_vm._v("S")])])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("div", { staticClass: "period-header-image" })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-2 expand" }, [
-      _c("span", [_vm._v("+")])
     ])
   }
 ]
@@ -49440,7 +50105,7 @@ if (false) {
 /* 49 */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed: ModuleBuildError: Module build failed: Error: Missing binding /home/slavko/Desktop/AlumniWebPage/node_modules/node-sass/vendor/linux-x64-48/binding.node\nNode Sass could not find a binding for your current environment: Linux 64-bit with Node.js 6.x\n\nFound bindings for the following environments:\n  - Linux 64-bit with Node.js 4.x\n\nThis usually happens because your environment has changed since running `npm install`.\nRun `npm rebuild node-sass` to download the binding for your current environment.\n    at module.exports (/home/slavko/Desktop/AlumniWebPage/node_modules/node-sass/lib/binding.js:15:13)\n    at Object.<anonymous> (/home/slavko/Desktop/AlumniWebPage/node_modules/node-sass/lib/index.js:14:35)\n    at Module._compile (module.js:577:32)\n    at Object.Module._extensions..js (module.js:586:10)\n    at Module.load (module.js:494:32)\n    at tryModuleLoad (module.js:453:12)\n    at Function.Module._load (module.js:445:3)\n    at Module.require (module.js:504:17)\n    at require (internal/module.js:20:19)\n    at Object.<anonymous> (/home/slavko/Desktop/AlumniWebPage/node_modules/sass-loader/lib/loader.js:3:14)\n    at Module._compile (module.js:577:32)\n    at Object.Module._extensions..js (module.js:586:10)\n    at Module.load (module.js:494:32)\n    at tryModuleLoad (module.js:453:12)\n    at Function.Module._load (module.js:445:3)\n    at Module.require (module.js:504:17)\n    at require (internal/module.js:20:19)\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:13:17)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at runLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModule.js:195:19)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:364:11\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:170:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:27:11)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at runLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:362:2)\n    at NormalModule.doBuild (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModule.js:182:3)\n    at NormalModule.build (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModule.js:275:15)\n    at Compilation.buildModule (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/Compilation.js:157:10)\n    at moduleFactory.create (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/Compilation.js:460:10)\n    at factory (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModuleFactory.js:243:5)\n    at applyPluginsAsyncWaterfall (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModuleFactory.js:94:13)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/tapable/lib/Tapable.js:268:11\n    at NormalModuleFactory.params.normalModuleFactory.plugin (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/CompatibilityPlugin.js:52:5)\n    at NormalModuleFactory.applyPluginsAsyncWaterfall (/home/slavko/Desktop/AlumniWebPage/node_modules/tapable/lib/Tapable.js:272:13)\n    at resolver (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModuleFactory.js:69:10)\n    at process.nextTick (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModuleFactory.js:196:7)\n    at _combinedTickCallback (internal/process/next_tick.js:73:7)");
+throw new Error("Module build failed: ModuleBuildError: Module build failed: Error: Missing binding /home/slavko/Desktop/AlumniWebPage/node_modules/node-sass/vendor/linux-x64-48/binding.node\nNode Sass could not find a binding for your current environment: Linux 64-bit with Node.js 6.x\n\nFound bindings for the following environments:\n  - Linux 64-bit with Node.js 4.x\n\nThis usually happens because your environment has changed since running `npm install`.\nRun `npm rebuild node-sass` to download the binding for your current environment.\n    at module.exports (/home/slavko/Desktop/AlumniWebPage/node_modules/node-sass/lib/binding.js:15:13)\n    at Object.<anonymous> (/home/slavko/Desktop/AlumniWebPage/node_modules/node-sass/lib/index.js:14:35)\n    at Module._compile (module.js:577:32)\n    at Object.Module._extensions..js (module.js:586:10)\n    at Module.load (module.js:494:32)\n    at tryModuleLoad (module.js:453:12)\n    at Function.Module._load (module.js:445:3)\n    at Module.require (module.js:504:17)\n    at require (internal/module.js:20:19)\n    at Object.<anonymous> (/home/slavko/Desktop/AlumniWebPage/node_modules/sass-loader/lib/loader.js:3:14)\n    at Module._compile (module.js:577:32)\n    at Object.Module._extensions..js (module.js:586:10)\n    at Module.load (module.js:494:32)\n    at tryModuleLoad (module.js:453:12)\n    at Function.Module._load (module.js:445:3)\n    at Module.require (module.js:504:17)\n    at require (internal/module.js:20:19)\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:13:17)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at runLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModule.js:195:19)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:364:11\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:170:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:27:11)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at runLoaders (/home/slavko/Desktop/AlumniWebPage/node_modules/loader-runner/lib/LoaderRunner.js:362:2)\n    at NormalModule.doBuild (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModule.js:182:3)\n    at NormalModule.build (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModule.js:275:15)\n    at Compilation.buildModule (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/Compilation.js:157:10)\n    at moduleFactory.create (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/Compilation.js:460:10)\n    at factory (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModuleFactory.js:243:5)\n    at applyPluginsAsyncWaterfall (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModuleFactory.js:94:13)\n    at /home/slavko/Desktop/AlumniWebPage/node_modules/tapable/lib/Tapable.js:268:11\n    at NormalModuleFactory.params.normalModuleFactory.plugin (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/CompatibilityPlugin.js:52:5)\n    at NormalModuleFactory.applyPluginsAsyncWaterfall (/home/slavko/Desktop/AlumniWebPage/node_modules/tapable/lib/Tapable.js:272:13)\n    at resolver (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModuleFactory.js:69:10)\n    at process.nextTick (/home/slavko/Desktop/AlumniWebPage/node_modules/webpack/lib/NormalModuleFactory.js:196:7)\n    at _combinedTickCallback (internal/process/next_tick.js:73:7)\n    at process._tickCallback (internal/process/next_tick.js:104:9)");
 
 /***/ })
 /******/ ]);

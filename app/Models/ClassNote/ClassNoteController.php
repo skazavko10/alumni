@@ -77,6 +77,8 @@ class ClassNoteController extends Controller
         $input['user_id'] = Auth::id();
         $input['post_date'] = date('Y');
 
-        ClassNote::create($input);
+        $insertedClassNote = ClassNote::create($input);
+
+        return $insertedClassNote;
     }
 }

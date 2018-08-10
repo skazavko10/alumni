@@ -33,7 +33,7 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <form id="upload-photos-form" method="POST" enctype="multipart/form-data" @submit.prevent="insertPhotos()">
+                    <form id="upload-photos-form" enctype="multipart/form-data" @submit.prevent="insertPhotos()">
                         <input id="input-b3" name="images[]" type="file" class="file" multiple data-show-upload="true" data-show-caption="true" data-msg-placeholder="Select {files} for upload..." data-allowed-file-extensions='["jpg", "jpeg", "png", "gif"]'>
                     </form>
                 </div>
@@ -74,6 +74,10 @@
 
         <div class="photos-container" :class="{ hidecontainer: isGridPhotoContainerNotActive() }">
             <div class="loading-bar" :class="showLoadingBar" @click="closeModal()"></div>
+
+            <div class="upload-message-container alert" :class="{ 'show-alert': showUploadMessage == 'show', 'hide': showUploadMessage == 'hide', 'alert-success': uploadAlertType == 'success', 'alert-danger': uploadAlertType == 'error' }">
+                {{ this.uploadMessage }}
+            </div>
 
             <div class="row">
                 <div class="column">
@@ -227,7 +231,10 @@
                 showPhotoDetails: '',
                 clickedPhoto: '',
                 showUploadPhotosContainer: '',
-                activePhotoContainer: 'grid'
+                activePhotoContainer: 'grid',
+                uploadMessage: '',
+                showUploadMessage: '',
+                uploadAlertType: ''
             }
         },
 
@@ -265,9 +272,19 @@
                             this.showLoadingBar = '';
                         })
                         .catch(e => {
-                          console.log(e);
+                            console.log(e);
 
-                          this.showLoadingBar = '';
+                            this.showLoadingBar = '';
+                            this.uploadMessage = 'There wasn an error while loading the photos!';
+                            this.uploadAlertType = 'error';
+                            this.showUploadMessage = 'show';
+
+                            var that = this;
+                            setTimeout(function(){
+                                that.showUploadMessage = 'hide';
+                                that.uploadMessage = '';
+                                that.uploadAlertType = '';
+                            }, 5000);
                         });
                 }
             },
@@ -313,9 +330,19 @@
                         this.showLoadingBar = '';
                     })
                     .catch(e => {
-                      console.log(e);
+                        console.log(e);
 
-                      this.showLoadingBar = '';
+                        this.showLoadingBar = '';
+                        this.uploadMessage = 'There wasn an error while loading the photos!';
+                        this.uploadAlertType = 'error';
+                        this.showUploadMessage = 'show';
+
+                        var that = this;
+                        setTimeout(function(){
+                            that.showUploadMessage = 'hide';
+                            that.uploadMessage = '';
+                            that.uploadAlertType = '';
+                        }, 5000);
                     });
             },
 
@@ -367,12 +394,32 @@
 
                         this.showLoadingBar = '';
                         this.showUploadPhotosContainer = '';
+                        this.uploadMessage = 'Your Photo/s are added successfully!';
+                        this.uploadAlertType = 'success';
+                        this.showUploadMessage = 'show';
+
+                        var that = this;
+                        setTimeout(function(){
+                            that.showUploadMessage = 'hide';
+                            that.uploadMessage = '';
+                            that.uploadAlertType = '';
+                        }, 5000); 
                     })
                     .catch(e => {
-                      console.log(e);
+                        console.log(e);
 
-                      this.showLoadingBar = '';
-                      this.showUploadPhotosContainer = '';
+                        this.showLoadingBar = '';
+                        this.showUploadPhotosContainer = '';
+                        this.uploadMessage = 'There wasn an error while uploading your photo/s!';
+                        this.uploadAlertType = 'error';
+                        this.showUploadMessage = 'show';
+
+                        var that = this;
+                        setTimeout(function(){
+                            that.showUploadMessage = 'hide';
+                            that.uploadMessage = '';
+                            that.uploadAlertType = '';
+                        }, 5000); 
                     });
             },
 

@@ -530,6 +530,14 @@ body {
     padding-bottom: 40px;
 }
 
+.submit-section .col-md-8 {
+    padding-left: 0;
+}
+
+.submit-section .col-md-4 {
+    padding-right: 0;
+}
+
 .submit-class-note {
     background: no-repeat;
     color: rgba(28, 53, 119);
@@ -563,6 +571,15 @@ body {
 
 .upload-class-notes .arrow:hover {
     cursor: pointer;
+}
+
+.class-notes-by-period .arrow:hover {
+    cursor: pointer;
+}
+
+.upload-class-notes .additional-section .col-md-10 {
+    padding-right: 0;
+    padding-left: 0;
 }
 
 .period-header-image {
@@ -918,6 +935,45 @@ body {
 .simple-photos-container .show-more-images-container {
     display: block;
     text-align: center;
+}
+
+.upload-message-container {
+    position: fixed;
+    right: 2%;
+    top: 10%;
+    z-index: 98756;
+}
+
+.upload-message-container.show-alert {
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+.upload-message-container.hide {
+    -webkit-animation: fadeOut 2s;
+    animation: fadeOut 2s;
+}
+
+/* Add animation fade in */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* Add animation fade out */
+@-webkit-keyframes fadeOut {
+    from {opacity: 1;} 
+    to {opacity: 0;}
+}
+
+@keyframes fadeOut {
+    from {opacity: 1;}
+    to {opacity: 0;}
 }
 
 
