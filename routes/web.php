@@ -23,6 +23,22 @@ Route::get('/test', 'Event\TestController@test')->name('test');
 
 Route::resource('class-notes', 'ClassNote\ClassNoteController');
 
+Route::get('first-period-pagination', 'ClassNote\ClassNoteController@firstPeriodPagination');
+
+Route::get('second-period-pagination', 'ClassNote\ClassNoteController@secondPeriodPagination');
+
+Route::get('third-period-pagination', 'ClassNote\ClassNoteController@thirdPeriodPagination');
+
+Route::get('fourth-period-pagination', 'ClassNote\ClassNoteController@fourthPeriodPagination');
+
+Route::get('fifth-period-pagination', 'ClassNote\ClassNoteController@fifthPeriodPagination');
+
+Route::get('sixth-period-pagination', 'ClassNote\ClassNoteController@sixthPeriodPagination');
+
+Route::get('seventh-period-pagination', 'ClassNote\ClassNoteController@seventhPeriodPagination');
+
+Route::get('eight-period-pagination', 'ClassNote\ClassNoteController@eightPeriodPagination');
+
 Route::resource('photo-gallery', 'UserPhotoGallery\UserPhotoGalleryController');
 
 Route::get('photos', 'UserPhotoGallery\UserPhotoGalleryController@loadMorePhotos');

@@ -39,6 +39,8 @@
                         </div>
                     </div>
                 </div>
+
+                <pagination :data="firstPeriodClassNotesPaginator" @pagination-change-page="firstPeriodPagination"></pagination>
             </div>
         </div>
 
@@ -81,6 +83,8 @@
                         </div>
                     </div>
                 </div>
+
+                <pagination :data="secondPeriodClassNotesPaginator" @pagination-change-page="secondPeriodPagination"></pagination>
             </div>
         </div>
 
@@ -123,6 +127,8 @@
                         </div>
                     </div>
                 </div>
+
+                <pagination :data="thirdPeriodClassNotesPaginator" @pagination-change-page="thirdPeriodPagination"></pagination>
             </div>
         </div>
 
@@ -165,6 +171,8 @@
                         </div>
                     </div>
                 </div>
+
+                <pagination :data="fourthPeriodClassNotesPaginator" @pagination-change-page="fourthPeriodPagination"></pagination>
             </div>
         </div>
 
@@ -207,6 +215,8 @@
                         </div>
                     </div>
                 </div>
+
+                <pagination :data="fifthPeriodClassNotesPaginator" @pagination-change-page="fifthPeriodPagination"></pagination>
             </div>
         </div>
 
@@ -249,6 +259,8 @@
                         </div>
                     </div>
                 </div>
+
+                <pagination :data="sixthPeriodClassNotesPaginator" @pagination-change-page="sixthPeriodPagination"></pagination>
             </div>
         </div>
 
@@ -291,6 +303,8 @@
                         </div>
                     </div>
                 </div>
+
+                <pagination :data="seventhPeriodClassNotesPaginator" @pagination-change-page="seventhPeriodPagination"></pagination>
             </div>
         </div>
 
@@ -333,6 +347,8 @@
                         </div>
                     </div>
                 </div>
+
+                <pagination :data="eightPeriodClassNotesPaginator" @pagination-change-page="eightPeriodPagination"></pagination>
             </div>
         </div>
 
@@ -439,6 +455,39 @@
             eightPeriodClassNotes: {
                 type: String,
                 required: true
+            },
+            
+            firstPeriodClassNotesPaginator: {
+                type: Object,
+                required: true
+            },
+            secondPeriodClassNotesPaginator: {
+                type: Object,
+                required: true
+            },
+            thirdPeriodClassNotesPaginator: {
+                type: Object,
+                required: true
+            },
+            fourthPeriodClassNotesPaginator: {
+                type: Object,
+                required: true
+            },
+            fifthPeriodClassNotesPaginator: {
+                type: Object,
+                required: true
+            },
+            sixthPeriodClassNotesPaginator: {
+                type: Object,
+                required: true
+            },
+            seventhPeriodClassNotesPaginator: {
+                type: Object,
+                required: true
+            },
+            eightPeriodClassNotesPaginator: {
+                type: Object,
+                required: true
             }
         },
 
@@ -473,6 +522,30 @@
             this.sixthPeriodClassNotes = JSON.parse(this.sixthPeriodClassNotes);
             this.seventhPeriodClassNotes = JSON.parse(this.seventhPeriodClassNotes);
             this.eightPeriodClassNotes = JSON.parse(this.eightPeriodClassNotes);
+
+            var firstPeriodClassNotesPaginator = JSON.parse(this.firstPeriodClassNotesPaginator);
+            this.firstPeriodClassNotesPaginator = firstPeriodClassNotesPaginator;
+            
+            var secondPeriodClassNotesPaginator = JSON.parse(this.secondPeriodClassNotesPaginator);
+            this.secondPeriodClassNotesPaginator = secondPeriodClassNotesPaginator;
+
+            var thirdPeriodClassNotesPaginator = JSON.parse(this.thirdPeriodClassNotesPaginator);
+            this.thirdPeriodClassNotesPaginator = thirdPeriodClassNotesPaginator;
+
+            var fourthPeriodClassNotesPaginator = JSON.parse(this.fourthPeriodClassNotesPaginator);
+            this.fourthPeriodClassNotesPaginator = fourthPeriodClassNotesPaginator;
+
+            var fifthPeriodClassNotesPaginator = JSON.parse(this.fifthPeriodClassNotesPaginator);
+            this.fifthPeriodClassNotesPaginator = fifthPeriodClassNotesPaginator;
+
+            var sixthPeriodClassNotesPaginator = JSON.parse(this.sixthPeriodClassNotesPaginator);
+            this.sixthPeriodClassNotesPaginator = sixthPeriodClassNotesPaginator;
+
+            var seventhPeriodClassNotesPaginator = JSON.parse(this.seventhPeriodClassNotesPaginator);
+            this.seventhPeriodClassNotesPaginator = seventhPeriodClassNotesPaginator;
+
+            var eightPeriodClassNotesPaginator = JSON.parse(this.eightPeriodClassNotesPaginator);
+            this.eightPeriodClassNotesPaginator = eightPeriodClassNotesPaginator;
         },
 
         methods: {
@@ -552,6 +625,8 @@
             },
 
             showClassNotesByPeriod: function(period) {
+                console.log(this.eightPeriodClassNotesPaginator.current_page);
+
                 var periodArray = period.split('-');
                 var periodName = 'active' + this.capitalizeString(periodArray[0]) + this.capitalizeString(periodArray[1]);
                 
@@ -983,6 +1058,142 @@
 
             capitalizeString: function(string) {
                 return string.charAt(0).toUpperCase() + string.slice(1);
+            },
+
+            firstPeriodPagination(page = 1) {
+                this.showLoadingBar = 'show-loading-bar';
+
+                axios.get('first-period-pagination?page=' + page)
+                    .then(response => {
+                        this.firstPeriodClassNotesPaginator = response.data.firstPeriodClassNotesPaginator;
+                        this.firstPeriodClassNotes = response.data.firstPeriodClassNotes;
+
+                        this.showLoadingBar = '';
+                    })
+                    .catch(e => {
+                        console.log(e);
+
+                        this.showLoadingBar = '';
+                    });
+            },
+
+            secondPeriodPagination(page = 1) {
+                this.showLoadingBar = 'show-loading-bar';
+
+                axios.get('second-period-pagination?page=' + page)
+                    .then(response => {
+                        this.secondPeriodClassNotesPaginator = response.data.secondPeriodClassNotesPaginator;
+                        this.secondPeriodClassNotes = response.data.secondPeriodClassNotes;
+
+                        this.showLoadingBar = '';
+                    })
+                    .catch(e => {
+                        console.log(e);
+
+                        this.showLoadingBar = '';
+                    });
+            },
+
+            thirdPeriodPagination(page = 1) {
+                this.showLoadingBar = 'show-loading-bar';
+
+                axios.get('third-period-pagination?page=' + page)
+                    .then(response => {
+                        this.thirdPeriodClassNotesPaginator = response.data.thirdPeriodClassNotesPaginator;
+                        this.thirdPeriodClassNotes = response.data.thirdPeriodClassNotes;
+
+                        this.showLoadingBar = '';
+                    })
+                    .catch(e => {
+                        console.log(e);
+
+                        this.showLoadingBar = '';
+                    });
+            },
+
+            fourthPeriodPagination(page = 1) {
+                this.showLoadingBar = 'show-loading-bar';
+
+                axios.get('fourth-period-pagination?page=' + page)
+                    .then(response => {
+                        this.fourthPeriodClassNotesPaginator = response.data.fourthPeriodClassNotesPaginator;
+                        this.fourthPeriodClassNotes = response.data.fourthPeriodClassNotes;
+
+                        this.showLoadingBar = '';
+                    })
+                    .catch(e => {
+                        console.log(e);
+
+                        this.showLoadingBar = '';
+                    });
+            },
+
+            fifthPeriodPagination(page = 1) {
+                this.showLoadingBar = 'show-loading-bar';
+
+                axios.get('fifth-period-pagination?page=' + page)
+                    .then(response => {
+                        this.fifthPeriodClassNotesPaginator = response.data.fifthPeriodClassNotesPaginator;
+                        this.fifthPeriodClassNotes = response.data.fifthPeriodClassNotes;
+
+                        this.showLoadingBar = '';
+                    })
+                    .catch(e => {
+                        console.log(e);
+
+                        this.showLoadingBar = '';
+                    });
+            },
+
+            sixthPeriodPagination(page = 1) {
+                this.showLoadingBar = 'show-loading-bar';
+
+                axios.get('sixth-period-pagination?page=' + page)
+                    .then(response => {
+                        this.sixthPeriodClassNotesPaginator = response.data.sixthPeriodClassNotesPaginator;
+                        this.sixthPeriodClassNotes = response.data.sixthPeriodClassNotes;
+
+                        this.showLoadingBar = '';
+                    })
+                    .catch(e => {
+                        console.log(e);
+
+                        this.showLoadingBar = '';
+                    });
+            },
+
+            seventhPeriodPagination(page = 1) {
+                this.showLoadingBar = 'show-loading-bar';
+
+                axios.get('seventh-period-pagination?page=' + page)
+                    .then(response => {
+                        this.seventhPeriodClassNotesPaginator = response.data.seventhPeriodClassNotesPaginator;
+                        this.seventhPeriodClassNotes = response.data.seventhPeriodClassNotes;
+
+                        this.showLoadingBar = '';
+                    })
+                    .catch(e => {
+                        console.log(e);
+
+                        this.showLoadingBar = '';
+                    });
+            },
+
+            eightPeriodPagination(page = 1) {
+                this.showLoadingBar = 'show-loading-bar';
+
+                axios.get('eight-period-pagination?page=' + page)
+                    .then(response => {
+                        this.eightPeriodClassNotesPaginator = response.data.eightPeriodClassNotesPaginator;
+                        this.eightPeriodClassNotes = response.data.eightPeriodClassNotes;
+
+                        this.showLoadingBar = '';
+                    })
+                    .catch(e => {
+                        console.log(e);
+
+                        this.showLoadingBar = '';
+                    });
             }
         }
     }
