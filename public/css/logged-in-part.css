@@ -954,6 +954,14 @@ body {
     animation: fadeOut 2s;
 }
 
+.border-top-show {
+    border-top: 2px solid rgba(28, 53, 119);
+}
+
+.border-bottom-show {
+    border-bottom: none !important;
+}
+
 /* Add animation fade in */
 @-webkit-keyframes fadeIn {
     from {opacity: 0;} 

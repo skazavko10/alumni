@@ -22,13 +22,13 @@
                     </div>
                 </div>
 
-                <div v-for="classNote in firstPeriodClassNotes" class="notes-container">
+                <div v-for="classNote in firstPeriodClassNotes" class="notes-container" :class="{ 'border-top-show': displayClassNoteTopBorder(classNote) }">
                     <div class="row">
-                        <div class="col-md-10 title">
-                            <h1 :class='classNoteId(classNote.id)' @click="showClassNoteDetails(classNote.id)">{{ classNote.name }}</h1>
+                        <div class="col-md-10 title" :class="{ 'border-bottom-show': displayClassNoteBottomBorder(classNote) }">
+                            <h1 @click="showClassNoteDetailsFromFirstPeriod(classNote.id)">{{ classNote.name }}</h1>
                         </div>
 
-                        <div class="col-md-2 expand">
+                        <div class="col-md-2 expand" :class="{ 'border-bottom-show': displayClassNoteBottomBorder(classNote) }">
                             <span>&#43;</span>
                         </div>
                     </div>
@@ -64,18 +64,18 @@
                     </div>
                 </div>
 
-                <div v-for="classNote in secondPeriodClassNotes" class="notes-container">
+                <div v-for="classNote in secondPeriodClassNotes" class="notes-container" :class="{ 'border-top-show': displayClassNoteTopBorder(classNote) }">
                     <div class="row">
-                        <div class="col-md-10 title">
-                            <h1 :class='classNoteId(classNote.id)' @click="showClassNoteDetails(classNote.id)">{{ classNote.name }}</h1>
+                        <div class="col-md-10 title" :class="{ 'border-bottom-show': displayClassNoteBottomBorder(classNote) }">
+                            <h1 @click="showClassNoteDetailsFromSecondPeriod(classNote.id)">{{ classNote.name }}</h1>
                         </div>
 
-                        <div class="col-md-2 expand">
+                        <div class="col-md-2 expand" :class="{ 'border-bottom-show': displayClassNoteBottomBorder(classNote) }">
                             <span>&#43;</span>
                         </div>
                     </div>
 
-                    <div class="row additional-section" :class='classNoteId(classNote.id)'>
+                    <div class="row additional-section" :class="{ 'show-additional-section': isClassNoteClicked(classNote) }">
                         <div class="col-md-12 text">
                             <h5>{{ classNote.text }}</h5>
                         </div>
@@ -106,18 +106,18 @@
                     </div>
                 </div>
 
-                <div v-for="classNote in thirdPeriodClassNotes" class="notes-container">
+                <div v-for="classNote in thirdPeriodClassNotes" class="notes-container" :class="{ 'border-top-show': displayClassNoteTopBorder(classNote) }">
                     <div class="row">
-                        <div class="col-md-10 title">
-                            <h1 :class='classNoteId(classNote.id)'>{{ classNote.name }}</h1>
+                        <div class="col-md-10 title" :class="{ 'border-bottom-show': displayClassNoteBottomBorder(classNote) }">
+                            <h1 @click="showClassNoteDetailsFromThirdPeriod(classNote.id)">{{ classNote.name }}</h1>
                         </div>
 
-                        <div class="col-md-2 expand">
+                        <div class="col-md-2 expand" :class="{ 'border-bottom-show': displayClassNoteBottomBorder(classNote) }">
                             <span>&#43;</span>
                         </div>
                     </div>
 
-                    <div class="row additional-section" :class='classNoteId(classNote.id)'>
+                    <div class="row additional-section" :class="{ 'show-additional-section': isClassNoteClicked(classNote) }">
                         <div class="col-md-12 text">
                             <h5>{{ classNote.text }}</h5>
                         </div>
@@ -148,18 +148,18 @@
                     </div>
                 </div>
 
-                <div v-for="classNote in fourthPeriodClassNotes" class="notes-container">
+                <div v-for="classNote in fourthPeriodClassNotes" class="notes-container" :class="{ 'border-top-show': displayClassNoteTopBorder(classNote) }">
                     <div class="row">
-                        <div class="col-md-10 title">
-                            <h1 :class='classNoteId(classNote.id)'>{{ classNote.name }}</h1>
+                        <div class="col-md-10 title" :class="{ 'border-bottom-show': displayClassNoteBottomBorder(classNote) }">
+                            <h1 @click="showClassNoteDetailsFromFourthPeriod(classNote.id)">{{ classNote.name }}</h1>
                         </div>
 
-                        <div class="col-md-2 expand">
+                        <div class="col-md-2 expand" :class="{ 'border-bottom-show': displayClassNoteBottomBorder(classNote) }">
                             <span>&#43;</span>
                         </div>
                     </div>
 
-                    <div class="row additional-section" :class='classNoteId(classNote.id)'>
+                    <div class="row additional-section" :class="{ 'show-additional-section': isClassNoteClicked(classNote) }">
                         <div class="col-md-12 text">
                             <h5>{{ classNote.text }}</h5>
                         </div>
@@ -190,18 +190,18 @@
                     </div>
                 </div>
 
-                <div v-for="classNote in fifthPeriodClassNotes" class="notes-container">
+                <div v-for="classNote in fifthPeriodClassNotes" class="notes-container" :class="{ 'border-top-show': displayClassNoteTopBorder(classNote) }">
                     <div class="row">
-                        <div class="col-md-10 title">
-                            <h1 :class='classNoteId(classNote.id)'>{{ classNote.name }}</h1>
+                        <div class="col-md-10 title" :class="{ 'border-bottom-show': displayClassNoteBottomBorder(classNote) }">
+                            <h1 @click="showClassNoteDetailsFromFifthPeriod(classNote.id)">{{ classNote.name }}</h1>
                         </div>
 
-                        <div class="col-md-2 expand">
+                        <div class="col-md-2 expand" :class="{ 'border-bottom-show': displayClassNoteBottomBorder(classNote) }">
                             <span>&#43;</span>
                         </div>
                     </div>
 
-                    <div class="row additional-section" :class='classNoteId(classNote.id)'>
+                    <div class="row additional-section" :class="{ 'show-additional-section': isClassNoteClicked(classNote) }">
                         <div class="col-md-12 text">
                             <h5>{{ classNote.text }}</h5>
                         </div>
@@ -232,18 +232,18 @@
                     </div>
                 </div>
 
-                <div v-for="classNote in sixthPeriodClassNotes" class="notes-container">
+                <div v-for="classNote in sixthPeriodClassNotes" class="notes-container" :class="{ 'border-top-show': displayClassNoteTopBorder(classNote) }">
                     <div class="row">
-                        <div class="col-md-10 title">
-                            <h1 :class='classNoteId(classNote.id)'>{{ classNote.name }}</h1>
+                        <div class="col-md-10 title" :class="{ 'border-bottom-show': displayClassNoteBottomBorder(classNote) }">
+                            <h1 @click="showClassNoteDetailsFromSixthPeriod(classNote.id)">{{ classNote.name }}</h1>
                         </div>
 
-                        <div class="col-md-2 expand">
+                        <div class="col-md-2 expand" :class="{ 'border-bottom-show': displayClassNoteBottomBorder(classNote) }">
                             <span>&#43;</span>
                         </div>
                     </div>
 
-                    <div class="row additional-section" :class='classNoteId(classNote.id)'>
+                    <div class="row additional-section" :class="{ 'show-additional-section': isClassNoteClicked(classNote) }">
                         <div class="col-md-12 text">
                             <h5>{{ classNote.text }}</h5>
                         </div>
@@ -274,18 +274,18 @@
                     </div>
                 </div>
 
-                <div v-for="classNote in seventhPeriodClassNotes" class="notes-container">
+                <div v-for="classNote in seventhPeriodClassNotes" class="notes-container" :class="{ 'border-top-show': displayClassNoteTopBorder(classNote) }">
                     <div class="row">
-                        <div class="col-md-10 title">
-                            <h1 :class='classNoteId(classNote.id)'>{{ classNote.name }}</h1>
+                        <div class="col-md-10 title" :class="{ 'border-bottom-show': displayClassNoteBottomBorder(classNote) }">
+                            <h1 @click="showClassNoteDetailsFromSeventhPeriod(classNote.id)">{{ classNote.name }}</h1>
                         </div>
 
-                        <div class="col-md-2 expand">
+                        <div class="col-md-2 expand" :class="{ 'border-bottom-show': displayClassNoteBottomBorder(classNote) }">
                             <span>&#43;</span>
                         </div>
                     </div>
 
-                    <div class="row additional-section" :class='classNoteId(classNote.id)'>
+                    <div class="row additional-section" :class="{ 'show-additional-section': isClassNoteClicked(classNote) }">
                         <div class="col-md-12 text">
                             <h5>{{ classNote.text }}</h5>
                         </div>
@@ -316,18 +316,18 @@
                     </div>
                 </div>
 
-                <div v-for="classNote in eightPeriodClassNotes" class="notes-container">
+                <div v-for="classNote in eightPeriodClassNotes" class="notes-container" :class="{ 'border-top-show': displayClassNoteTopBorder(classNote) }">
                     <div class="row">
-                        <div class="col-md-10 title">
-                            <h1 :class='classNoteId(classNote.id)'>{{ classNote.name }}</h1>
+                        <div class="col-md-10 title" :class="{ 'border-bottom-show': displayClassNoteBottomBorder(classNote) }">
+                            <h1 @click="showClassNoteDetailsFromEightPeriod(classNote.id)">{{ classNote.name }}</h1>
                         </div>
 
-                        <div class="col-md-2 expand">
+                        <div class="col-md-2 expand" :class="{ 'border-bottom-show': displayClassNoteBottomBorder(classNote) }">
                             <span>&#43;</span>
                         </div>
                     </div>
 
-                    <div class="row additional-section" :class='classNoteId(classNote.id)'>
+                    <div class="row additional-section" :class="{ 'show-additional-section': isClassNoteClicked(classNote) }">
                         <div class="col-md-12 text">
                             <h5>{{ classNote.text }}</h5>
                         </div>
@@ -488,7 +488,14 @@
 
                 axios.post('http://localhost:8000/class-notes', formData)
                     .then(response => {
-                        this.eightPeriodClassNotes.push(response.data);
+                        var newClassNote = response.data;
+
+                        var classNotesLenght = this.eightPeriodClassNotes.length;
+                        if(this.eightPeriodClassNotes[classNotesLenght - 1].show == 'show') {
+                            newClassNote.borderTop = 'border-top-show';
+                        }
+
+                        this.eightPeriodClassNotes.push(newClassNote);
 
                         this.classNoteName = '';
                         this.classNoteDesc = '';
@@ -614,20 +621,360 @@
                 }
             },
 
-            showClassNoteDetails: function(classNoteId) {
-                
-                var clickedClassNote = this.firstPeriodClassNotes.find(this.findByClassNoteId);
+            showClassNoteDetailsFromFirstPeriod: function(classNoteId) {
+                var currentClassNoteId = null;
+                var bBorderTop = true;
+
+                this.firstPeriodClassNotes.map(function(classNote, key) {
+                    if(classNote.id == classNoteId) {
+                        
+                        currentClassNoteId = key;
+
+                        if(typeof(classNote.show) == "undefined") {
+                            classNote.show = 'show';
+                            bBorderTop = true;
+                            classNote.borderBottom = 'border-bottom-show';
+                        }
+                        else if(typeof(classNote.show) != "undefined" && classNote.show == 'show') {
+                            
+                            classNote.show = '';
+                            bBorderTop = false;
+                            classNote.borderBottom = '';
+                        }
+                        else if(typeof(classNote.show) != "undefined" && classNote.show == '') {
+                            classNote.show = 'show';
+                            bBorderTop = true;
+                            classNote.borderBottom = 'border-bottom-show';
+                        }
+                    }
+                });
+
+                var nextClassNoteId = currentClassNoteId + 1;
+
+                if(typeof(this.firstPeriodClassNotes[nextClassNoteId]) != "undefined") {
+                    if(bBorderTop) {
+                        this.firstPeriodClassNotes[nextClassNoteId].borderTop = 'border-top-show';
+                    }
+                    else {
+                        this.firstPeriodClassNotes[nextClassNoteId].borderTop = '';
+                    }
+                }
+
+                this.firstPeriodClassNotes.splice(0, this.firstPeriodClassNotes.lenght);
+            },
+
+            showClassNoteDetailsFromSecondPeriod: function(classNoteId) {
+                var currentClassNoteId = null;
+                var bBorderTop = true;
 
                 this.secondPeriodClassNotes.map(function(classNote, key) {
                     if(classNote.id == classNoteId) {
-                        classNote.show = 'show';
+                        
+                        currentClassNoteId = key;
+
+                        if(typeof(classNote.show) == "undefined") {
+                            classNote.show = 'show';
+                            bBorderTop = true;
+                            classNote.borderBottom = 'border-bottom-show';
+                        }
+                        else if(typeof(classNote.show) != "undefined" && classNote.show == 'show') {
+                            
+                            classNote.show = '';
+                            bBorderTop = false;
+                            classNote.borderBottom = '';
+                        }
+                        else if(typeof(classNote.show) != "undefined" && classNote.show == '') {
+                            classNote.show = 'show';
+                            bBorderTop = true;
+                            classNote.borderBottom = 'border-bottom-show';
+                        }
                     }
                 });
+
+                var nextClassNoteId = currentClassNoteId + 1;
+
+                if(typeof(this.secondPeriodClassNotes[nextClassNoteId]) != "undefined") {
+                    if(bBorderTop) {
+                        this.secondPeriodClassNotes[nextClassNoteId].borderTop = 'border-top-show';
+                    }
+                    else {
+                        this.secondPeriodClassNotes[nextClassNoteId].borderTop = '';
+                    }
+                }
+
+                this.secondPeriodClassNotes.splice(0, this.secondPeriodClassNotes.lenght);
+            },
+
+            showClassNoteDetailsFromThirdPeriod: function(classNoteId) {
+                var currentClassNoteId = null;
+                var bBorderTop = true;
+
+                this.thirdPeriodClassNotes.map(function(classNote, key) {
+                    if(classNote.id == classNoteId) {
+                        
+                        currentClassNoteId = key;
+
+                        if(typeof(classNote.show) == "undefined") {
+                            classNote.show = 'show';
+                            bBorderTop = true;
+                            classNote.borderBottom = 'border-bottom-show';
+                        }
+                        else if(typeof(classNote.show) != "undefined" && classNote.show == 'show') {
+                            
+                            classNote.show = '';
+                            bBorderTop = false;
+                            classNote.borderBottom = '';
+                        }
+                        else if(typeof(classNote.show) != "undefined" && classNote.show == '') {
+                            classNote.show = 'show';
+                            bBorderTop = true;
+                            classNote.borderBottom = 'border-bottom-show';
+                        }
+                    }
+                });
+
+                var nextClassNoteId = currentClassNoteId + 1;
+
+                if(typeof(this.thirdPeriodClassNotes[nextClassNoteId]) != "undefined") {
+                    if(bBorderTop) {
+                        this.thirdPeriodClassNotes[nextClassNoteId].borderTop = 'border-top-show';
+                    }
+                    else {
+                        this.thirdPeriodClassNotes[nextClassNoteId].borderTop = '';
+                    }
+                }
+
+                this.thirdPeriodClassNotes.splice(0, this.thirdPeriodClassNotes.lenght);
+            },
+
+            showClassNoteDetailsFromFourthPeriod: function(classNoteId) {
+                var currentClassNoteId = null;
+                var bBorderTop = true;
+
+                this.fourthPeriodClassNotes.map(function(classNote, key) {
+                    if(classNote.id == classNoteId) {
+                        
+                        currentClassNoteId = key;
+
+                        if(typeof(classNote.show) == "undefined") {
+                            classNote.show = 'show';
+                            bBorderTop = true;
+                            classNote.borderBottom = 'border-bottom-show';
+                        }
+                        else if(typeof(classNote.show) != "undefined" && classNote.show == 'show') {
+                            
+                            classNote.show = '';
+                            bBorderTop = false;
+                            classNote.borderBottom = '';
+                        }
+                        else if(typeof(classNote.show) != "undefined" && classNote.show == '') {
+                            classNote.show = 'show';
+                            bBorderTop = true;
+                            classNote.borderBottom = 'border-bottom-show';
+                        }
+                    }
+                });
+
+                var nextClassNoteId = currentClassNoteId + 1;
+
+                if(typeof(this.fourthPeriodClassNotes[nextClassNoteId]) != "undefined") {
+                    if(bBorderTop) {
+                        this.fourthPeriodClassNotes[nextClassNoteId].borderTop = 'border-top-show';
+                    }
+                    else {
+                        this.fourthPeriodClassNotes[nextClassNoteId].borderTop = '';
+                    }
+                }
+
+                this.fourthPeriodClassNotes.splice(0, this.fourthPeriodClassNotes.lenght);
+            },
+
+            showClassNoteDetailsFromFifthPeriod: function(classNoteId) {
+                var currentClassNoteId = null;
+                var bBorderTop = true;
+
+                this.fifthPeriodClassNotes.map(function(classNote, key) {
+                    if(classNote.id == classNoteId) {
+                        
+                        currentClassNoteId = key;
+
+                        if(typeof(classNote.show) == "undefined") {
+                            classNote.show = 'show';
+                            bBorderTop = true;
+                            classNote.borderBottom = 'border-bottom-show';
+                        }
+                        else if(typeof(classNote.show) != "undefined" && classNote.show == 'show') {
+                            
+                            classNote.show = '';
+                            bBorderTop = false;
+                            classNote.borderBottom = '';
+                        }
+                        else if(typeof(classNote.show) != "undefined" && classNote.show == '') {
+                            classNote.show = 'show';
+                            bBorderTop = true;
+                            classNote.borderBottom = 'border-bottom-show';
+                        }
+                    }
+                });
+
+                var nextClassNoteId = currentClassNoteId + 1;
+
+                if(typeof(this.fifthPeriodClassNotes[nextClassNoteId]) != "undefined") {
+                    if(bBorderTop) {
+                        this.fifthPeriodClassNotes[nextClassNoteId].borderTop = 'border-top-show';
+                    }
+                    else {
+                        this.fifthPeriodClassNotes[nextClassNoteId].borderTop = '';
+                    }
+                }
+
+                this.fifthPeriodClassNotes.splice(0, this.fifthPeriodClassNotes.lenght);
+            },
+
+            showClassNoteDetailsFromSixthPeriod: function(classNoteId) {
+                var currentClassNoteId = null;
+                var bBorderTop = true;
+
+                this.sixthPeriodClassNotes.map(function(classNote, key) {
+                    if(classNote.id == classNoteId) {
+                        
+                        currentClassNoteId = key;
+
+                        if(typeof(classNote.show) == "undefined") {
+                            classNote.show = 'show';
+                            bBorderTop = true;
+                            classNote.borderBottom = 'border-bottom-show';
+                        }
+                        else if(typeof(classNote.show) != "undefined" && classNote.show == 'show') {
+                            
+                            classNote.show = '';
+                            bBorderTop = false;
+                            classNote.borderBottom = '';
+                        }
+                        else if(typeof(classNote.show) != "undefined" && classNote.show == '') {
+                            classNote.show = 'show';
+                            bBorderTop = true;
+                            classNote.borderBottom = 'border-bottom-show';
+                        }
+                    }
+                });
+
+                var nextClassNoteId = currentClassNoteId + 1;
+
+                if(typeof(this.sixthPeriodClassNotes[nextClassNoteId]) != "undefined") {
+                    if(bBorderTop) {
+                        this.sixthPeriodClassNotes[nextClassNoteId].borderTop = 'border-top-show';
+                    }
+                    else {
+                        this.sixthPeriodClassNotes[nextClassNoteId].borderTop = '';
+                    }
+                }
+
+                this.sixthPeriodClassNotes.splice(0, this.sixthPeriodClassNotes.lenght);
+            },
+
+            showClassNoteDetailsFromSeventhPeriod: function(classNoteId) {
+                var currentClassNoteId = null;
+                var bBorderTop = true;
+
+                this.seventhPeriodClassNotes.map(function(classNote, key) {
+                    if(classNote.id == classNoteId) {
+                        
+                        currentClassNoteId = key;
+
+                        if(typeof(classNote.show) == "undefined") {
+                            classNote.show = 'show';
+                            bBorderTop = true;
+                            classNote.borderBottom = 'border-bottom-show';
+                        }
+                        else if(typeof(classNote.show) != "undefined" && classNote.show == 'show') {
+                            
+                            classNote.show = '';
+                            bBorderTop = false;
+                            classNote.borderBottom = '';
+                        }
+                        else if(typeof(classNote.show) != "undefined" && classNote.show == '') {
+                            classNote.show = 'show';
+                            bBorderTop = true;
+                            classNote.borderBottom = 'border-bottom-show';
+                        }
+                    }
+                });
+
+                var nextClassNoteId = currentClassNoteId + 1;
+
+                if(typeof(this.seventhPeriodClassNotes[nextClassNoteId]) != "undefined") {
+                    if(bBorderTop) {
+                        this.seventhPeriodClassNotes[nextClassNoteId].borderTop = 'border-top-show';
+                    }
+                    else {
+                        this.seventhPeriodClassNotes[nextClassNoteId].borderTop = '';
+                    }
+                }
+
+                this.seventhPeriodClassNotes.splice(0, this.seventhPeriodClassNotes.lenght);
+            },
+
+            showClassNoteDetailsFromEightPeriod: function(classNoteId) {
+                var currentClassNoteId = null;
+                var bBorderTop = true;
+
+                this.eightPeriodClassNotes.map(function(classNote, key) {
+                    if(classNote.id == classNoteId) {
+                        
+                        currentClassNoteId = key;
+
+                        if(typeof(classNote.show) == "undefined") {
+                            classNote.show = 'show';
+                            bBorderTop = true;
+                            classNote.borderBottom = 'border-bottom-show';
+                        }
+                        else if(typeof(classNote.show) != "undefined" && classNote.show == 'show') {
+                            
+                            classNote.show = '';
+                            bBorderTop = false;
+                            classNote.borderBottom = '';
+                        }
+                        else if(typeof(classNote.show) != "undefined" && classNote.show == '') {
+                            classNote.show = 'show';
+                            bBorderTop = true;
+                            classNote.borderBottom = 'border-bottom-show';
+                        }
+                    }
+                });
+
+                var nextClassNoteId = currentClassNoteId + 1;
+
+                if(typeof(this.eightPeriodClassNotes[nextClassNoteId]) != "undefined") {
+                    if(bBorderTop) {
+                        this.eightPeriodClassNotes[nextClassNoteId].borderTop = 'border-top-show';
+                    }
+                    else {
+                        this.eightPeriodClassNotes[nextClassNoteId].borderTop = '';
+                    }
+                }
+
+                this.eightPeriodClassNotes.splice(0, this.eightPeriodClassNotes.lenght);
             },
 
             isClassNoteClicked: function(classNote) {
-                if(classNote.show == 'show') {
-                    console.log('IIII');
+                if(typeof(classNote.show) != "undefined" && classNote.show == 'show') {
+                    return true;
+                }
+
+                return false;
+            },
+
+            displayClassNoteTopBorder: function(classNote) {
+                if(typeof(classNote.borderTop) != "undefined" && classNote.borderTop == 'border-top-show') {
+                    return true;
+                }
+
+                return false;
+            },
+
+            displayClassNoteBottomBorder: function(classNote) {
+                if(typeof(classNote.borderBottom) != "undefined" && classNote.borderBottom == 'border-bottom-show') {
                     return true;
                 }
 
