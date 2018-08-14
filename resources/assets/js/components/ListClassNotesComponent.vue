@@ -40,7 +40,9 @@
                     </div>
                 </div>
 
-                <pagination :data="firstPeriodClassNotesPaginator" @pagination-change-page="firstPeriodPagination"></pagination>
+                <div class="pagination-container">
+                    <pagination :data="firstPeriodClassNotesPaginator" @pagination-change-page="firstPeriodPagination"></pagination>
+                </div>
             </div>
         </div>
 
@@ -84,7 +86,9 @@
                     </div>
                 </div>
 
-                <pagination :data="secondPeriodClassNotesPaginator" @pagination-change-page="secondPeriodPagination"></pagination>
+                <div class="pagination-container">
+                    <pagination :data="secondPeriodClassNotesPaginator" @pagination-change-page="secondPeriodPagination"></pagination>
+                </div>
             </div>
         </div>
 
@@ -128,7 +132,9 @@
                     </div>
                 </div>
 
-                <pagination :data="thirdPeriodClassNotesPaginator" @pagination-change-page="thirdPeriodPagination"></pagination>
+                <div class="pagination-container">
+                    <pagination :data="thirdPeriodClassNotesPaginator" @pagination-change-page="thirdPeriodPagination"></pagination>
+                </div>
             </div>
         </div>
 
@@ -172,7 +178,9 @@
                     </div>
                 </div>
 
-                <pagination :data="fourthPeriodClassNotesPaginator" @pagination-change-page="fourthPeriodPagination"></pagination>
+                <div class="pagination-container">
+                    <pagination :data="fourthPeriodClassNotesPaginator" @pagination-change-page="fourthPeriodPagination"></pagination>
+                </div>
             </div>
         </div>
 
@@ -216,7 +224,9 @@
                     </div>
                 </div>
 
-                <pagination :data="fifthPeriodClassNotesPaginator" @pagination-change-page="fifthPeriodPagination"></pagination>
+                <div class="pagination-container">
+                    <pagination :data="fifthPeriodClassNotesPaginator" @pagination-change-page="fifthPeriodPagination"></pagination>
+                </div>
             </div>
         </div>
 
@@ -260,7 +270,9 @@
                     </div>
                 </div>
 
-                <pagination :data="sixthPeriodClassNotesPaginator" @pagination-change-page="sixthPeriodPagination"></pagination>
+                <div class="pagination-container">
+                    <pagination :data="sixthPeriodClassNotesPaginator" @pagination-change-page="sixthPeriodPagination"></pagination>
+                </div>
             </div>
         </div>
 
@@ -304,7 +316,9 @@
                     </div>
                 </div>
 
-                <pagination :data="seventhPeriodClassNotesPaginator" @pagination-change-page="seventhPeriodPagination"></pagination>
+                <div class="pagination-container">
+                    <pagination :data="seventhPeriodClassNotesPaginator" @pagination-change-page="seventhPeriodPagination"></pagination>
+                </div>
             </div>
         </div>
 
@@ -348,7 +362,9 @@
                     </div>
                 </div>
 
-                <pagination :data="eightPeriodClassNotesPaginator" @pagination-change-page="eightPeriodPagination"></pagination>
+                <div class="pagination-container">
+                    <pagination :data="eightPeriodClassNotesPaginator" @pagination-change-page="eightPeriodPagination"></pagination>
+                </div>
             </div>
         </div>
 

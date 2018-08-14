@@ -48954,6 +48954,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
@@ -49818,10 +49834,17 @@ var render = function() {
             )
           }),
           _vm._v(" "),
-          _c("pagination", {
-            attrs: { data: _vm.firstPeriodClassNotesPaginator },
-            on: { "pagination-change-page": _vm.firstPeriodPagination }
-          })
+          _c(
+            "div",
+            { staticClass: "pagination-container" },
+            [
+              _c("pagination", {
+                attrs: { data: _vm.firstPeriodClassNotesPaginator },
+                on: { "pagination-change-page": _vm.firstPeriodPagination }
+              })
+            ],
+            1
+          )
         ],
         2
       )
@@ -49938,10 +49961,17 @@ var render = function() {
             )
           }),
           _vm._v(" "),
-          _c("pagination", {
-            attrs: { data: _vm.secondPeriodClassNotesPaginator },
-            on: { "pagination-change-page": _vm.secondPeriodPagination }
-          })
+          _c(
+            "div",
+            { staticClass: "pagination-container" },
+            [
+              _c("pagination", {
+                attrs: { data: _vm.secondPeriodClassNotesPaginator },
+                on: { "pagination-change-page": _vm.secondPeriodPagination }
+              })
+            ],
+            1
+          )
         ],
         2
       )
@@ -50058,10 +50088,17 @@ var render = function() {
             )
           }),
           _vm._v(" "),
-          _c("pagination", {
-            attrs: { data: _vm.thirdPeriodClassNotesPaginator },
-            on: { "pagination-change-page": _vm.thirdPeriodPagination }
-          })
+          _c(
+            "div",
+            { staticClass: "pagination-container" },
+            [
+              _c("pagination", {
+                attrs: { data: _vm.thirdPeriodClassNotesPaginator },
+                on: { "pagination-change-page": _vm.thirdPeriodPagination }
+              })
+            ],
+            1
+          )
         ],
         2
       )
@@ -50178,10 +50215,17 @@ var render = function() {
             )
           }),
           _vm._v(" "),
-          _c("pagination", {
-            attrs: { data: _vm.fourthPeriodClassNotesPaginator },
-            on: { "pagination-change-page": _vm.fourthPeriodPagination }
-          })
+          _c(
+            "div",
+            { staticClass: "pagination-container" },
+            [
+              _c("pagination", {
+                attrs: { data: _vm.fourthPeriodClassNotesPaginator },
+                on: { "pagination-change-page": _vm.fourthPeriodPagination }
+              })
+            ],
+            1
+          )
         ],
         2
       )
@@ -50298,10 +50342,17 @@ var render = function() {
             )
           }),
           _vm._v(" "),
-          _c("pagination", {
-            attrs: { data: _vm.fifthPeriodClassNotesPaginator },
-            on: { "pagination-change-page": _vm.fifthPeriodPagination }
-          })
+          _c(
+            "div",
+            { staticClass: "pagination-container" },
+            [
+              _c("pagination", {
+                attrs: { data: _vm.fifthPeriodClassNotesPaginator },
+                on: { "pagination-change-page": _vm.fifthPeriodPagination }
+              })
+            ],
+            1
+          )
         ],
         2
       )
@@ -50418,10 +50469,17 @@ var render = function() {
             )
           }),
           _vm._v(" "),
-          _c("pagination", {
-            attrs: { data: _vm.sixthPeriodClassNotesPaginator },
-            on: { "pagination-change-page": _vm.sixthPeriodPagination }
-          })
+          _c(
+            "div",
+            { staticClass: "pagination-container" },
+            [
+              _c("pagination", {
+                attrs: { data: _vm.sixthPeriodClassNotesPaginator },
+                on: { "pagination-change-page": _vm.sixthPeriodPagination }
+              })
+            ],
+            1
+          )
         ],
         2
       )
@@ -50538,10 +50596,17 @@ var render = function() {
             )
           }),
           _vm._v(" "),
-          _c("pagination", {
-            attrs: { data: _vm.seventhPeriodClassNotesPaginator },
-            on: { "pagination-change-page": _vm.seventhPeriodPagination }
-          })
+          _c(
+            "div",
+            { staticClass: "pagination-container" },
+            [
+              _c("pagination", {
+                attrs: { data: _vm.seventhPeriodClassNotesPaginator },
+                on: { "pagination-change-page": _vm.seventhPeriodPagination }
+              })
+            ],
+            1
+          )
         ],
         2
       )
@@ -50658,10 +50723,17 @@ var render = function() {
             )
           }),
           _vm._v(" "),
-          _c("pagination", {
-            attrs: { data: _vm.eightPeriodClassNotesPaginator },
-            on: { "pagination-change-page": _vm.eightPeriodPagination }
-          })
+          _c(
+            "div",
+            { staticClass: "pagination-container" },
+            [
+              _c("pagination", {
+                attrs: { data: _vm.eightPeriodClassNotesPaginator },
+                on: { "pagination-change-page": _vm.eightPeriodPagination }
+              })
+            ],
+            1
+          )
         ],
         2
       )

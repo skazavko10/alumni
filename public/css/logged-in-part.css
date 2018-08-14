@@ -962,6 +962,30 @@ body {
     border-bottom: none !important;
 }
 
+.pagination-container {
+    text-align: center;
+    background: #fff;
+    padding-top: 30px;
+}
+
+.pagination {
+    display: inline-flex;
+}
+
+.page-item.active .page-link {
+    background-color: rgb(28, 53, 119);
+    border-color: rgb(28, 53, 119);
+}
+
+.page-link {
+    color: rgb(28, 53, 119);
+}
+
+.page-link:hover {
+    color: rgb(28, 53, 119);
+}
+
+
 /* Add animation fade in */
 @-webkit-keyframes fadeIn {
     from {opacity: 0;} 
