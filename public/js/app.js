@@ -47719,7 +47719,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             if (this.currentPage < this.lastPage) {
                 this.showLoadingBar = 'show-loading-bar';
 
-                axios.get('http://localhost:8000/photos?page=' + ++this.currentPage).then(function (response) {
+                axios.get('photos?page=' + ++this.currentPage).then(function (response) {
                     var that = _this;
 
                     response.data.firstColumnImages.map(function (image, key) {
@@ -47771,7 +47771,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             this.showLoadingBar = 'show-loading-bar';
 
-            axios.get('http://localhost:8000/filter-photos/' + periodStart + '/' + periodEnd).then(function (response) {
+            axios.get('filter-photos/' + periodStart + '/' + periodEnd).then(function (response) {
                 _this2.firstColumnImages = [];
                 _this2.secondColumnImages = [];
                 _this2.thirdColumnImages = [];
@@ -47842,7 +47842,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var myForm = document.getElementById('upload-photos-form');
             var formData = new FormData(myForm);
 
-            axios.post('http://localhost:8000/photo-gallery', formData).then(function (response) {
+            axios.post('photo-gallery', formData).then(function (response) {
                 var that = _this3;
 
                 response.data.firstColumnImages.map(function (image, key) {
@@ -49093,7 +49093,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var myForm = document.getElementById('insert-class-note-form');
             var formData = new FormData(myForm);
 
-            axios.post('http://localhost:8000/class-notes', formData).then(function (response) {
+            axios.post('class-notes', formData).then(function (response) {
                 var newClassNote = response.data;
 
                 var classNotesLenght = _this.eightPeriodClassNotes.length;
@@ -50821,6 +50821,7 @@ var render = function() {
                       type: "text",
                       name: "name",
                       placeholder: "Class Note Name",
+                      required: "",
                       autofocus: ""
                     },
                     domProps: { value: _vm.classNoteName },
@@ -50859,6 +50860,7 @@ var render = function() {
                     staticClass: "class-note-input",
                     attrs: {
                       name: "text",
+                      required: "",
                       placeholder: "Write your words here...",
                       rows: "10"
                     },

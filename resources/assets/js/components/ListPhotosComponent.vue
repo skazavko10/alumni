@@ -252,7 +252,7 @@
                 if(this.currentPage < this.lastPage) {
                     this.showLoadingBar = 'show-loading-bar';
 
-                    axios.get('http://localhost:8000/photos?page=' + ++this.currentPage)
+                    axios.get('photos?page=' + ++this.currentPage)
                         .then(response => {
                             var that = this;
 
@@ -304,7 +304,7 @@
 
                 this.showLoadingBar = 'show-loading-bar';
 
-                axios.get('http://localhost:8000/filter-photos/' + periodStart + '/' + periodEnd)
+                axios.get('filter-photos/' + periodStart + '/' + periodEnd)
                     .then(response => {
                         this.firstColumnImages = [];
                         this.secondColumnImages = [];
@@ -375,7 +375,7 @@
                 var myForm = document.getElementById('upload-photos-form');
                 var formData = new FormData(myForm);
 
-                axios.post('http://localhost:8000/photo-gallery', formData)
+                axios.post('photo-gallery', formData)
                     .then(response => {
                         var that = this;
 

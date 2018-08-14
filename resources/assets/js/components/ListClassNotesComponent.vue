@@ -403,7 +403,7 @@
                                 <strong>{{ nameFieldError }}</strong>
                             </span>
 
-                            <input type="text" name="name" class="class-note-name" placeholder="Class Note Name" v-model="classNoteName" autofocus />
+                            <input type="text" name="name" class="class-note-name" placeholder="Class Note Name" v-model="classNoteName" required autofocus />
                         </div>
                     </div>
 
@@ -413,7 +413,7 @@
                                 <strong>{{ descFieldError }}</strong>
                             </span>
 
-                            <textarea v-model="classNoteDesc" class="class-note-input" name="text" placeholder="Write your words here..." rows="10"></textarea>
+                            <textarea v-model="classNoteDesc" class="class-note-input" name="text" required placeholder="Write your words here..." rows="10"></textarea>
                         </div>
                     </div>
 
@@ -556,7 +556,7 @@
                 var myForm = document.getElementById('insert-class-note-form');
                 var formData = new FormData(myForm);
 
-                axios.post('http://localhost:8000/class-notes', formData)
+                axios.post('class-notes', formData)
                     .then(response => {
                         var newClassNote = response.data;
 
