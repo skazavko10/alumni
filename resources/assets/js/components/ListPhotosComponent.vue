@@ -201,23 +201,23 @@
     export default {
 
         props: {
-            firstColumnImages: {
+            firstColumnImagesProp: {
                 type: String,
                 required: true
             },
-            secondColumnImages: {
+            secondColumnImagesProp: {
                 type: String,
                 required: true
             },
-            thirdColumnImages: {
+            thirdColumnImagesProp: {
                 type: String,
                 required: true
             },
-            lastPage: {
+            lastPageProp: {
                 type: String,
                 required: true
             },
-            currentPage: {
+            currentPageProp: {
                 type: String,
                 required: true
             }
@@ -234,14 +234,13 @@
                 activePhotoContainer: 'grid',
                 uploadMessage: '',
                 showUploadMessage: '',
-                uploadAlertType: ''
+                uploadAlertType: '',
+                firstColumnImages: JSON.parse(this.firstColumnImagesProp),
+                secondColumnImages: JSON.parse(this.secondColumnImagesProp),
+                thirdColumnImages: JSON.parse(this.thirdColumnImagesProp),
+                lastPage: JSON.parse(this.lastPageProp),
+                currentPage: JSON.parse(this.currentPageProp)
             }
-        },
-
-        mounted() {
-            this.firstColumnImages = JSON.parse(this.firstColumnImages);
-            this.secondColumnImages = JSON.parse(this.secondColumnImages);
-            this.thirdColumnImages = JSON.parse(this.thirdColumnImages);
         },
 
         methods: {

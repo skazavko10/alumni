@@ -47665,23 +47665,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
 
     props: {
-        firstColumnImages: {
+        firstColumnImagesProp: {
             type: String,
             required: true
         },
-        secondColumnImages: {
+        secondColumnImagesProp: {
             type: String,
             required: true
         },
-        thirdColumnImages: {
+        thirdColumnImagesProp: {
             type: String,
             required: true
         },
-        lastPage: {
+        lastPageProp: {
             type: String,
             required: true
         },
-        currentPage: {
+        currentPageProp: {
             type: String,
             required: true
         }
@@ -47698,13 +47698,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             activePhotoContainer: 'grid',
             uploadMessage: '',
             showUploadMessage: '',
-            uploadAlertType: ''
+            uploadAlertType: '',
+            firstColumnImages: JSON.parse(this.firstColumnImagesProp),
+            secondColumnImages: JSON.parse(this.secondColumnImagesProp),
+            thirdColumnImages: JSON.parse(this.thirdColumnImagesProp),
+            lastPage: JSON.parse(this.lastPageProp),
+            currentPage: JSON.parse(this.currentPageProp)
         };
-    },
-    mounted: function mounted() {
-        this.firstColumnImages = JSON.parse(this.firstColumnImages);
-        this.secondColumnImages = JSON.parse(this.secondColumnImages);
-        this.thirdColumnImages = JSON.parse(this.thirdColumnImages);
     },
 
 
@@ -48974,69 +48974,69 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
 
     props: {
-        firstPeriodClassNotes: {
+        firstPeriodClassNotesProp: {
             type: String,
             required: true
         },
-        secondPeriodClassNotes: {
+        secondPeriodClassNotesProp: {
             type: String,
             required: true
         },
-        thirdPeriodClassNotes: {
+        thirdPeriodClassNotesProp: {
             type: String,
             required: true
         },
-        fourthPeriodClassNotes: {
+        fourthPeriodClassNotesProp: {
             type: String,
             required: true
         },
-        fifthPeriodClassNotes: {
+        fifthPeriodClassNotesProp: {
             type: String,
             required: true
         },
-        sixthPeriodClassNotes: {
+        sixthPeriodClassNotesProp: {
             type: String,
             required: true
         },
-        seventhPeriodClassNotes: {
+        seventhPeriodClassNotesProp: {
             type: String,
             required: true
         },
-        eightPeriodClassNotes: {
+        eightPeriodClassNotesProp: {
             type: String,
             required: true
         },
 
-        firstPeriodClassNotesPaginator: {
-            type: Object,
+        firstPeriodClassNotesPaginatorProp: {
+            type: String,
             required: true
         },
-        secondPeriodClassNotesPaginator: {
-            type: Object,
+        secondPeriodClassNotesPaginatorProp: {
+            type: String,
             required: true
         },
-        thirdPeriodClassNotesPaginator: {
-            type: Object,
+        thirdPeriodClassNotesPaginatorProp: {
+            type: String,
             required: true
         },
-        fourthPeriodClassNotesPaginator: {
-            type: Object,
+        fourthPeriodClassNotesPaginatorProp: {
+            type: String,
             required: true
         },
-        fifthPeriodClassNotesPaginator: {
-            type: Object,
+        fifthPeriodClassNotesPaginatorProp: {
+            type: String,
             required: true
         },
-        sixthPeriodClassNotesPaginator: {
-            type: Object,
+        sixthPeriodClassNotesPaginatorProp: {
+            type: String,
             required: true
         },
-        seventhPeriodClassNotesPaginator: {
-            type: Object,
+        seventhPeriodClassNotesPaginatorProp: {
+            type: String,
             required: true
         },
-        eightPeriodClassNotesPaginator: {
-            type: Object,
+        eightPeriodClassNotesPaginatorProp: {
+            type: String,
             required: true
         }
     },
@@ -49059,42 +49059,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             activeFifthPeriod: '',
             activeSixthPeriod: '',
             activeSeventhPeriod: '',
-            activeEightPeriod: ''
+            activeEightPeriod: '',
+            firstPeriodClassNotes: JSON.parse(this.firstPeriodClassNotesProp),
+            secondPeriodClassNotes: JSON.parse(this.secondPeriodClassNotesProp),
+            thirdPeriodClassNotes: JSON.parse(this.thirdPeriodClassNotesProp),
+            fourthPeriodClassNotes: JSON.parse(this.fourthPeriodClassNotesProp),
+            fifthPeriodClassNotes: JSON.parse(this.fifthPeriodClassNotesProp),
+            sixthPeriodClassNotes: JSON.parse(this.sixthPeriodClassNotesProp),
+            seventhPeriodClassNotes: JSON.parse(this.seventhPeriodClassNotesProp),
+            eightPeriodClassNotes: JSON.parse(this.eightPeriodClassNotesProp),
+            firstPeriodClassNotesPaginator: JSON.parse(this.firstPeriodClassNotesPaginatorProp),
+            secondPeriodClassNotesPaginator: JSON.parse(this.secondPeriodClassNotesPaginatorProp),
+            thirdPeriodClassNotesPaginator: JSON.parse(this.thirdPeriodClassNotesPaginatorProp),
+            fourthPeriodClassNotesPaginator: JSON.parse(this.fourthPeriodClassNotesPaginatorProp),
+            fifthPeriodClassNotesPaginator: JSON.parse(this.fifthPeriodClassNotesPaginatorProp),
+            sixthPeriodClassNotesPaginator: JSON.parse(this.sixthPeriodClassNotesPaginatorProp),
+            seventhPeriodClassNotesPaginator: JSON.parse(this.seventhPeriodClassNotesPaginatorProp),
+            eightPeriodClassNotesPaginator: JSON.parse(this.eightPeriodClassNotesPaginatorProp)
         };
-    },
-    mounted: function mounted() {
-        this.firstPeriodClassNotes = JSON.parse(this.firstPeriodClassNotes);
-        this.secondPeriodClassNotes = JSON.parse(this.secondPeriodClassNotes);
-        this.thirdPeriodClassNotes = JSON.parse(this.thirdPeriodClassNotes);
-        this.fourthPeriodClassNotes = JSON.parse(this.fourthPeriodClassNotes);
-        this.fifthPeriodClassNotes = JSON.parse(this.fifthPeriodClassNotes);
-        this.sixthPeriodClassNotes = JSON.parse(this.sixthPeriodClassNotes);
-        this.seventhPeriodClassNotes = JSON.parse(this.seventhPeriodClassNotes);
-        this.eightPeriodClassNotes = JSON.parse(this.eightPeriodClassNotes);
-
-        var firstPeriodClassNotesPaginator = JSON.parse(this.firstPeriodClassNotesPaginator);
-        this.firstPeriodClassNotesPaginator = firstPeriodClassNotesPaginator;
-
-        var secondPeriodClassNotesPaginator = JSON.parse(this.secondPeriodClassNotesPaginator);
-        this.secondPeriodClassNotesPaginator = secondPeriodClassNotesPaginator;
-
-        var thirdPeriodClassNotesPaginator = JSON.parse(this.thirdPeriodClassNotesPaginator);
-        this.thirdPeriodClassNotesPaginator = thirdPeriodClassNotesPaginator;
-
-        var fourthPeriodClassNotesPaginator = JSON.parse(this.fourthPeriodClassNotesPaginator);
-        this.fourthPeriodClassNotesPaginator = fourthPeriodClassNotesPaginator;
-
-        var fifthPeriodClassNotesPaginator = JSON.parse(this.fifthPeriodClassNotesPaginator);
-        this.fifthPeriodClassNotesPaginator = fifthPeriodClassNotesPaginator;
-
-        var sixthPeriodClassNotesPaginator = JSON.parse(this.sixthPeriodClassNotesPaginator);
-        this.sixthPeriodClassNotesPaginator = sixthPeriodClassNotesPaginator;
-
-        var seventhPeriodClassNotesPaginator = JSON.parse(this.seventhPeriodClassNotesPaginator);
-        this.seventhPeriodClassNotesPaginator = seventhPeriodClassNotesPaginator;
-
-        var eightPeriodClassNotesPaginator = JSON.parse(this.eightPeriodClassNotesPaginator);
-        this.eightPeriodClassNotesPaginator = eightPeriodClassNotesPaginator;
     },
 
 
@@ -49171,8 +49153,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
 
         showClassNotesByPeriod: function showClassNotesByPeriod(period) {
-            console.log(this.eightPeriodClassNotesPaginator.current_page);
-
             var periodArray = period.split('-');
             var periodName = 'active' + this.capitalizeString(periodArray[0]) + this.capitalizeString(periodArray[1]);
 
