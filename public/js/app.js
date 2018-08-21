@@ -47684,6 +47684,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         currentPageProp: {
             type: String,
             required: true
+        },
+        simpleGridImagesProp: {
+            type: String,
+            required: true
         }
     },
 
@@ -47702,6 +47706,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             firstColumnImages: JSON.parse(this.firstColumnImagesProp),
             secondColumnImages: JSON.parse(this.secondColumnImagesProp),
             thirdColumnImages: JSON.parse(this.thirdColumnImagesProp),
+            simpleGridImages: JSON.parse(this.simpleGridImagesProp),
             lastPage: JSON.parse(this.lastPageProp),
             currentPage: JSON.parse(this.currentPageProp)
         };
@@ -47732,6 +47737,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                     response.data.thirdColumnImages.map(function (image, key) {
                         that.thirdColumnImages.push(image);
+                    });
+
+                    response.data.simpleGridImages.map(function (image, key) {
+                        that.simpleGridImages.push(image);
                     });
 
                     _this.showLoadingBar = '';
@@ -47775,6 +47784,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this2.firstColumnImages = [];
                 _this2.secondColumnImages = [];
                 _this2.thirdColumnImages = [];
+                _this2.simpleGridImages = [];
                 _this2.currentPage = response.data.currentPage;
                 _this2.lastPage = response.data.lastPage;
 
@@ -47790,6 +47800,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                 response.data.thirdColumnImages.map(function (image, key) {
                     that.thirdColumnImages.push(image);
+                });
+
+                response.data.simpleGridImages.map(function (image, key) {
+                    that.simpleGridImages.push(image);
                 });
 
                 _this2.showLoadingBar = '';
@@ -48110,6 +48124,16 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
+    _c("div", {
+      staticClass: "loading-bar",
+      class: _vm.showLoadingBar,
+      on: {
+        click: function($event) {
+          _vm.closeModal()
+        }
+      }
+    }),
+    _vm._v(" "),
     _c(
       "div",
       {
@@ -48117,16 +48141,6 @@ var render = function() {
         class: { hidecontainer: _vm.isGridPhotoContainerNotActive() }
       },
       [
-        _c("div", {
-          staticClass: "loading-bar",
-          class: _vm.showLoadingBar,
-          on: {
-            click: function($event) {
-              _vm.closeModal()
-            }
-          }
-        }),
-        _vm._v(" "),
         _c(
           "div",
           {
@@ -48395,7 +48409,7 @@ var render = function() {
         class: { show: _vm.isSimplePhotoContainerActive() }
       },
       [
-        _vm._l(_vm.firstColumnImages, function(image) {
+        _vm._l(_vm.simpleGridImages, function(image) {
           return _c("div", { staticClass: "simple-image-container" }, [
             _c("div", { staticClass: "row" }, [
               _c("div", { staticClass: "col-md-12" }, [

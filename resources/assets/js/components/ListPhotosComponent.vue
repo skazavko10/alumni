@@ -72,9 +72,9 @@
             </div>
         </div>
 
-        <div class="photos-container" :class="{ hidecontainer: isGridPhotoContainerNotActive() }">
-            <div class="loading-bar" :class="showLoadingBar" @click="closeModal()"></div>
+        <div class="loading-bar" :class="showLoadingBar" @click="closeModal()"></div>
 
+        <div class="photos-container" :class="{ hidecontainer: isGridPhotoContainerNotActive() }">
             <div class="upload-message-container alert" :class="{ 'show-alert': showUploadMessage == 'show', 'hide': showUploadMessage == 'hide', 'alert-success': uploadAlertType == 'success', 'alert-danger': uploadAlertType == 'error' }">
                 {{ this.uploadMessage }}
             </div>
@@ -173,7 +173,7 @@
         </div>
 
         <div class="simple-photos-container" :class="{ show: isSimplePhotoContainerActive() }">
-            <div class="simple-image-container" v-for="image in firstColumnImages">
+            <div class="simple-image-container" v-for="image in simpleGridImages">
                 <div class="row">
                     <div class="col-md-12">
                         <img :src="fullImagePath(image.photo_path)" style="width: auto; max-width: 100%;">
@@ -220,6 +220,10 @@
             currentPageProp: {
                 type: String,
                 required: true
+            },
+            simpleGridImagesProp: {
+                type: String,
+                required: true
             }
         },
 
@@ -238,6 +242,7 @@
                 firstColumnImages: JSON.parse(this.firstColumnImagesProp),
                 secondColumnImages: JSON.parse(this.secondColumnImagesProp),
                 thirdColumnImages: JSON.parse(this.thirdColumnImagesProp),
+                simpleGridImages: JSON.parse(this.simpleGridImagesProp),
                 lastPage: JSON.parse(this.lastPageProp),
                 currentPage: JSON.parse(this.currentPageProp)
             }
@@ -266,6 +271,10 @@
 
                             response.data.thirdColumnImages.map(function(image, key) {
                                 that.thirdColumnImages.push(image);
+                            });
+
+                            response.data.simpleGridImages.map(function(image, key) {
+                                that.simpleGridImages.push(image);
                             });
 
                             this.showLoadingBar = '';
@@ -309,6 +318,7 @@
                         this.firstColumnImages = [];
                         this.secondColumnImages = [];
                         this.thirdColumnImages = [];
+                        this.simpleGridImages = [];
                         this.currentPage = response.data.currentPage;
                         this.lastPage = response.data.lastPage;
 
@@ -324,6 +334,10 @@
 
                         response.data.thirdColumnImages.map(function(image, key) {
                             that.thirdColumnImages.push(image);
+                        });
+
+                        response.data.simpleGridImages.map(function(image, key) {
+                            that.simpleGridImages.push(image);
                         });
 
                         this.showLoadingBar = '';

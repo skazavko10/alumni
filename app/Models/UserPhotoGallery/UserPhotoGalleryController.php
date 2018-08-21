@@ -31,15 +31,18 @@ class UserPhotoGalleryController extends Controller
         $firstColumnImages = $images->slice(0, 4);
         $secondColumnImages = $images->slice(4, 4);
         $thirdColumnImages = $images->slice(8, 4);
+        $simpleGridImages = $images->slice(0);
 
         $firstColumnImages = array_slice($firstColumnImages->toArray(), 0);
         $secondColumnImages = array_slice($secondColumnImages->toArray(), 0);
         $thirdColumnImages = array_slice($thirdColumnImages->toArray(), 0);
+        $simpleGridImages = array_slice($simpleGridImages->toArray(), 0);
 
         return view('photo-gallery.index')->with([
             'firstColumnImages' => json_encode($firstColumnImages),
             'secondColumnImages' => json_encode($secondColumnImages),
             'thirdColumnImages' => json_encode($thirdColumnImages),
+            'simpleGridImages' => json_encode($simpleGridImages),
             'lastPage' => json_encode($images->lastPage()),
             'currentPage' => json_encode($images->currentPage())
         ]);
@@ -101,14 +104,17 @@ class UserPhotoGalleryController extends Controller
         $firstColumnImages = $images->slice(0, 4);
         $secondColumnImages = $images->slice(4, 4);
         $thirdColumnImages = $images->slice(8, 4);
+        $simpleGridImages = $images->slice(0);
 
         $firstColumnImages = array_slice($firstColumnImages->toArray(), 0);
         $secondColumnImages = array_slice($secondColumnImages->toArray(), 0);
         $thirdColumnImages = array_slice($thirdColumnImages->toArray(), 0);
+        $simpleGridImages = array_slice($simpleGridImages->toArray(), 0);
 
         $returnArray['firstColumnImages'] = $firstColumnImages;
         $returnArray['secondColumnImages'] = $secondColumnImages;
         $returnArray['thirdColumnImages'] = $thirdColumnImages;
+        $returnArray['simpleGridImages'] = $simpleGridImages;
 
         return json_encode($returnArray);
     }
@@ -124,14 +130,17 @@ class UserPhotoGalleryController extends Controller
         $firstColumnImages = $images->slice(0, 4);
         $secondColumnImages = $images->slice(4, 4);
         $thirdColumnImages = $images->slice(8, 4);
+        $simpleGridImages = $images->slice(0);
 
         $firstColumnImages = array_slice($firstColumnImages->toArray(), 0);
         $secondColumnImages = array_slice($secondColumnImages->toArray(), 0);
         $thirdColumnImages = array_slice($thirdColumnImages->toArray(), 0);
+        $simpleGridImages = array_slice($simpleGridImages->toArray(), 0);
 
         $returnArray['firstColumnImages'] = $firstColumnImages;
         $returnArray['secondColumnImages'] = $secondColumnImages;
         $returnArray['thirdColumnImages'] = $thirdColumnImages;
+        $returnArray['simpleGridImages'] = $simpleGridImages;
         $returnArray['lastPage'] = $images->lastPage();
         $returnArray['currentPage'] = $images->currentPage();
 
