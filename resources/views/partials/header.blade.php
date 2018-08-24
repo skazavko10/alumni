@@ -57,7 +57,13 @@
             </div>
 
             <div class="logout-container">
-                <a class="enter-btn" href="/">LOGOUT</a>
+                <a href="{{ route('logout') }}" class="enter-btn" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    LOGOUT
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                    {{ csrf_field() }}
+                </form>
             </div>
         </div>
     </div>
