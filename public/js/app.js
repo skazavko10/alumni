@@ -47871,6 +47871,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     that.thirdColumnImages.unshift(image);
                 });
 
+                response.data.simpleGridImages.map(function (image, key) {
+                    that.simpleGridImages.unshift(image);
+                });
+
                 _this3.showLoadingBar = '';
                 _this3.showUploadPhotosContainer = '';
                 _this3.uploadMessage = 'Your Photo/s are added successfully!';

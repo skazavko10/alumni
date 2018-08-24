@@ -405,6 +405,10 @@
                             that.thirdColumnImages.unshift(image);
                         });
 
+                        response.data.simpleGridImages.map(function(image, key) {
+                            that.simpleGridImages.unshift(image);
+                        });
+
                         this.showLoadingBar = '';
                         this.showUploadPhotosContainer = '';
                         this.uploadMessage = 'Your Photo/s are added successfully!';

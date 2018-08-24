@@ -61,6 +61,7 @@ class UserPhotoGalleryController extends Controller
         $firstColumnImages = [];
         $secondColumnImages = [];
         $thirdColumnImages = [];
+        $simpleGridImages = [];
         $counter = 0;
         foreach ($imageFiles as $image) {
             $imageNameWithPath = Storage::putFile('public/photo_gallery', $image);
@@ -74,16 +75,19 @@ class UserPhotoGalleryController extends Controller
 
             if($counter % 3 == 0) {
                 $firstColumnImages[] = UserPhotoGallery::with('user')
-                                ->find($photoGallery->id);    
+                                ->find($photoGallery->id);
             }
             else if($counter % 3 == 1) {
                 $secondColumnImages[] = UserPhotoGallery::with('user')
-                                ->find($photoGallery->id);    
+                                ->find($photoGallery->id);
             }
             else {
                 $thirdColumnImages[] = UserPhotoGallery::with('user')
-                                ->find($photoGallery->id);    
+                                ->find($photoGallery->id);
             }
+
+            $simpleGridImages[] = UserPhotoGallery::with('user')
+                                    ->find($photoGallery->id);
             
             $counter++;
         }
@@ -91,6 +95,7 @@ class UserPhotoGalleryController extends Controller
         $returnArray['firstColumnImages'] = $firstColumnImages;
         $returnArray['secondColumnImages'] = $secondColumnImages;
         $returnArray['thirdColumnImages'] = $thirdColumnImages;
+        $returnArray['simpleGridImages'] = $simpleGridImages;
 
         return json_encode($returnArray);
     }
